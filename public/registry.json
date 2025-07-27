@@ -1,0 +1,80 @@
+{
+  "extensions": [
+    {
+      "name": "Analytics Dashboard Pro",
+      "slug": "analytics-dashboard-pro",
+      "type": "platform-addon",
+      "latest_version": "2.1.4",
+      "core_compat": ["olive", "palm", "quince"],
+      "description_short": "Advanced learning analytics and insights dashboard for educators and administrators.",
+      "description_long": "# Analytics Dashboard Pro\n\nTransform your Open edX platform with comprehensive learning analytics. This powerful extension provides real-time insights into student engagement, course performance, and learning outcomes.\n\n## Key Features\n\n- **Real-time Analytics**: Monitor student progress and engagement as it happens\n- **Custom Reports**: Generate detailed reports for administrators and educators\n- **Predictive Insights**: AI-powered predictions for at-risk students\n- **Data Visualization**: Beautiful charts and graphs for easy interpretation\n- **Export Capabilities**: Download data in multiple formats (CSV, PDF, Excel)\n\n## Use Cases\n\n- Track course completion rates\n- Identify struggling students early\n- Measure engagement across different content types\n- Generate compliance reports for accreditation\n\n## Technical Requirements\n\n- Open edX Olive, Palm, or Quince\n- Python 3.8+\n- Redis for caching\n- PostgreSQL recommended for optimal performance",
+      "provider": {
+        "name": "EduTech Solutions",
+        "url": "https://edutech-solutions.com",
+        "logo": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=32&h=32&fit=crop&crop=face"
+      },
+      "repo_url": "https://github.com/edutech/analytics-dashboard-pro",
+      "license": "AGPL-3.0",
+      "price": "paid",
+      "rating_avg": 4.8,
+      "rating_count": 127,
+      "install_notes": "# Installation\n\n1. Install via pip:\n```bash\npip install analytics-dashboard-pro\n```\n\n2. Add to INSTALLED_APPS in your settings:\n```python\nINSTALLED_APPS = [\n    # ... other apps\n    'analytics_dashboard_pro',\n]\n```\n\n3. Run migrations:\n```bash\npython manage.py migrate analytics_dashboard_pro\n```\n\n4. Configure settings in `lms.yml` and `cms.yml`\n\n5. Restart your Open edX services",
+      "screenshots": [
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop",
+        "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=450&fit=crop"
+      ]
+    },
+    {
+      "name": "Zoom LTI Integration",
+      "slug": "zoom-lti-integration",
+      "type": "external-tool",
+      "latest_version": "1.5.2",
+      "core_compat": ["palm", "quince"],
+      "description_short": "Seamless Zoom video conferencing integration with automated attendance tracking.",
+      "description_short": "Seamless Zoom video conferencing integration with automated attendance tracking and recording management for virtual classrooms.",
+      "description_long": "# Zoom LTI Integration\n\nBring the power of Zoom video conferencing directly into your Open edX courses. This LTI tool provides seamless integration with automated features that enhance the virtual learning experience.\n\n## Features\n\n### Video Conferencing\n- **One-click Meeting Creation**: Create Zoom meetings directly from course content\n- **Automatic Scheduling**: Sync with course calendar and send invitations\n- **Breakout Rooms**: Support for small group activities and discussions\n- **Screen Sharing**: Enable instructors and students to share content\n\n### Attendance & Analytics\n- **Automated Attendance**: Track student participation automatically\n- **Engagement Metrics**: Monitor chat participation and video engagement\n- **Session Reports**: Detailed analytics for each meeting session\n- **Grade Passback**: Automatically sync attendance to gradebook\n\n### Recording Management\n- **Cloud Recording**: Automatic recording with configurable settings\n- **Smart Organization**: Recordings organized by course and date\n- **Access Controls**: Manage who can view recordings\n- **Transcription**: AI-powered transcription for accessibility\n\n## Security & Privacy\n- **SSO Integration**: Single sign-on with Open edX credentials\n- **Privacy Controls**: Configurable recording and data retention policies\n- **FERPA Compliant**: Meets educational privacy requirements\n- **End-to-end Encryption**: Secure video communications\n\n## Use Cases\n\n- Virtual office hours and student consultations\n- Live lectures and interactive sessions\n- Group projects and collaborative work\n- Guest speaker presentations\n- Exam proctoring and assessments",
+      "provider": {
+        "name": "VideoLearn Inc",
+        "url": "https://videolearn.io",
+        "logo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face"
+      },
+      "repo_url": "https://github.com/videolearn/zoom-lti-edx",
+      "license": "MIT",
+      "price": "free",
+      "rating_avg": 4.6,
+      "rating_count": 89,
+      "install_notes": "# Installation Guide\n\n## Prerequisites\n- Zoom Pro, Business, Education, or Enterprise account\n- LTI Consumer XBlock installed on your Open edX instance\n- Admin access to your Open edX platform\n\n## Setup Steps\n\n### 1. Register LTI Tool\n\nIn your Open edX Studio:\n\n1. Go to **Advanced Settings**\n2. Add to **LTI Passports**:\n```\nzoom_lti:your_key:your_secret\n```\n\n### 2. Configure Zoom App\n\n1. Create a new app in Zoom Marketplace\n2. Set LTI configuration:\n   - **Launch URL**: `https://zoom-lti.videolearn.io/launch`\n   - **Privacy Level**: Public\n   - **Consumer Key**: (from your LTI passport)\n\n### 3. Add to Course\n\n1. In Studio, add **LTI Consumer** component\n2. Configure:\n   - **LTI ID**: `zoom_lti`\n   - **LTI URL**: `https://zoom-lti.videolearn.io/launch`\n   - **Custom Parameters**: `course_id={course_id}`\n\n### 4. Test Integration\n\n1. Preview the course\n2. Click on the Zoom LTI component\n3. Verify Zoom meeting creation works\n\n## Troubleshooting\n\n- **403 Errors**: Check LTI consumer key/secret\n- **Meeting Not Created**: Verify Zoom API credentials\n- **Grade Passback Issues**: Ensure LTI privacy level is correct",
+      "screenshots": [
+        "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800&h=450&fit=crop",
+        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=450&fit=crop",
+        "https://images.unsplash.com/photo-1583321606900-6dedf9eb0ffc?w=800&h=450&fit=crop"
+      ]
+    },
+    {
+      "name": "Auto-Scaling Infrastructure",
+      "slug": "auto-scaling-infrastructure",
+      "type": "operational-service",
+      "latest_version": "3.0.1",
+      "core_compat": ["olive", "palm", "quince"],
+      "description_short": "Kubernetes-based auto-scaling solution for Open edX with intelligent load balancing.",
+      "description_long": "# Auto-Scaling Infrastructure\n\nEnsure your Open edX platform can handle any load with our intelligent auto-scaling solution. Built on Kubernetes, this service automatically adjusts resources based on real-time demand.\n\n## Architecture\n\n### Kubernetes Native\n- **Container Orchestration**: Full Kubernetes deployment\n- **Horizontal Pod Autoscaling**: Scale pods based on CPU/memory usage\n- **Vertical Pod Autoscaling**: Optimize resource allocation per pod\n- **Cluster Autoscaling**: Add/remove nodes as needed\n\n### Intelligent Load Balancing\n- **Traffic Distribution**: Smart routing based on server capacity\n- **Health Checks**: Automatic failover for unhealthy instances\n- **Session Affinity**: Maintain user sessions during scaling\n- **Geographic Routing**: Route users to nearest data center\n\n### Performance Monitoring\n- **Real-time Metrics**: Monitor CPU, memory, network, and disk usage\n- **Predictive Scaling**: AI-powered predictions for traffic spikes\n- **Custom Metrics**: Scale based on Open edX specific metrics\n- **Alert System**: Proactive notifications for performance issues\n\n## Key Features\n\n### Cost Optimization\n- **Spot Instance Support**: Use cheaper spot instances for non-critical workloads\n- **Right-sizing**: Automatically optimize instance types\n- **Scheduled Scaling**: Pre-scale for known events (enrollment periods, exams)\n- **Cost Analytics**: Detailed breakdown of infrastructure costs\n\n### High Availability\n- **Multi-AZ Deployment**: Distribute across availability zones\n- **Disaster Recovery**: Automated backup and recovery procedures\n- **Rolling Updates**: Zero-downtime deployments\n- **Blue-Green Deployments**: Safe production deployments\n\n### Security & Compliance\n- **Network Policies**: Secure pod-to-pod communication\n- **RBAC Integration**: Role-based access control\n- **Secret Management**: Encrypted secret storage and rotation\n- **Audit Logging**: Complete audit trail of all changes\n\n## Supported Platforms\n\n- **AWS EKS**: Elastic Kubernetes Service\n- **Google GKE**: Google Kubernetes Engine\n- **Azure AKS**: Azure Kubernetes Service\n- **On-Premises**: Self-managed Kubernetes clusters\n\n## Performance Benefits\n\n- **99.9% Uptime**: Proven reliability across deployments\n- **50% Cost Reduction**: Average savings compared to static infrastructure\n- **10x Faster Scaling**: Scale from 10 to 1000 users in under 2 minutes\n- **Automated Operations**: Reduce operational overhead by 70%",
+      "provider": {
+        "name": "CloudScale DevOps",
+        "url": "https://cloudscale-devops.com",
+        "logo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&h=32&fit=crop&crop=face"
+      },
+      "repo_url": "https://github.com/cloudscale/edx-autoscaler",
+      "license": "Apache-2.0",
+      "price": "paid",
+      "rating_avg": 4.9,
+      "rating_count": 45,
+      "install_notes": "# Installation & Setup\n\n## Prerequisites\n\n- Kubernetes cluster (1.21+)\n- Helm 3.x installed\n- kubectl configured\n- Metrics Server deployed\n- Prometheus/Grafana (recommended)\n\n## Quick Start\n\n### 1. Add Helm Repository\n\n```bash\nhelm repo add cloudscale https://charts.cloudscale-devops.com\nhelm repo update\n```\n\n### 2. Install Auto-Scaler\n\n```bash\nhelm install edx-autoscaler cloudscale/edx-autoscaler \\\n  --namespace edx-system \\\n  --create-namespace \\\n  --set global.domain=your-edx-domain.com\n```\n\n### 3. Configure Scaling Policies\n\nCreate a scaling configuration:\n\n```yaml\n# scaling-config.yaml\napiVersion: autoscaling.cloudscale.io/v1\nkind: ScalingPolicy\nmetadata:\n  name: edx-lms-policy\nspec:\n  targetRef:\n    apiVersion: apps/v1\n    kind: Deployment\n    name: edx-lms\n  minReplicas: 2\n  maxReplicas: 50\n  metrics:\n  - type: Resource\n    resource:\n      name: cpu\n      target:\n        type: Utilization\n        averageUtilization: 70\n  - type: Resource\n    resource:\n      name: memory\n      target:\n        type: Utilization\n        averageUtilization: 80\n```\n\nApply the configuration:\n```bash\nkubectl apply -f scaling-config.yaml\n```\n\n### 4. Verify Installation\n\n```bash\n# Check auto-scaler pods\nkubectl get pods -n edx-system\n\n# View scaling events\nkubectl get events --field-selector reason=ScalingUp\n\n# Monitor HPA status\nkubectl get hpa -n edx\n```\n\n## Configuration Options\n\n### Environment Variables\n\n- `SCALE_UP_THRESHOLD`: CPU threshold for scaling up (default: 70%)\n- `SCALE_DOWN_THRESHOLD`: CPU threshold for scaling down (default: 30%)\n- `SCALE_UP_PERIOD`: Minutes to wait before scaling up (default: 2)\n- `SCALE_DOWN_PERIOD`: Minutes to wait before scaling down (default: 5)\n\n### Custom Metrics\n\nConfigure Open edX specific metrics:\n\n```yaml\ncustomMetrics:\n  - name: active_users_per_pod\n    target: 100\n  - name: enrollment_rate\n    target: 50\n  - name: course_load_average\n    target: 75\n```\n\n## Monitoring & Troubleshooting\n\n### Dashboard Access\n\nAccess the auto-scaler dashboard:\n```bash\nkubectl port-forward svc/autoscaler-dashboard 8080:80 -n edx-system\n```\n\nOpen http://localhost:8080 in your browser.\n\n### Common Issues\n\n1. **Pods not scaling**: Check HPA status and metrics server\n2. **Resource limits**: Ensure cluster has sufficient capacity\n3. **Network policies**: Verify pod communication is allowed\n4. **Storage**: Ensure PVCs can scale with pods",
+      "screenshots": [
+        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=450&fit=crop",
+        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=450&fit=crop",
+        "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=450&fit=crop"
+      ]
+    }
+  ]
+}

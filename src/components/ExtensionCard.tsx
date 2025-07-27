@@ -1,0 +1,111 @@
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Extension } from "@/types/extension";
+import { Star, ExternalLink, Download } from "lucide-react";
+import { Link } from "react-router-dom";
+
+interface ExtensionCardProps {
+  extension: Extension;
+}
+
+const typeColors = {
+  "platform-addon": "bg-primary/10 text-primary border-primary/20",
+  "external-tool": "bg-accent/10 text-accent border-accent/20", 
+  "operational-service": "bg-orange-500/10 text-orange-600 border-orange-500/20",
+};
+
+const typeLabels = {
+  "platform-addon": "Platform Add-on",
+  "external-tool": "External Tool",
+  "operational-service": "Operational Service",
+};
+
+export function ExtensionCard({ extension }: ExtensionCardProps) {
+  return (
+    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card/50 backdrop-blur-sm border-border/50">
+      <div className="relative overflow-hidden rounded-t-lg">
+        <img
+          src={extension.screenshots[0]}
+          alt={extension.name}
+          className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+        <div className="absolute top-4 left-4">
+          <Badge className={typeColors[extension.type]}>
+            {typeLabels[extension.type]}
+          </Badge>
+        </div>
+        <div className="absolute top-4 right-4">
+          <Badge variant={extension.price === "free" ? "secondary" : "default"}>
+            {extension.price === "free" ? "Free" : "Paid"}
+          </Badge>
+        </div>
+      </div>
+      
+      <CardHeader className="pb-3">
+        <div className="flex items-start justify-between gap-2">
+          <div className="flex-1 min-w-0">
+            <CardTitle className="text-lg font-semibold truncate">{extension.name}</CardTitle>
+            <CardDescription className="text-sm text-muted-foreground mt-1">
+              v{extension.latest_version} • {extension.provider.name}
+            </CardDescription>
+          </div>
+          <img
+            src={extension.provider.logo}
+            alt={extension.provider.name}
+            className="w-8 h-8 rounded-full flex-shrink-0"
+          />
+        </div>
+      </CardHeader>
+
+      <CardContent className="space-y-4">
+        <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+          {extension.description_short}
+        </p>
+
+        <div className="flex items-center gap-4 text-sm">
+          <div className="flex items-center gap-1">
+            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+            <span className="font-medium">{extension.rating_avg}</span>
+            <span className="text-muted-foreground">({extension.rating_count})</span>
+          </div>
+          <div className="flex gap-1">
+            {extension.core_compat.slice(0, 2).map((version) => (
+              <Badge key={version} variant="outline" className="text-xs">
+                {version.charAt(0).toUpperCase() + version.slice(1)}
+              </Badge>
+            ))}
+            {extension.core_compat.length > 2 && (
+              <Badge variant="outline" className="text-xs">
+                +{extension.core_compat.length - 2}
+              </Badge>
+            )}
+          </div>
+        </div>
+
+        <div className="flex gap-2 pt-2">
+          <Button asChild size="sm" className="flex-1">
+            <Link to={`/extension/${extension.slug}`}>
+              <Download className="h-4 w-4 mr-2" />
+              View Details
+            </Link>
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            asChild
+          >
+            <a
+              href={extension.repo_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2"
+            >
+              <ExternalLink className="h-4 w-4" />
+            </a>
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
