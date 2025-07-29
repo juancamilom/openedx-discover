@@ -121,13 +121,13 @@ const Index = () => {
               <h2 className="text-lg font-semibold mb-4 text-foreground">Choose your category</h2>
               <div className="flex flex-wrap justify-center gap-4 mb-6">
                 <Button
-                  variant={filters.type === "all" ? "default" : "outline"}
+                  variant={filters.type === "operational-service" ? "default" : "outline"}
                   size="lg"
-                  onClick={() => handleFilterChange("type", "all")}
+                  onClick={() => handleFilterChange("type", "operational-service")}
                   className="h-12 px-6"
                 >
                   <Settings className="h-5 w-5 mr-2" />
-                  All Extensions
+                  Operational Services
                 </Button>
                 <Button
                   variant={filters.type === "platform-addon" ? "default" : "outline"}
@@ -148,13 +148,13 @@ const Index = () => {
                   External Tools (LTI)
                 </Button>
                 <Button
-                  variant={filters.type === "operational-service" ? "default" : "outline"}
+                  variant={filters.type === "all" ? "default" : "outline"}
                   size="lg"
-                  onClick={() => handleFilterChange("type", "operational-service")}
+                  onClick={() => handleFilterChange("type", "all")}
                   className="h-12 px-6"
                 >
                   <Settings className="h-5 w-5 mr-2" />
-                  Operational Services
+                  All Extensions
                 </Button>
               </div>
             </div>
