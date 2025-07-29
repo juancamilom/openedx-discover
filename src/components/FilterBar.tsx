@@ -16,6 +16,11 @@ interface FilterBarProps {
   resultCount: number;
 }
 
+const typeOptions = [
+  { value: "platform-addon", label: "Platform Add-on" },
+  { value: "external-tool", label: "External Tool" },
+  { value: "operational-service", label: "Operational Service" }
+];
 const compatibilityOptions = ["olive", "palm", "quince"];
 const licenseOptions = ["MIT", "Apache-2.0", "AGPL-3.0", "GPL-3.0", "BSD-3-Clause"];
 
@@ -25,7 +30,24 @@ export function FilterBar({ filters, onFilterChange, onClearFilters, resultCount
   return (
     <div className="space-y-6">
       {/* Advanced Filters */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="space-y-4">
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-foreground">Type</label>
+          <Select value={filters.type} onValueChange={(value) => onFilterChange("type", value)}>
+            <SelectTrigger>
+              <SelectValue placeholder="All types" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All types</SelectItem>
+              {typeOptions.map((type) => (
+                <SelectItem key={type.value} value={type.value}>
+                  {type.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
         <div className="space-y-2">
           <label className="text-sm font-medium text-foreground">Compatibility</label>
           <Select value={filters.compatibility} onValueChange={(value) => onFilterChange("compatibility", value)}>
