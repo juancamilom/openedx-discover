@@ -23,6 +23,7 @@ const typeOptions = [
 ];
 const compatibilityOptions = ["olive", "palm", "quince"];
 const licenseOptions = ["MIT", "Apache-2.0", "AGPL-3.0", "GPL-3.0", "BSD-3-Clause"];
+const providerOptions = ["edX", "OpenCraft", "Raccoon Gang", "Appsembler", "eduNEXT"];
 
 export function FilterBar({ filters, onFilterChange, onClearFilters, resultCount }: FilterBarProps) {
   const hasActiveFilters = Object.values(filters).some(value => value && value !== "all");
@@ -92,6 +93,23 @@ export function FilterBar({ filters, onFilterChange, onClearFilters, resultCount
               <SelectItem value="all">All prices</SelectItem>
               <SelectItem value="free">Free</SelectItem>
               <SelectItem value="paid">Paid</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-foreground">Provider</label>
+          <Select value={filters.provider} onValueChange={(value) => onFilterChange("provider", value)}>
+            <SelectTrigger>
+              <SelectValue placeholder="All providers" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All providers</SelectItem>
+              {providerOptions.map((provider) => (
+                <SelectItem key={provider} value={provider}>
+                  {provider}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>

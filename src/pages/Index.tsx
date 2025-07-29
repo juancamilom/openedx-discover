@@ -20,6 +20,7 @@ const Index = () => {
     compatibility: "all",
     license: "all",
     price: "all",
+    provider: "all",
   });
 
   useEffect(() => {
@@ -70,6 +71,11 @@ const Index = () => {
         return false;
       }
 
+      // Provider filter
+      if (filters.provider !== "all" && extension.provider.name !== filters.provider) {
+        return false;
+      }
+
       return true;
     });
   }, [extensions, filters]);
@@ -92,6 +98,7 @@ const Index = () => {
       compatibility: "all",
       license: "all",
       price: "all",
+      provider: "all",
     });
     setCurrentPage(1);
   };

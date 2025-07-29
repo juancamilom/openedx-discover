@@ -30,4 +30,5 @@ export interface FilterOptions {
   compatibility: string;
   license: string;
   price: string;
+  provider: string;
 }
