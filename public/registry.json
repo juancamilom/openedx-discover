@@ -75,6 +75,31 @@
         "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=450&fit=crop",
         "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=450&fit=crop"
       ]
+    },
+    {
+      "name": "juan first test",
+      "slug": "juan-first-test",
+      "type": "operational-service",
+      "latest_version": "3.0.1",
+      "core_compat": ["olive", "palm", "quince"],
+      "description_short": "Kubernetes-based auto-scaling solution for Open edX with intelligent load balancing.",
+      "description_long": "# Auto-Scaling Infrastructure\n\nEnsure your Open edX platform can handle any load with our intelligent auto-scaling solution. Built on Kubernetes, this service automatically adjusts resources based on real-time demand.\n\n## Architecture\n\n### Kubernetes Native\n- **Container Orchestration**: Full Kubernetes deployment\n- **Horizontal Pod Autoscaling**: Scale pods based on CPU/memory usage\n- **Vertical Pod Autoscaling**: Optimize resource allocation per pod\n- **Cluster Autoscaling**: Add/remove nodes as needed\n\n### Intelligent Load Balancing\n- **Traffic Distribution**: Smart routing based on server capacity\n- **Health Checks**: Automatic failover for unhealthy instances\n- **Session Affinity**: Maintain user sessions during scaling\n- **Geographic Routing**: Route users to nearest data center\n\n### Performance Monitoring\n- **Real-time Metrics**: Monitor CPU, memory, network, and disk usage\n- **Predictive Scaling**: AI-powered predictions for traffic spikes\n- **Custom Metrics**: Scale based on Open edX specific metrics\n- **Alert System**: Proactive notifications for performance issues\n\n## Key Features\n\n### Cost Optimization\n- **Spot Instance Support**: Use cheaper spot instances for non-critical workloads\n- **Right-sizing**: Automatically optimize instance types\n- **Scheduled Scaling**: Pre-scale for known events (enrollment periods, exams)\n- **Cost Analytics**: Detailed breakdown of infrastructure costs\n\n### High Availability\n- **Multi-AZ Deployment**: Distribute across availability zones\n- **Disaster Recovery**: Automated backup and recovery procedures\n- **Rolling Updates**: Zero-downtime deployments\n- **Blue-Green Deployments**: Safe production deployments\n\n### Security & Compliance\n- **Network Policies**: Secure pod-to-pod communication\n- **RBAC Integration**: Role-based access control\n- **Secret Management**: Encrypted secret storage and rotation\n- **Audit Logging**: Complete audit trail of all changes\n\n## Supported Platforms\n\n- **AWS EKS**: Elastic Kubernetes Service\n- **Google GKE**: Google Kubernetes Engine\n- **Azure AKS**: Azure Kubernetes Service\n- **On-Premises**: Self-managed Kubernetes clusters\n\n## Performance Benefits\n\n- **99.9% Uptime**: Proven reliability across deployments\n- **50% Cost Reduction**: Average savings compared to static infrastructure\n- **10x Faster Scaling**: Scale from 10 to 1000 users in under 2 minutes\n- **Automated Operations**: Reduce operational overhead by 70%",
+      "provider": {
+        "name": "CloudScale DevOps",
+        "url": "https://cloudscale-devops.com",
+        "logo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&h=32&fit=crop&crop=face"
+      },
+      "repo_url": "https://github.com/cloudscale/edx-autoscaler",
+      "license": "Apache-2.0",
+      "price": "paid",
+      "rating_avg": 4.9,
+      "rating_count": 45,
+      "install_notes": "# Installation & Setup\n\n## Prerequisites\n\n- Kubernetes cluster (1.21+)\n- Helm 3.x installed\n- kubectl configured\n- Metrics Server deployed\n- Prometheus/Grafana (recommended)\n\n## Quick Start\n\n### 1. Add Helm Repository\n\n```bash\nhelm repo add cloudscale https://charts.cloudscale-devops.com\nhelm repo update\n```\n\n### 2. Install Auto-Scaler\n\n```bash\nhelm install edx-autoscaler cloudscale/edx-autoscaler \\\n  --namespace edx-system \\\n  --create-namespace \\\n  --set global.domain=your-edx-domain.com\n```\n\n### 3. Configure Scaling Policies\n\nCreate a scaling configuration:\n\n```yaml\n# scaling-config.yaml\napiVersion: autoscaling.cloudscale.io/v1\nkind: ScalingPolicy\nmetadata:\n  name: edx-lms-policy\nspec:\n  targetRef:\n    apiVersion: apps/v1\n    kind: Deployment\n    name: edx-lms\n  minReplicas: 2\n  maxReplicas: 50\n  metrics:\n  - type: Resource\n    resource:\n      name: cpu\n      target:\n        type: Utilization\n        averageUtilization: 70\n  - type: Resource\n    resource:\n      name: memory\n      target:\n        type: Utilization\n        averageUtilization: 80\n```\n\nApply the configuration:\n```bash\nkubectl apply -f scaling-config.yaml\n```\n\n### 4. Verify Installation\n\n```bash\n# Check auto-scaler pods\nkubectl get pods -n edx-system\n\n# View scaling events\nkubectl get events --field-selector reason=ScalingUp\n\n# Monitor HPA status\nkubectl get hpa -n edx\n```\n\n## Configuration Options\n\n### Environment Variables\n\n- `SCALE_UP_THRESHOLD`: CPU threshold for scaling up (default: 70%)\n- `SCALE_DOWN_THRESHOLD`: CPU threshold for scaling down (default: 30%)\n- `SCALE_UP_PERIOD`: Minutes to wait before scaling up (default: 2)\n- `SCALE_DOWN_PERIOD`: Minutes to wait before scaling down (default: 5)\n\n### Custom Metrics\n\nConfigure Open edX specific metrics:\n\n```yaml\ncustomMetrics:\n  - name: active_users_per_pod\n    target: 100\n  - name: enrollment_rate\n    target: 50\n  - name: course_load_average\n    target: 75\n```\n\n## Monitoring & Troubleshooting\n\n### Dashboard Access\n\nAccess the auto-scaler dashboard:\n```bash\nkubectl port-forward svc/autoscaler-dashboard 8080:80 -n edx-system\n```\n\nOpen http://localhost:8080 in your browser.\n\n### Common Issues\n\n1. **Pods not scaling**: Check HPA status and metrics server\n2. **Resource limits**: Ensure cluster has sufficient capacity\n3. **Network policies**: Verify pod communication is allowed\n4. **Storage**: Ensure PVCs can scale with pods",
+      "screenshots": [
+        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=450&fit=crop",
+        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=450&fit=crop",
+        "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=450&fit=crop"
+      ]
     }
   ]
 }
