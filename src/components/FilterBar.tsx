@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -17,12 +16,6 @@ interface FilterBarProps {
   resultCount: number;
 }
 
-const typeLabels = {
-  "platform-addon": "Platform Add-ons",
-  "external-tool": "External Tools (LTI)",
-  "operational-service": "Operational Services",
-};
-
 const compatibilityOptions = ["olive", "palm", "quince"];
 const licenseOptions = ["MIT", "Apache-2.0", "AGPL-3.0", "GPL-3.0", "BSD-3-Clause"];
 
@@ -31,32 +24,6 @@ export function FilterBar({ filters, onFilterChange, onClearFilters, resultCount
 
   return (
     <div className="space-y-6">
-      {/* Type Filter Pills */}
-      <div className="space-y-3">
-        <h3 className="text-sm font-medium text-foreground">Categories</h3>
-        <div className="flex flex-wrap gap-2">
-          <Button
-            variant={filters.type === "all" ? "default" : "outline"}
-            size="sm"
-            onClick={() => onFilterChange("type", "all")}
-            className="h-8"
-          >
-            All Extensions
-          </Button>
-          {Object.entries(typeLabels).map(([value, label]) => (
-            <Button
-              key={value}
-              variant={filters.type === value ? "default" : "outline"}
-              size="sm"
-              onClick={() => onFilterChange("type", value)}
-              className="h-8"
-            >
-              {label}
-            </Button>
-          ))}
-        </div>
-      </div>
-
       {/* Advanced Filters */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="space-y-2">

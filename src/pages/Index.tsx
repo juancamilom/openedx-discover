@@ -5,6 +5,8 @@ import { ExtensionCard } from "@/components/ExtensionCard";
 import { Pagination } from "@/components/Pagination";
 import { ExtensionCardSkeleton, FilterSkeleton } from "@/components/LoadingSkeleton";
 import { Extension, ExtensionRegistry, FilterOptions } from "@/types/extension";
+import { Button } from "@/components/ui/button";
+import { Puzzle, ExternalLink, Settings } from "lucide-react";
 
 const ITEMS_PER_PAGE = 20;
 
@@ -113,6 +115,50 @@ const Index = () => {
               Discover, search, and install powerful extensions for your Open edX platform. 
               From analytics dashboards to LTI integrations, find everything you need to enhance your educational experience.
             </p>
+            
+            {/* Category Selector */}
+            <div className="mb-8">
+              <h2 className="text-lg font-semibold mb-4 text-foreground">Choose your category</h2>
+              <div className="flex flex-wrap justify-center gap-4 mb-6">
+                <Button
+                  variant={filters.type === "all" ? "default" : "outline"}
+                  size="lg"
+                  onClick={() => handleFilterChange("type", "all")}
+                  className="h-12 px-6"
+                >
+                  <Settings className="h-5 w-5 mr-2" />
+                  All Extensions
+                </Button>
+                <Button
+                  variant={filters.type === "platform-addon" ? "default" : "outline"}
+                  size="lg"
+                  onClick={() => handleFilterChange("type", "platform-addon")}
+                  className="h-12 px-6"
+                >
+                  <Puzzle className="h-5 w-5 mr-2" />
+                  Platform Add-ons
+                </Button>
+                <Button
+                  variant={filters.type === "external-tool" ? "default" : "outline"}
+                  size="lg"
+                  onClick={() => handleFilterChange("type", "external-tool")}
+                  className="h-12 px-6"
+                >
+                  <ExternalLink className="h-5 w-5 mr-2" />
+                  External Tools (LTI)
+                </Button>
+                <Button
+                  variant={filters.type === "operational-service" ? "default" : "outline"}
+                  size="lg"
+                  onClick={() => handleFilterChange("type", "operational-service")}
+                  className="h-12 px-6"
+                >
+                  <Settings className="h-5 w-5 mr-2" />
+                  Operational Services
+                </Button>
+              </div>
+            </div>
+            
             <SearchBar onSearch={handleSearch} />
           </div>
         </div>
