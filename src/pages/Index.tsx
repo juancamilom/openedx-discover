@@ -108,6 +108,16 @@ const Index = () => {
     setCurrentPage(1);
   };
 
+  const getCategoryDescription = (type: string) => {
+    const descriptions = {
+      "platform-native": "A self-hosted module that becomes a first-class part of your Open edX installation—no extra subscriptions or outside hosting needed. Once deployed, the feature works natively across every course and user. Classic examples include the **Credentials** micro-service, an **Indigo theme pack**, or a built-in **analytics pipeline** that processes learner data on your own servers.",
+      "platform-connector": "A connector that wires your Open edX site to an **external** system running elsewhere. You still need an active account or license for that outside service; the module simply handles authentication and data flow. Think **Stripe Checkout** for payments, a **Salesforce CRM sync**, or a **WordPress CMS bridge**—all orchestrated at the platform level while the external tool remains separately procured.",
+      "courseware-native": "Adds new interactive blocks that live entirely on your Open edX servers and appear in Studio like any built-in problem type. Learners stay inside the LMS, and authors gain fresh activity formats without external dependencies. Examples include the **Drag-and-Drop XBlock**, a self-hosted **H5P problem type**, or an in-platform **coding exercise** block.",
+      "courseware-connector": "Embeds or launches a third-party learning tool inside course units—typically via **LTI 1.3** or a custom API. You license the external tool separately; the connector manages the handshake, grade pass-back, and roster sync. Popular cases are **Zoom LTI** for live sessions, **Labster virtual labs**, or **ProctorU** online proctoring, all dropped seamlessly into courseware."
+    };
+    return descriptions[type as keyof typeof descriptions] || "";
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -128,31 +138,40 @@ const Index = () => {
               <h2 className="text-lg font-semibold mb-4 text-foreground">Choose your category</h2>
               <div className="flex flex-wrap justify-center gap-4 mb-6">
                 <Button
-                  variant={filters.type === "operational-service" ? "default" : "outline"}
+                  variant={filters.type === "platform-native" ? "default" : "outline"}
                   size="lg"
-                  onClick={() => handleFilterChange("type", "operational-service")}
+                  onClick={() => handleFilterChange("type", "platform-native")}
                   className="h-12 px-6"
                 >
                   <Settings className="h-5 w-5 mr-2" />
-                  Operational Services
+                  Platform Module – Native
                 </Button>
                 <Button
-                  variant={filters.type === "platform-addon" ? "default" : "outline"}
+                  variant={filters.type === "platform-connector" ? "default" : "outline"}
                   size="lg"
-                  onClick={() => handleFilterChange("type", "platform-addon")}
+                  onClick={() => handleFilterChange("type", "platform-connector")}
                   className="h-12 px-6"
                 >
                   <Puzzle className="h-5 w-5 mr-2" />
-                  Platform Add-ons
+                  Platform Module – 3rd-Party Integration
                 </Button>
                 <Button
-                  variant={filters.type === "external-tool" ? "default" : "outline"}
+                  variant={filters.type === "courseware-native" ? "default" : "outline"}
                   size="lg"
-                  onClick={() => handleFilterChange("type", "external-tool")}
+                  onClick={() => handleFilterChange("type", "courseware-native")}
                   className="h-12 px-6"
                 >
                   <ExternalLink className="h-5 w-5 mr-2" />
-                  External Tools (LTI)
+                  Courseware Component – Native
+                </Button>
+                <Button
+                  variant={filters.type === "courseware-connector" ? "default" : "outline"}
+                  size="lg"
+                  onClick={() => handleFilterChange("type", "courseware-connector")}
+                  className="h-12 px-6"
+                >
+                  <ExternalLink className="h-5 w-5 mr-2" />
+                  Courseware Component – 3rd-Party Integration
                 </Button>
                 <Button
                   variant={filters.type === "all" ? "default" : "outline"}
@@ -164,6 +183,15 @@ const Index = () => {
                   All Extensions
                 </Button>
               </div>
+              
+              {/* Category Description */}
+              {filters.type !== "all" && (
+                <div className="mb-6 max-w-3xl mx-auto">
+                  <div className="bg-muted/50 rounded-lg p-4 text-sm text-muted-foreground leading-relaxed">
+                    {getCategoryDescription(filters.type)}
+                  </div>
+                </div>
+              )}
             </div>
             
             <SearchBar onSearch={handleSearch} />

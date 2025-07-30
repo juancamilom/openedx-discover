@@ -17,9 +17,10 @@ interface FilterBarProps {
 }
 
 const typeOptions = [
-  { value: "platform-addon", label: "Platform Add-on" },
-  { value: "external-tool", label: "External Tool" },
-  { value: "operational-service", label: "Operational Service" }
+  { value: "platform-native", label: "Platform Module – Native" },
+  { value: "platform-connector", label: "Platform Module – 3rd-Party Integration" },
+  { value: "courseware-native", label: "Courseware Component – Native" },
+  { value: "courseware-connector", label: "Courseware Component – 3rd-Party Integration" }
 ];
 const compatibilityOptions = ["olive", "palm", "quince"];
 const licenseOptions = ["MIT", "Apache-2.0", "AGPL-3.0", "GPL-3.0", "BSD-3-Clause"];
