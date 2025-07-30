@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import ReactMarkdown from "react-markdown";
 import { SearchBar } from "@/components/SearchBar";
 import { FilterBar } from "@/components/FilterBar";
 import { ExtensionCard } from "@/components/ExtensionCard";
@@ -187,8 +188,17 @@ const Index = () => {
               {/* Category Description */}
               {filters.type !== "all" && (
                 <div className="mb-6 max-w-3xl mx-auto">
-                  <div className="bg-muted/50 rounded-lg p-4 text-sm text-muted-foreground leading-relaxed">
-                    {getCategoryDescription(filters.type)}
+                  <div className="bg-primary/5 border border-primary/20 rounded-lg p-6">
+                    <div className="text-base text-primary leading-relaxed">
+                      <ReactMarkdown 
+                        components={{
+                          p: ({ children }) => <p className="mb-0">{children}</p>,
+                          strong: ({ children }) => <strong className="font-semibold text-primary">{children}</strong>
+                        }}
+                      >
+                        {getCategoryDescription(filters.type)}
+                      </ReactMarkdown>
+                    </div>
                   </div>
                 </div>
               )}
