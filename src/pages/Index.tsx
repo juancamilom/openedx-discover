@@ -7,7 +7,7 @@ import { Pagination } from "@/components/Pagination";
 import { ExtensionCardSkeleton, FilterSkeleton } from "@/components/LoadingSkeleton";
 import { Extension, ExtensionRegistry, FilterOptions } from "@/types/extension";
 import { Button } from "@/components/ui/button";
-import { Puzzle, ExternalLink, Settings } from "lucide-react";
+import { Puzzle, ExternalLink, Server, BookOpen, Grid3x3 } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
 
 const ITEMS_PER_PAGE = 20;
@@ -150,54 +150,60 @@ const Index = () => {
                   variant={filters.type === "platform-native" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("type", "platform-native")}
-                  className="h-16 w-48 px-4 text-center whitespace-normal leading-tight"
+                  className="h-20 w-56 px-4 text-center"
                 >
                   <div className="flex flex-col items-center">
-                    <Settings className="h-5 w-5 mb-1" />
-                    <span className="text-sm font-medium">Platform Module – Native</span>
+                    <Server className="h-7 w-7 mb-2" />
+                    <span className="text-base font-semibold leading-tight">Platform Module</span>
+                    <span className="text-sm font-normal opacity-80">Native</span>
                   </div>
                 </Button>
                 <Button
                   variant={filters.type === "platform-connector" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("type", "platform-connector")}
-                  className="h-16 w-48 px-4 text-center whitespace-normal leading-tight"
+                  className="h-20 w-56 px-4 text-center"
                 >
                   <div className="flex flex-col items-center">
-                    <Puzzle className="h-5 w-5 mb-1" />
-                    <span className="text-sm font-medium">Platform Module – 3rd-Party Integration</span>
+                    <Puzzle className="h-7 w-7 mb-2" />
+                    <span className="text-base font-semibold leading-tight">Platform Module</span>
+                    <span className="text-sm font-normal opacity-80">3rd-Party Integration</span>
                   </div>
                 </Button>
                 <Button
                   variant={filters.type === "courseware-native" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("type", "courseware-native")}
-                  className="h-16 w-48 px-4 text-center whitespace-normal leading-tight"
+                  className="h-20 w-56 px-4 text-center"
                 >
                   <div className="flex flex-col items-center">
-                    <ExternalLink className="h-5 w-5 mb-1" />
-                    <span className="text-sm font-medium">Courseware Component – Native</span>
+                    <BookOpen className="h-7 w-7 mb-2" />
+                    <span className="text-base font-semibold leading-tight">Courseware Component</span>
+                    <span className="text-sm font-normal opacity-80">Native</span>
                   </div>
                 </Button>
                 <Button
                   variant={filters.type === "courseware-connector" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("type", "courseware-connector")}
-                  className="h-16 w-48 px-4 text-center whitespace-normal leading-tight"
+                  className="h-20 w-56 px-4 text-center"
                 >
                   <div className="flex flex-col items-center">
-                    <ExternalLink className="h-5 w-5 mb-1" />
-                    <span className="text-sm font-medium">Courseware Component – 3rd-Party Integration</span>
+                    <ExternalLink className="h-7 w-7 mb-2" />
+                    <span className="text-base font-semibold leading-tight">Courseware Component</span>
+                    <span className="text-sm font-normal opacity-80">3rd-Party Integration</span>
                   </div>
                 </Button>
                 <Button
                   variant={filters.type === "all" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("type", "all")}
-                  className="h-16 px-6"
+                  className="h-20 px-6"
                 >
-                  <Settings className="h-5 w-5 mr-2" />
-                  All Extensions
+                  <div className="flex items-center">
+                    <Grid3x3 className="h-6 w-6 mr-2" />
+                    <span className="text-base font-semibold">All Extensions</span>
+                  </div>
                 </Button>
               </div>
             </div>
