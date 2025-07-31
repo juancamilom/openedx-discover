@@ -123,7 +123,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="relative min-h-[600px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[700px] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -133,9 +133,9 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/40" />
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 py-16">
-          <div className="text-center mb-12">
+          <div className="text-center">
             <h1 className="text-6xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
-              Open edX Marketplace
+              Open edX Extensions Directory
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-md">
               Discover, search, and install powerful extensions for your Open edX platform. 
@@ -192,10 +192,12 @@ const Index = () => {
                   All Extensions
                 </Button>
               </div>
-              
-              {/* Category Description */}
+            </div>
+            
+            {/* Category Description - Fixed space reserved */}
+            <div className="mb-6 max-w-3xl mx-auto h-32 flex items-center">
               {filters.type !== "all" && (
-                <div className="mb-6 max-w-3xl mx-auto">
+                <div className="w-full">
                   <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6">
                     <div className="text-base text-white leading-relaxed">
                       <ReactMarkdown 
@@ -211,7 +213,14 @@ const Index = () => {
                 </div>
               )}
             </div>
-            
+          </div>
+        </div>
+      </div>
+
+      {/* Search Section */}
+      <div className="bg-background py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-center">
             <SearchBar onSearch={handleSearch} />
           </div>
         </div>
