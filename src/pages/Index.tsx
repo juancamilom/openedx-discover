@@ -145,48 +145,56 @@ const Index = () => {
             {/* Category Selector */}
             <div className="mb-8">
               <h2 className="text-lg font-semibold mb-4 text-white/90">Choose your category</h2>
-              <div className="flex flex-wrap justify-center gap-4 mb-6">
+              <div className="flex flex-wrap justify-center items-center gap-4 mb-6">
                 <Button
                   variant={filters.type === "platform-native" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("type", "platform-native")}
-                  className="h-12 px-6"
+                  className="h-16 w-48 px-4 text-center whitespace-normal leading-tight"
                 >
-                  <Settings className="h-5 w-5 mr-2" />
-                  Platform Module – Native
+                  <div className="flex flex-col items-center">
+                    <Settings className="h-5 w-5 mb-1" />
+                    <span className="text-sm font-medium">Platform Module – Native</span>
+                  </div>
                 </Button>
                 <Button
                   variant={filters.type === "platform-connector" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("type", "platform-connector")}
-                  className="h-12 px-6"
+                  className="h-16 w-48 px-4 text-center whitespace-normal leading-tight"
                 >
-                  <Puzzle className="h-5 w-5 mr-2" />
-                  Platform Module – 3rd-Party Integration
+                  <div className="flex flex-col items-center">
+                    <Puzzle className="h-5 w-5 mb-1" />
+                    <span className="text-sm font-medium">Platform Module – 3rd-Party Integration</span>
+                  </div>
                 </Button>
                 <Button
                   variant={filters.type === "courseware-native" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("type", "courseware-native")}
-                  className="h-12 px-6"
+                  className="h-16 w-48 px-4 text-center whitespace-normal leading-tight"
                 >
-                  <ExternalLink className="h-5 w-5 mr-2" />
-                  Courseware Component – Native
+                  <div className="flex flex-col items-center">
+                    <ExternalLink className="h-5 w-5 mb-1" />
+                    <span className="text-sm font-medium">Courseware Component – Native</span>
+                  </div>
                 </Button>
                 <Button
                   variant={filters.type === "courseware-connector" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("type", "courseware-connector")}
-                  className="h-12 px-6"
+                  className="h-16 w-48 px-4 text-center whitespace-normal leading-tight"
                 >
-                  <ExternalLink className="h-5 w-5 mr-2" />
-                  Courseware Component – 3rd-Party Integration
+                  <div className="flex flex-col items-center">
+                    <ExternalLink className="h-5 w-5 mb-1" />
+                    <span className="text-sm font-medium">Courseware Component – 3rd-Party Integration</span>
+                  </div>
                 </Button>
                 <Button
                   variant={filters.type === "all" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("type", "all")}
-                  className="h-12 px-6"
+                  className="h-16 px-6"
                 >
                   <Settings className="h-5 w-5 mr-2" />
                   All Extensions
