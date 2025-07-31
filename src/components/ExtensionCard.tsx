@@ -28,7 +28,7 @@ export function ExtensionCard({ extension }: ExtensionCardProps) {
         <img
           src={extension.screenshots[0]}
           alt={extension.name}
-          className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-48 object-contain bg-muted/20 transition-transform duration-300 group-hover:scale-105"
         />
         <div className="absolute top-4 left-4">
           <Badge className={typeColors[extension.type]}>
