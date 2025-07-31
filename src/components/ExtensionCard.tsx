@@ -53,7 +53,7 @@ export function ExtensionCard({ extension }: ExtensionCardProps) {
           <img
             src={extension.provider.logo}
             alt={extension.provider.name}
-            className="w-8 h-8 rounded-full flex-shrink-0"
+            className="w-24 h-24 rounded-lg flex-shrink-0 object-contain bg-white/5 p-2"
           />
         </div>
       </CardHeader>
