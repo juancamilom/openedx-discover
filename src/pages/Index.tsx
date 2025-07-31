@@ -196,12 +196,12 @@ const Index = () => {
               {/* Category Description */}
               {filters.type !== "all" && (
                 <div className="mb-6 max-w-3xl mx-auto">
-                  <div className="bg-primary/5 border border-primary/20 rounded-lg p-6">
-                    <div className="text-base text-primary leading-relaxed">
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6">
+                    <div className="text-base text-white leading-relaxed">
                       <ReactMarkdown 
                         components={{
                           p: ({ children }) => <p className="mb-0">{children}</p>,
-                          strong: ({ children }) => <strong className="font-semibold text-primary">{children}</strong>
+                          strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>
                         }}
                       >
                         {getCategoryDescription(filters.type)}
