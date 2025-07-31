@@ -8,6 +8,7 @@ import { ExtensionCardSkeleton, FilterSkeleton } from "@/components/LoadingSkele
 import { Extension, ExtensionRegistry, FilterOptions } from "@/types/extension";
 import { Button } from "@/components/ui/button";
 import { Puzzle, ExternalLink, Settings } from "lucide-react";
+import heroBackground from "@/assets/hero-background.jpg";
 
 const ITEMS_PER_PAGE = 20;
 
@@ -122,21 +123,28 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
-        <div className="relative container mx-auto px-4 py-16">
+      <div className="relative min-h-[600px] flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroBackground})` }}
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40" />
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 py-16">
           <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <h1 className="text-6xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
               Open edX Marketplace
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-md">
               Discover, search, and install powerful extensions for your Open edX platform. 
               From analytics dashboards to LTI integrations, find everything you need to enhance your educational experience.
             </p>
             
             {/* Category Selector */}
             <div className="mb-8">
-              <h2 className="text-lg font-semibold mb-4 text-foreground">Choose your category</h2>
+              <h2 className="text-lg font-semibold mb-4 text-white/90">Choose your category</h2>
               <div className="flex flex-wrap justify-center gap-4 mb-6">
                 <Button
                   variant={filters.type === "platform-native" ? "default" : "outline"}
