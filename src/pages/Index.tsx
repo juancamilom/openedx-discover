@@ -1,12 +1,11 @@
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import ReactMarkdown from "react-markdown";
 import { SearchBar } from "@/components/SearchBar";
 import { FilterBar } from "@/components/FilterBar";
 import { ExtensionCard } from "@/components/ExtensionCard";
 import { Pagination } from "@/components/Pagination";
 import { ExtensionCardSkeleton, FilterSkeleton } from "@/components/LoadingSkeleton";
-import { FilterOptions } from "@/types/extension";
-import { useRegistry } from "@/hooks/useRegistry";
+import { Extension, ExtensionRegistry, FilterOptions } from "@/types/extension";
 import { Button } from "@/components/ui/button";
 import { Puzzle, ExternalLink, Server, BookOpen, Grid3x3 } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
@@ -14,7 +13,8 @@ import heroBackground from "@/assets/hero-background.jpg";
 const ITEMS_PER_PAGE = 20;
 
 const Index = () => {
-  const { extensions, loading, error } = useRegistry();
+  const [extensions, setExtensions] = useState<Extension[]>([]);
+  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState<FilterOptions>({
     search: "",
@@ -24,6 +24,22 @@ const Index = () => {
     price: "all",
     provider: "all",
   });
+
+  useEffect(() => {
+    async function fetchExtensions() {
+      try {
+        const response = await fetch('/registry.json');
+        const data: ExtensionRegistry = await response.json();
+        setExtensions(data.extensions);
+      } catch (error) {
+        console.error('Failed to load extensions:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchExtensions();
+  }, []);
 
   const filteredExtensions = useMemo(() => {
     return extensions.filter((extension) => {

@@ -1,4 +1,5 @@
 {
+
   "extensions": [
     {
       "name": "Open edX Aspects",
@@ -8,7 +9,11 @@
       "core_compat": ["redwood", "sumac", "teak"],
       "description_short": "Official analytics stack for Open edX, delivered as a Tutor plugin that integrates ClickHouse, Superset, dbt, Ralph, and event pipelines for actionable course and learner insights.",
       "description_long": "# Open edX Aspects\n\nAspects is the official, open-source analytics system for Open edX. It provides prebuilt dashboards and in‑context reports for course teams and operators, combining tracking events and course data into fast, interactive visualizations.\n\n## Key Features\n- **Dashboards for roles**: Course, Individual Learner, At‑Risk Learners, Operator, and Course Comparison reports, plus in‑context panels in the LMS/Studio.\n- **Event-to-insight pipeline**: Transforms Open edX tracking logs and xAPI events into a ClickHouse reporting schema, modeled with dbt and visualized in Superset.\n- **Tutor-first deployment**: Distributed as a Tutor plugin with batteries‑included configs.\n- **Privacy-aware defaults**: Learner-identifying views are off by default and can be enabled via configuration.\n\n## Architecture Components\n- **ClickHouse** (analytics database)\n- **Apache Superset** (dashboards & exploration)\n- **dbt** (transformations; `aspects-dbt` project)\n- **Ralph** (LRS for xAPI statements)\n- **Vector** & **Event Routing Backends** (capture/forward events from LMS to LRS/ClickHouse)\n- **Platform Plugin Aspects** (embeds Superset dashboards back into the LMS/Studio)\n\n## Use Cases\n- Monitor enrollments, activity, and completion\n- Identify at‑risk learners and content needing improvement\n- Track platform health and usage at the operator level\n\n## Technical Requirements\n- **Tutor 15.0.0+**\n- Open edX **Redwood or later** (Aspects v2.x)\n\n",
-      "provider_id": "openedx-axim",
+      "provider": {
+        "name": "Open edX / Axim Collaborative",
+        "url": "https://docs.openedx.org/projects/openedx-aspects/en/latest/",
+        "logo": "https://logos.openedx.org/open-edx-logo-color.png"
+      },
       "repo_url": "https://github.com/openedx/openedx-aspects",
       "license": "Apache-2.0",
       "price": "free",
@@ -20,29 +25,37 @@
     {
       "name": "Open edX Mobile App",
       "slug": "open-edx-mobile-app",
-      "type": "platform-connector",
+      "type": "platform-native",
       "latest_version": "2.1",
       "core_compat": ["quince", "redwood", "sumac", "teak"],
       "description_short": "Modern native (Kotlin & Swift) mobile apps for Open edX, originally developed by Raccoon Gang and adopted by the Open edX project.",
-      "description_long": "# Open edX Mobile App\n\nNative Android (Kotlin) and iOS (Swift) applications for Open edX, created by **Raccoon Gang** and made the default apps for the platform starting with the Quince release. These codebases implement an MVVM architecture and target the latest Open edX mobile APIs.\n\n## Key Features\n- **Core learning flows**: course discovery, enrollment access, dashboards, course content (videos, units), discussions, and profiles.\n- **Internationalization**: translations managed via Transifex and pulled at build time.\n- **White‑labeling**: configurable branding and environment settings per build variant.\n- **Backwards support**: sites older than Dec 2023 can use the Mobile API Plugin.\n\n## Platforms & Repos\n- **Android**: `openedx/openedx-app-android` (Kotlin)\n- **iOS**: `openedx/openedx-app-ios` (Swift)\n\n## Use Cases\n- Provide branded mobile access to Open edX courses, discussions, and learner progress.\n- Ship institution‑specific builds for different tenants/brands.\n\n## Technical Requirements\n- Open edX **Quince or newer** recommended; older sites (pre‑Dec 2023) should enable the **Mobile API Plugin**.\n- Android Studio (Android) / Xcode + CocoaPods (iOS).\n\n",
-      "provider_id": "raccoon-gang",
+      "description_long": "# Open edX Mobile App\n\nNative Android (Kotlin) and iOS (Swift) applications for Open edX, created by **Raccoon Gang** and made the default apps for the platform starting with the Quince release. These codebases implement an MVVM architecture and target the latest Open edX mobile APIs.\n\n## Key Features\n- **Core learning flows**: course discovery, enrollment access, dashboards, course content (videos, units), discussions, and profiles.\n- **Internationalization**: translations managed via Transifex and pulled at build time.\n- **White‑labeling**: configurable branding and environment settings per build variant.\n- **Backwards support**: sites older than Dec 2023 can use the Mobile API Plugin.\n\n## Platforms & Repos\n- **Android**: `openedx/openedx-app-android` (Kotlin)\n- **iOS**: `openedx/openedx-app-ios` (Swift)\n\n## Use Cases\n- Provide branded mobile access to Open edX courses, discussions, and learner progress.\n- Ship institution‑specific builds for different tenants/brands.\n\n## Technical Requirements\n- Open edX **Quince or newer** recommended; older sites (pre‑Dec 2023) should enable the **Mobile API Plugin**.\n- Android Studio (Android) / Xcode + CocoaPods (iOS).\n\n",
+      "provider": {
+        "name": "Raccoon Gang (contributed to Open edX)",
+        "url": "https://raccoongang.com/open-edx-services/mobile-application-development/",
+        "logo": null
+      },
       "repo_url": "https://github.com/openedx/openedx-app-android",
       "license": "Apache-2.0",
       "price": "free",
       "rating_avg": null,
       "rating_count": 0,
-      "install_notes": "# Build & Configure\n\n**Android**\n1) `git clone https://github.com/openedx/openedx-app-android.git`\n2) Open in Android Studio.\n3) Configure `default_config/config_settings.yaml` and each module's `config.yaml` with your site URLs and OAuth.\n4) Choose build variant (`develop`, `stage`, `prod`) and Run. \n\n**iOS**\n1) `git clone https://github.com/openedx/openedx-app-ios.git`\n2) `pod install` and open `OpenEdX.xcworkspace`.\n3) Configure `default_config/config_settings.yaml` and module `config.yaml` files.\n4) Select `OpenEdXDev`/`OpenEdXStage`/`OpenEdXProd` scheme and Run.\n\n**Translations** (both): run the provided `make` targets to pull translations from `openedx/openedx-translations` before building.\n\n**For older platforms**: if your Open edX version is older than **December 2023**, enable the Mobile **API Plugin** as noted in each repo's README.",
+      "install_notes": "# Build & Configure\n\n**Android**\n1) `git clone https://github.com/openedx/openedx-app-android.git`\n2) Open in Android Studio.\n3) Configure `default_config/config_settings.yaml` and each module’s `config.yaml` with your site URLs and OAuth.\n4) Choose build variant (`develop`, `stage`, `prod`) and Run. \n\n**iOS**\n1) `git clone https://github.com/openedx/openedx-app-ios.git`\n2) `pod install` and open `OpenEdX.xcworkspace`.\n3) Configure `default_config/config_settings.yaml` and module `config.yaml` files.\n4) Select `OpenEdXDev`/`OpenEdXStage`/`OpenEdXProd` scheme and Run.\n\n**Translations** (both): run the provided `make` targets to pull translations from `openedx/openedx-translations` before building.\n\n**For older platforms**: if your Open edX version is older than **December 2023**, enable the Mobile **API Plugin** as noted in each repo’s README.",
       "screenshots": ["https://cdn.dribbble.com/userupload/4886738/file/original-c5028ed85b726e1d8fdcf8adbe5d980e.jpg"]
     },
     {
       "name": "Open edX Credential Service",
       "slug": "open-edx-credential-service",
-      "type": "courseware-native",
+      "type": "platform-native",
       "latest_version": "tutor-credentials 20.0.0",
       "core_compat": ["palm", "quince", "redwood", "sumac"],
       "description_short": "Microservice that issues and manages Open edX course and program certificates, with a Learner Record UI and optional W3C verifiable credentials.",
       "description_long": "# Open edX Credential Service\n\nA standalone service (IDA) that stores, issues, and presents learner credentials for Open edX deployments. It supports **course certificates**, **program certificates**, a **Learner Record** UI (MFE), and optional **W3C verifiable credentials** generation.\n\n## Key Features\n- **Course & Program Certificates**: Define certificate configurations, signatories, and branding in Django Admin.\n- **Learner Record UI (MFE)**: Public/ sharable records for earned credentials.\n- **Platform Integration**: Communicates with LMS and other services via JWT service user.\n- **Verifiable Credentials (optional)**: Emit machine-verifiable credentials derived from achievements.\n\n## Architecture Components\n- **Credentials IDA** (Django) with theming support\n- **Learner Record MFE** for end-user views\n- Integration with **LMS** and (optionally) **Discovery** for programs/catalog\n\n## Use Cases\n- Issue printable/shareable certificates for courses and programs\n- Provide learners with a consolidated, shareable record of achievements\n- Enable verifiable credentials workflows\n\n## Technical Requirements\n- Deployed standalone (Docker/Tutor) alongside LMS\n- JWT-backed service user for cross-service API calls\n- For programs, use Discovery (or equivalent) as catalog source\n\n",
-      "provider_id": "openedx-axim",
+      "provider": {
+        "name": "Open edX / Axim Collaborative",
+        "url": "https://docs.openedx.org/projects/edx-credentials/en/latest/",
+        "logo": null
+      },
       "repo_url": "https://github.com/openedx/credentials",
       "license": "AGPL-3.0",
       "price": "free",
@@ -54,12 +67,16 @@
     {
       "name": "Cairn",
       "slug": "cairn",
-      "type": "courseware-connector",
+      "type": "platform-native",
       "latest_version": "",
       "core_compat": [],
       "description_short": "The next-generation, scalable, customisable, real-time Analytics solution for Open edX that you have been waiting for.",
       "description_long": "# Cairn\n\nThe next-generation, scalable, customisable, real-time Analytics solution for Open edX that you have been waiting for.\n\n## Links\n- **Docs**: https://overhang.io/tutor/plugin/cairn\n- **Product**: https://overhang.io/tutor/plugin/cairn",
-      "provider_id": "overhang-io",
+      "provider": {
+        "name": "Overhang.io",
+        "url": "https://overhang.io/",
+        "logo": "https://overhang.io/static/img/Overhang.IO-small.png"
+      },
       "repo_url": "https://overhang.io/tutor/plugin/cairn",
       "license": "AGPLv3 (Commercial)",
       "price": "paid",
@@ -78,7 +95,11 @@
       "core_compat": [],
       "description_short": "A new interface where staff members can copy all cohorts from one course into another. Developed with funding from Centrale Lille for an I-SITE project.",
       "description_long": "# Cohort manager\n\nA new interface where staff members can copy all cohorts from one course into another. Developed with funding from Centrale Lille for an I-SITE project.",
-      "provider_id": "opencraft",
+      "provider": {
+        "name": "OpenCraft",
+        "url": "https://opencraft.com/",
+        "logo": "https://avatars.githubusercontent.com/u/7414786?s=200&v=4"
+      },
       "repo_url": "",
       "license": "AGPL",
       "price": "free",
@@ -88,6 +109,2054 @@
       "screenshots": [
         "https://raw.githubusercontent.com/open-craft/cohort-manager/master/images/cohort_manager.png"
       ]
+    },
+    {
+      "name": "EOX core",
+      "slug": "eox-core",
+      "type": "platform-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "EOX-core (A.K.A. eduNEXT Open extensions) is an open edX plugin that adds multiple API endpoints in order to extend the functionality of the Open edX platform and avoid changing the base code directly…",
+      "description_long": "# EOX core\n\nEOX-core (A.K.A. eduNEXT Open extensions) is an open edX plugin that adds multiple API endpoints in order to extend the functionality of the Open edX platform and avoid changing the base code directly. These API endpoints includes bulk creation of pre-activated users (for example, skip sending an activation email) and enrollments.",
+      "provider": {
+        "name": "edunext",
+        "url": "https://www.edunext.co",
+        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://www.edunext.co/wp-content/uploads/2023/08/Extentions.webp",
+        "https://www.edunext.co/wp-content/uploads/2023/08/eox_core.png"
+      ]
+    },
+    {
+      "name": "EOX Hooks",
+      "slug": "eox-hooks",
+      "type": "platform-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "EOX-hooks is an openedx plugin, for the edx-platform that allows extending edx-platform through Django configurations and Open edX Events.",
+      "description_long": "# EOX Hooks\n\nEOX-hooks is an openedx plugin, for the edx-platform that allows extending edx-platform through Django configurations and Open edX Events.",
+      "provider": {
+        "name": "edunext",
+        "url": "https://www.edunext.co",
+        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://www.edunext.co/wp-content/uploads/2023/10/eox_hooks.webp"
+      ]
+    },
+    {
+      "name": "EOX Tagging",
+      "slug": "eox-tagging",
+      "type": "platform-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "EOX Tagging is an openedx plugin, that adds the capability to tag edx-platform objects. These tags can be used to categorize and include extra information.",
+      "description_long": "# EOX Tagging\n\nEOX Tagging is an openedx plugin, that adds the capability to tag edx-platform objects. These tags can be used to categorize and include extra information.",
+      "provider": {
+        "name": "edunext",
+        "url": "https://www.edunext.co",
+        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://www.edunext.co/wp-content/uploads/2023/10/eox_tagging.webp",
+        "https://www.edunext.co/wp-content/uploads/2023/08/eox_tagging.png"
+      ]
+    },
+    {
+      "name": "EOX Tenant",
+      "slug": "eox-tenant",
+      "type": "platform-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "The multitenancy feature empowers our clients to efficiently manage multiple users and tenants on a single site, enabling independent support and customization while sharing resources. This capability…",
+      "description_long": "# EOX Tenant\n\nThe multitenancy feature empowers our clients to efficiently manage multiple users and tenants on a single site, enabling independent support and customization while sharing resources. This capability can be seamlessly implemented in : Nimbus, Stratus, and Cirrus.\n\n## Links\n- **Docs**: https://github.com/eduNEXT/eox-tenant\n- **Product**: https://github.com/eduNEXT/eox-tenant",
+      "provider": {
+        "name": "edunext",
+        "url": "https://www.edunext.co",
+        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
+      },
+      "repo_url": "https://github.com/eduNEXT/eox-tenant",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://www.edunext.co/wp-content/uploads/2023/10/eox_tenant.webp",
+        "https://www.edunext.co/wp-content/uploads/2023/08/eox_tenant.png"
+      ]
+    },
+    {
+      "name": "EOX Theming",
+      "slug": "eox-theming",
+      "type": "platform-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "EOX Theming allows to customize the design of their virtual learning environment to match their branding, creating a cohesive and professional look. With flexibility and control, EOX theming helps in …",
+      "description_long": "# EOX Theming\n\nEOX Theming allows to customize the design of their virtual learning environment to match their branding, creating a cohesive and professional look. With flexibility and control, EOX theming helps in creating a more engaging and motivating learning experience for students.",
+      "provider": {
+        "name": "edunext",
+        "url": "https://www.edunext.co",
+        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://www.edunext.co/wp-content/uploads/2023/10/eox_theming.webp",
+        "https://www.edunext.co/wp-content/uploads/2023/08/eox_theming.png"
+      ]
+    },
+    {
+      "name": "Figures",
+      "slug": "figures",
+      "type": "platform-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "Open source analytics tool to visualize the performance metrics for Open edX sites, courses, and learners.",
+      "description_long": "# Figures\n\nOpen source analytics tool to visualize the performance metrics for Open edX sites, courses, and learners.",
+      "provider": {
+        "name": "Appsembler",
+        "url": "https://www.appsembler.com/",
+        "logo": "https://appsembler.com/wp-content/themes/wordpress-appsembler-theme/assets/images/branding/appsembler-logo-positive.svg"
+      },
+      "repo_url": "",
+      "license": "MIT",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://appsembler.com/wp-content/uploads/2019/04/Figures-1.png"
+      ]
+    },  
+    {
+      "name": "Indigo",
+      "slug": "indigo",
+      "type": "platform-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "a customizable theme for Open edX",
+      "description_long": "# Indigo\n\na customizable theme for Open edX",
+      "provider": {
+        "name": "Overhang.IO",
+        "url": "https://overhang.io/",
+        "logo": "https://overhang.io/static/img/Overhang.IO-small.png"
+      },
+      "repo_url": "",
+      "license": "AGPL",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://discuss.overhang.io/uploads/default/optimized/1X/70c83e3003b357e6e8c9d13b3c54c0dabefb9807_2_690x388.png"
+      ]
+    },
+    {
+      "name": "Limesurvey Plugin",
+      "slug": "limesurvey-plugin",
+      "type": "platform-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "LimeSurvey is an open-source online survey software that allows users to create and conduct surveys, questionnaires, and polls. This Tutor plugin allows you to install LimeSurvey in your Tutor ecosyst…",
+      "description_long": "# Limesurvey Plugin\n\nLimeSurvey is an open-source online survey software that allows users to create and conduct surveys, questionnaires, and polls. This Tutor plugin allows you to install LimeSurvey in your Tutor ecosystem. NOTE: The LimeSurvey service can then be integrated into the Open edX platform with the LimeSurvey Xblock.",
+      "provider": {
+        "name": "edunext",
+        "url": "https://www.edunext.co",
+        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://www.edunext.co/wp-content/uploads/2023/10/Limesurvey-plugin.webp"
+      ]
+    },    
+    {
+      "name": "Aspects",
+      "slug": "aspects",
+      "type": "platform-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "Aspects is an optional implementation of analytics for the Open edX LMS. It is the combined solution of Cairn by Overhang.io and the OARS project developed by Axim Collaborative with a huge amount of …",
+      "description_long": "# Aspects\n\nAspects is an optional implementation of analytics for the Open edX LMS. It is the combined solution of Cairn by Overhang.io and the OARS project developed by Axim Collaborative with a huge amount of help from the Open edX community. Primarily it is intended to be a (batteries included) set of configurations and plugins to combine 3rd party tools into a powerful and flexible system for learner analytics.",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://global-teacher-campus.docs.edunext.co/en/latest/_images/data_dashboard.jpg"
+      ]
+    },
+    {   
+       "name": "Credentials",
+      "slug": "credentials",
+      "type": "platform-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "edX Credentials Service, which supports course and program certificates. This service is a replacement for the certificates app in edx-platform.",
+      "description_long": "# Credentials\n\nedX Credentials Service, which supports course and program certificates. This service is a replacement for the certificates app in edx-platform.",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://edx-credentials.readthedocs.io/en/latest/_images/theme-sections.png"
+      ]
+    },
+    {
+      "name": "Mobile app iOS",
+      "slug": "mobile-app-ios",
+      "type": "platform-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "Modern vision of the mobile application for the Open EdX platform from Raccoon Gang.",
+      "description_long": "# Mobile app iOS\n\nModern vision of the mobile application for the Open EdX platform from Raccoon Gang.",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://y7b6t9n6.rocketcdn.me/wp-content/themes/generatepress/assets/images/template-open-edx-mobile-app/app-features-image-2.png"
+      ]
+    },
+    {
+      "name": "Mobile app android",
+      "slug": "mobile-app-android",
+      "type": "platform-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "Modern vision of the mobile application for the Open EdX platform from Raccoon Gang.",
+      "description_long": "# Mobile app android\n\nModern vision of the mobile application for the Open EdX platform from Raccoon Gang.",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://y7b6t9n6.rocketcdn.me/wp-content/themes/generatepress/assets/images/template-open-edx-mobile-app/app-features-image-2.png"
+      ]
+    },
+    {
+      "name": "username changer",
+      "slug": "username-changer",
+      "type": "platform-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "A plugin to enable update usernames through admin panel in Open edX (and other apps that log into Open edX via OAuth). It only supports koa and latest releases of Open edX.",
+      "description_long": "# username changer\n\nA plugin to enable update usernames through admin panel in Open edX (and other apps that log into Open edX via OAuth). It only supports koa and latest releases of Open edX.",
+      "provider": {
+        "name": "MIT Office of distant learning",
+        "url": "https://openlearning.mit.edu/",
+        "logo": "https://ocw.mit.edu/static_shared/images/mit-ol.8713e4407efc8841e4f2.png"
+      },
+      "repo_url": "",
+      "license": "MIT",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "course template builder",
+      "slug": "course-template-builder",
+      "type": "platform-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This web page generates edX course structures in a tarball file that can be immediately imported to edX Studio. You fill out the form to describe your course, selecting things like the number of secti…",
+      "description_long": "# course template builder\n\nThis web page generates edX course structures in a tarball file that can be immediately imported to edX Studio. You fill out the form to describe your course, selecting things like the number of sections, whether they focus on video/text/problems, whether the first/last pages are different, etc. The course comes wrapped in a boilerplate course with standard intro and wrap-up materials.",
+      "provider": {
+        "name": "HarvardX",
+        "url": "https://vpal.harvard.edu/harvardx/",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/7/70/Harvard_University_logo.svg"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "Advanced WordPress and Woocommerce Integration",
+      "slug": "advanced-wordpress-and-woocommerce-integration",
+      "type": "platform-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "Edunext WordPress and WooCommerce integration allows users to sell their courses and digital content on their WordPress website using the WooCommerce shopping cart plugin. This integration will enable…",
+      "description_long": "# Advanced WordPress and Woocommerce Integration\n\nEdunext WordPress and WooCommerce integration allows users to sell their courses and digital content on their WordPress website using the WooCommerce shopping cart plugin. This integration will enable users to create a comprehensive and secure e-learning website with easy to use learning management tools and payment processing capabilities. It is the perfect solution for online educators looking to grow their business and reach more students quickly and easily.",
+      "provider": {
+        "name": "edunext",
+        "url": "https://www.edunext.co",
+        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
+      },
+      "repo_url": "",
+      "license": "AGPLv2",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://www.edunext.co/wp-content/uploads/2023/08/Integrations.webp",
+        "https://www.edunext.co/wp-content/uploads/2023/08/eox_wordpress.png"
+      ]
+    },
+    {
+      "name": "WP Open edX integrator",
+      "slug": "wp-open-edx-integrator",
+      "type": "platform-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "A Plugin that integrates the Open edX platform with WordPress.This plugin allows to: -Share the user session information between Open edX and WordPress -Add an Open edX user menu to the WordPress navi…",
+      "description_long": "# WP Open edX integrator\n\nA Plugin that integrates the Open edX platform with WordPress.This plugin allows to: -Share the user session information between Open edX and WordPress  -Add an Open edX user menu to the WordPress navigation structure  -Add Course buttons to the WordPress Posts or Pages that represent each course with the corresponding action and caption based on the Open edX course settings  -Integrate Woocommerce as the e-commerce solution to sale access to open edX courses -Make use of the EOX-core API that extends the functionality of Open edX.",
+      "provider": {
+        "name": "eduNEXT",
+        "url": "https://www.edunext.co",
+        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
+      },
+      "repo_url": "",
+      "license": "AGPLv2",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://www.edunext.co/wp-content/uploads/2022/10/learn_enrollment_awarenesss_plugin-768x728.png",
+        "https://www.edunext.co/wp-content/uploads/2023/08/eox_wordpress.png"
+      ]
+    },
+    {
+      "name": "Open edX Commerce (WordPress Plugin)",
+      "slug": "open-edx-commerce-wordpress-plugin",
+      "type": "platform-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "The Open edX Commerce package is a free and open-source WordPress plugin that allows you to integrate WooCommerce with your Open edX platform. What does this mean? You can create Open edX courses as p…",
+      "description_long": "# Open edX Commerce (WordPress Plugin)\n\nThe Open edX Commerce package is a free and open-source WordPress plugin that allows you to integrate WooCommerce with your Open edX platform. What does this mean? You can create Open edX courses as products in WooCommerce, and when you perform purchase or refund operations for these products, your Open edX platform will reflect these changes.",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://edunext-docs-openedx-woocommerce-plugin.readthedocs-hosted.com/en/latest/_images/menu.png"
+      ]
+    },
+    {
+      "name": "Active Table",
+      "slug": "active-table",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This XBlock provides a tabular problem type, where students have to fill in some of the cells of a table.",
+      "description_long": "# Active Table\n\nThis XBlock provides a tabular problem type, where students have to fill in some of the cells of a table.\n\n## Links\n- **Docs**: https://github.com/open-craft/xblock-activetable\n- **Product**: https://github.com/open-craft/xblock-activetable",
+      "provider": {
+        "name": "OpenCraft",
+        "url": "https://opencraft.com/",
+        "logo": "https://avatars.githubusercontent.com/u/7414786?s=200&v=4"
+      },
+      "repo_url": "https://github.com/open-craft/xblock-activetable",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://edunextpublic.s3-us-west-2.amazonaws.com/resources/extensions-list/active-table-xblock.jpg"
+      ]
+    },
+    {
+      "name": "Adventure XBlock",
+      "slug": "adventure-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock for creating a simple chose your own adventure style simulation. It presents the user with a branching sequence of steps, each which can contain other XBlockLightChildrens.",
+      "description_long": "# Adventure XBlock\n\nAn XBlock for creating a simple chose your own adventure style simulation. It presents the user with a branching sequence of steps, each which can contain other XBlockLightChildrens.\n\n## Links\n- **Docs**: https://github.com/openedx-unsupported/xblock-adventure\n- **Product**: https://github.com/openedx-unsupported/xblock-adventure",
+      "provider": {
+        "name": "OpenCraft",
+        "url": "https://opencraft.com/",
+        "logo": "https://avatars.githubusercontent.com/u/7414786?s=200&v=4"
+      },
+      "repo_url": "https://github.com/openedx-unsupported/xblock-adventure",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://edunextpublic.s3-us-west-2.amazonaws.com/resources/extensions-list/xblock-adventure.jpg"
+      ]
+    },
+    {
+      "name": "AI proctoring",
+      "slug": "ai-proctoring",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An online proctoring solution to monitor students' behavior during online exams, preventing cheating attempts, and controlling the student’s identity during the examination process.",
+      "description_long": "# AI proctoring\n\nAn online proctoring solution to monitor students' behavior during online exams, preventing cheating attempts, and controlling the student’s identity during the examination process.",
+      "provider": {
+        "name": "Examus Inc",
+        "url": "http://vsend.us/",
+        "logo": "https://static.tildacdn.com/tild6531-6263-4138-a663-336432383033/examus_60.png"
+      },
+      "repo_url": "",
+      "license": "commercial",
+      "price": "paid",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://thumb.tildacdn.com/tild3566-3364-4037-b538-646632646537/-/resize/470x/-/format/webp/_1.jpg",
+        "https://static.tildacdn.com/tild3338-3563-4866-b336-643730623931/examus.png"
+      ]
+    },
+    {
+      "name": "Done XBlock",
+      "slug": "done-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock that let student mark when they finish an activity.",
+      "description_long": "# Done XBlock\n\nAn XBlock that let student mark when they finish an activity.\n\n## Links\n- **Docs**: https://github.com/openedx/DoneXBlock\n- **Product**: https://github.com/openedx/DoneXBlock",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "https://github.com/openedx/DoneXBlock",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/openedx/DoneXBlock/raw/master/completionxblock_mark.png"
+      ]
+    },
+    {
+      "name": "Drag And Drop problem",
+      "slug": "drag-and-drop-problem",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This XBlock implements a friendly drag-and-drop style problem, where the learner has to drag items to zones on a target image.",
+      "description_long": "# Drag And Drop problem\n\nThis XBlock implements a friendly drag-and-drop style problem, where the learner has to drag items to zones on a target image.\n\n## Links\n- **Docs**: https://github.com/openedx/xblock-drag-and-drop-v2\n- **Product**: https://github.com/openedx/xblock-drag-and-drop-v2",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "https://github.com/openedx/xblock-drag-and-drop-v2",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/openedx/xblock-drag-and-drop-v2/raw/master/doc/img/student-view-finish.png"
+      ]
+    },
+    {
+      "name": "edx-gea",
+      "slug": "edx-gea",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This XBlock provides a way to grade external activity in edx-platform",
+      "description_long": "# edx-gea\n\nThis XBlock provides a way to grade external activity in edx-platform",
+      "provider": {
+        "name": "openfun",
+        "url": "https://www.fun-mooc.fr/",
+        "logo": "https://www.campusfrance.org/sites/default/files/fun%20moocs%20logo.png"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/openfun/edx-gea/raw/master/docs/_static/images/gea-assessment-lms_student.png"
+      ]
+    },
+    {
+      "name": "EOL Conditional",
+      "slug": "eol-conditional",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock to show/hide one or more conditional component by a trigger component.",
+      "description_long": "# EOL Conditional\n\nAn XBlock to show/hide one or more conditional component by a trigger component.",
+      "provider": {
+        "name": "Universidad de Chile",
+        "url": "https://eol.uchile.cl/",
+        "logo": "https://eol.uchile.cl/static/eol-uchile-2020/images/logo.f09bd38cb6bf.png"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/eol-uchile/eol-conditional-xblock/raw/master/eolconditional/examples/09-09-2019.png",
+        "https://escudouchile.files.wordpress.com/2012/06/escudo-universidad-de-chile-color-11.png"
+      ]
+    },
+    {
+      "name": "FilesManager Xblock",
+      "slug": "filesmanager-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "XBlock FileManager is a file storage and management tool that simplifies the process of managing and sharing course materials on the EOX virtual learning environment. It also supports collaboration an…",
+      "description_long": "# FilesManager Xblock\n\nXBlock FileManager is a file storage and management tool that simplifies the process of managing and sharing course materials on the EOX virtual learning environment. It also supports collaboration and makes it convenient for students to access necessary materials.",
+      "provider": {
+        "name": "edunext",
+        "url": "https://www.edunext.co",
+        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://www.edunext.co/wp-content/uploads/2023/10/Files-Manager-XBlock.webp"
+      ]
+    },
+    {
+      "name": "Flow Control Xblock",
+      "slug": "flow-control-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "A multi unit conditional module for Open edX.",
+      "description_long": "# Flow Control Xblock\n\nA multi unit conditional module for Open edX.\n\n## Links\n- **Docs**: https://github.com/eduNEXT/flow-control-xblock\n- **Product**: https://www.edunext.co/articles/flow-control-xblock/",
+      "provider": {
+        "name": "edunext",
+        "url": "https://www.edunext.co",
+        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
+      },
+      "repo_url": "https://www.edunext.co/articles/flow-control-xblock/",
+      "license": "AGPL",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://public.docs.edunext.co/en/latest/_images/flow_control_unit.png"
+      ]
+    },
+    {
+      "name": "Free text response",
+      "slug": "free-text-response",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock that makes it possible for instructors to create questions that expect a free-text response.",
+      "description_long": "# Free text response\n\nAn XBlock that makes it possible for instructors to create questions that expect a free-text response.\n\n## Links\n- **Docs**: https://github.com/Stanford-Online/xblock-free-text-response\n- **Product**: https://github.com/Stanford-Online/xblock-free-text-response",
+      "provider": {
+        "name": "Stanford Online",
+        "url": "https://github.com/Stanford-Online",
+        "logo": "https://www.edunext.co/wp-content/uploads/2023/08/stanford-online-logo.png"
+      },
+      "repo_url": "https://github.com/Stanford-Online/xblock-free-text-response",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://user-images.githubusercontent.com/645156/48679153-382e1a00-eb95-11e8-9f1b-55e7b58b1247.png"
+      ]
+    },
+    {
+      "name": "Google calendar XBlock",
+      "slug": "google-calendar-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock to embed the Google calendar tool into a course.",
+      "description_long": "# Google calendar XBlock\n\nAn XBlock to embed the Google calendar tool into a course.\n\n## Links\n- **Docs**: https://github.com/openedx/xblock-google-drive\n- **Product**: http://edx.readthedocs.org/projects/edx-partner-course-staff/en/latest/exercises_tools/google_calendar.html",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "http://edx.readthedocs.org/projects/edx-partner-course-staff/en/latest/exercises_tools/google_calendar.html",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/named-release-cypress/_images/google-calendar-studio.png"
+      ]
+    },
+    {
+      "name": "Google docs xblock",
+      "slug": "google-docs-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock allows embedding of Google documents and calendar, within an edX course.",
+      "description_long": "# Google docs xblock\n\nAn XBlock allows embedding of Google documents and calendar, within an edX course.\n\n## Links\n- **Docs**: https://github.com/edx-solutions/xblock-google-drive\n- **Product**: https://github.com/edx-solutions/xblock-google-drive",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "https://github.com/edx-solutions/xblock-google-drive",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://d33v4339jhl8k0.cloudfront.net/docs/assets/54d1aac1e4b034c37ea8d1d8/images/5d79594f2c7d3a7e9ae10b1b/file-2cFNt05Mvc.png"
+      ]
+    },
+    {
+      "name": "Group Project",
+      "slug": "group-project",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "A team collaboration tooll that allows students to work together on an assignment that will be graded.",
+      "description_long": "# Group Project\n\nA team collaboration tooll that allows students to work together on an assignment that will be graded.\n\n## Links\n- **Docs**: https://github.com/open-craft/xblock-group-project-v2/blob/master/docs/authoring.md\n- **Product**: https://github.com/open-craft/xblock-group-project-v2/blob/master/docs/authoring.md",
+      "provider": {
+        "name": "OpenCraft",
+        "url": "https://opencraft.com/",
+        "logo": "https://avatars.githubusercontent.com/u/7414786?s=200&v=4"
+      },
+      "repo_url": "https://github.com/open-craft/xblock-group-project-v2/blob/master/docs/authoring.md",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/open-craft/xblock-group-project-v2/raw/master/docs/images/studio_edit1.png"
+      ]
+    },
+    {
+      "name": "H5p Xblock",
+      "slug": "h5p-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "H5P Xblock provides ability to host and play H5P content in open edX. It has few more features Ability to mark H5P content complete in open edX, Ability to capture score of H5P content in open edX, Sa…",
+      "description_long": "# H5p Xblock\n\nH5P Xblock provides ability to host and play H5P content in open edX. It has few more features Ability to mark H5P content complete in open edX, Ability to capture score of H5P content in open edX, Save learner state which can be retrieved later, Ability to host H5P content on cloud storage like AWS S3\n\n## Links\n- **Docs**: https://github.com/edly-io/h5pxblock\n- **Product**: https://github.com/edly-io/h5pxblock",
+      "provider": {
+        "name": "edly",
+        "url": "https://edly.io/",
+        "logo": "https://avatars.githubusercontent.com/u/47846473?s=280&v=4"
+      },
+      "repo_url": "https://github.com/edly-io/h5pxblock",
+      "license": ", scope: \"Advanced learning tools\", type: \"XBlock\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/edly-io/h5pxblock/raw/master/docs/images/upload_content.png"
+      ]
+    },
+    {
+      "name": "Image Explorer XBlock",
+      "slug": "image-explorer-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock that course authors to use an image with hotspots in a course.",
+      "description_long": "# Image Explorer XBlock\n\nAn XBlock that course authors to use an image with hotspots in a course.\n\n## Links\n- **Docs**: https://github.com/openedx/xblock-image-explorer\n- **Product**: https://github.com/openedx/xblock-image-explorer",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "https://github.com/openedx/xblock-image-explorer",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://raw.githubusercontent.com/openedx/xblock-image-explorer/3b67392a73edcd606f4e3fb30cfa8b3cc20720d3/doc/img/student-view.png"
+      ]
+    },
+    {
+      "name": "Image Modal XBlock",
+      "slug": "image-modal-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "A full-screen image modal XBlock",
+      "description_long": "# Image Modal XBlock\n\nA full-screen image modal XBlock",
+      "provider": {
+        "name": "Stanford Online",
+        "url": "https://github.com/Stanford-Online",
+        "logo": "https://www.edunext.co/wp-content/uploads/2023/08/stanford-online-logo.png"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://public.docs.edunext.co/en/latest/_images/imagemodal6.png"
+      ]
+    },
+    {
+      "name": "ImagesGallery XBlock",
+      "slug": "imagesgallery-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "XBlock ImagesGallery is an easy-to-use tool for uploading and organizing images on the EOX virtual learning environment. It helps in creating a more engaging and interactive learning experience for st…",
+      "description_long": "# ImagesGallery XBlock\n\nXBlock ImagesGallery is an easy-to-use tool for uploading and organizing images on the EOX virtual learning environment. It helps in creating a more engaging and interactive learning experience for students and supports collaboration among users.",
+      "provider": {
+        "name": "edunext",
+        "url": "https://www.edunext.co",
+        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://www.edunext.co/wp-content/uploads/2023/10/Images-gallery.webp"
+      ]
+    },
+    {
+      "name": "In video quiz",
+      "slug": "in-video-quiz",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock that allows for edX components to be displayed to users inside of videos at specific time points.",
+      "description_long": "# In video quiz\n\nAn XBlock that allows for edX components to be displayed to users inside of videos at specific time points.\n\n## Links\n- **Docs**: https://github.com/Stanford-Online/xblock-in-video-quiz\n- **Product**: https://github.com/Stanford-Online/xblock-in-video-quiz",
+      "provider": {
+        "name": "Stanford Online",
+        "url": "https://github.com/Stanford-Online",
+        "logo": "https://www.edunext.co/wp-content/uploads/2023/08/stanford-online-logo.png"
+      },
+      "repo_url": "https://github.com/Stanford-Online/xblock-in-video-quiz",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "Inline Dropdown",
+      "slug": "inline-dropdown",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock provides a way to place dropdown questions inline with other text, for example, in a paragraph.",
+      "description_long": "# Inline Dropdown\n\nAn XBlock provides a way to place dropdown questions inline with other text, for example, in a paragraph.\n\n## Links\n- **Docs**: https://github.com/openlearninginitiative/xblock-inline-dropdown\n- **Product**: https://github.com/openlearninginitiative/xblock-inline-dropdown",
+      "provider": {
+        "name": "Open learning initiative",
+        "url": ", vendor_logo_image:",
+        "logo": ""
+      },
+      "repo_url": "https://github.com/openlearninginitiative/xblock-inline-dropdown",
+      "license": ", scope: \"Gradable activities\", type: \"XBlock\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://www.edunext.co/wp-content/uploads/2023/11/submitted.png"
+      ]
+    },
+    {
+      "name": "JSME Molecular Editor",
+      "slug": "jsme-molecular-editor",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "edx-jsme is an XBlock (add on component) for the edX platform which provides a new problem type: 'Molecular Structure'. This problem type integrates the JSME molecule editor seamlessly into an edX cou…",
+      "description_long": "# JSME Molecular Editor\n\nedx-jsme is an XBlock (add on component) for the edX platform which provides a new problem type: 'Molecular Structure'. This problem type integrates the JSME molecule editor seamlessly into an edX course.",
+      "provider": {
+        "name": "Jazkarta",
+        "url": ", vendor_logo_image:",
+        "logo": ""
+      },
+      "repo_url": "",
+      "license": ", scope: \"gradable activities\", type: \"XBlock\", details: \"A molecular structure problem type\", product_link: \"https://github.com/jazkarta/edx-jsme\" , docs_link: \"https://github.com/jazkarta/edx-jsme",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/open-release-nutmeg.master/_images/Molecule_Editor.png"
+      ]
+    },
+    {
+      "name": "Jupyter",
+      "slug": "jupyter",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock to display and manage Jupyter Notebooks.",
+      "description_long": "# Jupyter\n\nAn XBlock to display and manage Jupyter Notebooks.\n\n## Links\n- **Docs**: https://github.com/proversity-org/jupyter-xblock\n- **Product**: https://github.com/proversity-org/jupyter-xblock",
+      "provider": {
+        "name": "Raccoon Gang",
+        "url": "https://raccoongang.com/",
+        "logo": "https://raccoongang.com/media/uploads/2019/04/25/raccoon_logo_200x200px.png"
+      },
+      "repo_url": "https://github.com/proversity-org/jupyter-xblock",
+      "license": ", scope: \"Advanced learning tools\", type: \"XBlock\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "Jupyter Notebook viewer",
+      "slug": "jupyter-notebook-viewer",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "Fetch and display part of, or an entire Jupyter Notebook in an XBlock.",
+      "description_long": "# Jupyter Notebook viewer\n\nFetch and display part of, or an entire Jupyter Notebook in an XBlock.",
+      "provider": {
+        "name": "IBL education",
+        "url": "https://ibleducation.com/",
+        "logo": "https://workablehr.s3.amazonaws.com/uploads/account/logo/342367/logo"
+      },
+      "repo_url": "",
+      "license": "BSD-3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/ibleducation/jupyter-viewer-xblock/raw/master/demo-thumbnail.png"
+      ]
+    },
+    {
+      "name": "Mind Map XBlock",
+      "slug": "mind-map-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "Mind Map XBlock is a pluggable extension to the Open edX platform that allows course creators to build a learning experience in which students can visualize and easily edit Mind Maps within a course u…",
+      "description_long": "# Mind Map XBlock\n\nMind Map XBlock is a pluggable extension to the Open edX platform that allows course creators to build a learning experience in which students can visualize and easily edit Mind Maps within a course unit. It leverages the jsMind open source JavaScript library to visualize and edit mind maps on htmls canvas and svg.The Mind Map Xblock component can be used to build and display a mind map for learners to explore a particular concept, or to have learners build their own Mind map which can then be graded by course staff members.",
+      "provider": {
+        "name": "edunext",
+        "url": "https://www.edunext.co",
+        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://www.edunext.co/wp-content/uploads/2023/10/Mind-Map-Xblock.webp"
+      ]
+    },
+    {
+      "name": "Peer instruction tool",
+      "slug": "peer-instruction-tool",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "The peer instruction tool emulates the classroom experience for the learners in an online course.",
+      "description_long": "# Peer instruction tool\n\nThe peer instruction tool emulates the classroom experience for the learners in an online course.\n\n## Links\n- **Docs**: https://github.com/ubc/ubcpi\n- **Product**: https://github.com/ubc/ubcpi",
+      "provider": {
+        "name": "UBC - University of British Columbia",
+        "url": "https://github.com/ubc/",
+        "logo": "https://avatars.githubusercontent.com/u/1396118?s=200&v=4"
+      },
+      "repo_url": "https://github.com/ubc/ubcpi",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/_images/peer_instruction_studio.png"
+      ]
+    },
+    {
+      "name": "Poll & Survey XBlock - poll",
+      "slug": "poll-survey-xblock-poll",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "XBlock that enables a course author to create poll elements to get feedback from students",
+      "description_long": "# Poll & Survey XBlock - poll\n\nXBlock that enables a course author to create poll elements to get feedback from students\n\n## Links\n- **Docs**: https://github.com/open-craft/xblock-poll\n- **Product**: https://github.com/open-craft/xblock-poll",
+      "provider": {
+        "name": "OpenCraft",
+        "url": "https://opencraft.com/",
+        "logo": "https://avatars.githubusercontent.com/u/7414786?s=200&v=4"
+      },
+      "repo_url": "https://github.com/open-craft/xblock-poll",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/open-craft/xblock-poll/raw/master/doc_img/poll.png"
+      ]
+    },
+    {
+      "name": "Poll & Survey XBlock - survey",
+      "slug": "poll-survey-xblock-survey",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "XBlock that enables a course author to create survey elements to get feedback from students",
+      "description_long": "# Poll & Survey XBlock - survey\n\nXBlock that enables a course author to create survey elements to get feedback from students",
+      "provider": {
+        "name": "OpenCraft",
+        "url": "https://opencraft.com/",
+        "logo": "https://avatars.githubusercontent.com/u/7414786?s=200&v=4"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/open-craft/xblock-poll/raw/master/doc_img/survey_result.png"
+      ]
+    },
+    {
+      "name": "Problem builder XBlock",
+      "slug": "problem-builder-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock to create questions of various types.",
+      "description_long": "# Problem builder XBlock\n\nAn XBlock to create questions of various types.\n\n## Links\n- **Docs**: https://github.com/open-craft/problem-builder\n- **Product**: https://github.com/open-craft/problem-builder",
+      "provider": {
+        "name": "OpenCraft",
+        "url": "https://opencraft.com/",
+        "logo": "https://avatars.githubusercontent.com/u/7414786?s=200&v=4"
+      },
+      "repo_url": "https://github.com/open-craft/problem-builder",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/open-craft/problem-builder/raw/master/doc/img/mentoring-example.png"
+      ]
+    },
+    {
+      "name": "Recommender tool",
+      "slug": "recommender-tool",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock that shows students a list of recommended resources for a given problem",
+      "description_long": "# Recommender tool\n\nAn XBlock that shows students a list of recommended resources for a given problem\n\n## Links\n- **Docs**: https://github.com/openedx/RecommenderXBlock\n- **Product**: https://github.com/openedx/RecommenderXBlock",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "https://github.com/openedx/RecommenderXBlock",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/openedx/RecommenderXBlock/raw/master/recommender_xblock.png"
+      ]
+    },
+    {
+      "name": "SCORM XBlock",
+      "slug": "scorm-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock for Open edX to support SCORM packages",
+      "description_long": "# SCORM XBlock\n\nAn XBlock for Open edX to support SCORM packages\n\n## Links\n- **Docs**: https://github.com/Abstract-Tech/abstract-scorm-xblock\n- **Product**: https://github.com/Abstract-Tech/abstract-scorm-xblock",
+      "provider": {
+        "name": "Abstract-Technology",
+        "url": "https://abstract-technology.com/",
+        "logo": "https://abstract-technology.com/web/image/website/1/logo/Abstract-Technology%20Website?unique=812294d"
+      },
+      "repo_url": "https://github.com/Abstract-Tech/abstract-scorm-xblock",
+      "license": "Apache",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "SCORM XBlock",
+      "slug": "scorm-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock to display SCORM content within the Open edX LMS and Studio. It will save student state and report scores to the progress tab of the course. Currently supports SCORM 1.2 and SCORM 2004 stand…",
+      "description_long": "# SCORM XBlock\n\nAn XBlock to display SCORM content within the Open edX LMS and Studio. It will save student state and report scores to the progress tab of the course. Currently supports SCORM 1.2 and SCORM 2004 standard.\n\n## Links\n- **Docs**: https://github.com/overhangio/openedx-scorm-xblock/\n- **Product**: https://github.com/overhangio/openedx-scorm-xblock/",
+      "provider": {
+        "name": "Overhang.IO",
+        "url": "https://overhang.io/",
+        "logo": "https://overhang.io/static/img/Overhang.IO-small.png"
+      },
+      "repo_url": "https://github.com/overhangio/openedx-scorm-xblock/",
+      "license": "AGPL",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/overhangio/openedx-scorm-xblock/raw/master/screenshots/studio.png"
+      ]
+    },
+    {
+      "name": "SCORM XBlock",
+      "slug": "scorm-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock allowing adding graded and ungraded quizzes and other SCORM 1.2-compliant objects to Open edX.",
+      "description_long": "# SCORM XBlock\n\nAn XBlock allowing adding graded and ungraded quizzes and other SCORM 1.2-compliant objects to Open edX.",
+      "provider": {
+        "name": "Raccoon Gang",
+        "url": "https://raccoongang.com/",
+        "logo": "https://raccoongang.com/media/uploads/2019/04/25/raccoon_logo_200x200px.png"
+      },
+      "repo_url": "",
+      "license": ", scope: \"Advanced learning tools\", type: \"XBlock\", details: \"Allows to include SCORM 1.2 and SCORM 2004 components into a course unit. \", product_link: \"https://raccoongang.com/blog/scorm-2004-xblock-raccoon-gang/\" , docs_link: \"https://github.com/raccoongang/edx_xblock_scorm",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "Crowdsource Hinter XBlock",
+      "slug": "crowdsource-hinter-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "The Crowdsource Hinter serves to provide students with hints when they incorrectly answer a problem within a course. The hinter is compatible with numerical input and text input type problems.",
+      "description_long": "# Crowdsource Hinter XBlock\n\nThe Crowdsource Hinter serves to provide students with hints when they incorrectly answer a problem within a course. The hinter is compatible with numerical input and text input type problems.",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/openedx/crowdsourcehinter/raw/master/crowdsourcehinter_hint.png"
+      ]
+    },
+    {
+      "name": "xqueue",
+      "slug": "xqueue",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "XQueue defines an interface for the LMS to communicate with external grader services. For example, when a student submits a problem in the LMS, it gets sent to the XQueue. The XQueue then has the prob…",
+      "description_long": "# xqueue\n\nXQueue defines an interface for the LMS to communicate with external grader services. For example, when a student submits a problem in the LMS, it gets sent to the XQueue. The XQueue then has the problem graded by an external service and sends the response back to the LMS.",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "Staff Graded Assignments",
+      "slug": "staff-graded-assignments",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This component, also referred to as SGA, allows you to have students upload a file that can be manually graded by the instructor",
+      "description_long": "# Staff Graded Assignments\n\nThis component, also referred to as SGA, allows you to have students upload a file that can be manually graded by the instructor\n\n## Links\n- **Docs**: https://github.com/openedx/staff_graded-xblock\n- **Product**: https://github.com/openedx/staff_graded-xblock",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "https://github.com/openedx/staff_graded-xblock",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://raw.githubusercontent.com/mitodl/edx-sga/screenshots/img/screenshot-lms-before-upload.png"
+      ]
+    },
+    {
+      "name": "Submit and Compare",
+      "slug": "submit-and-compare",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This XBlock provides a way to create an ungraded self assessment activity.",
+      "description_long": "# Submit and Compare\n\nThis XBlock provides a way to create an ungraded self assessment activity.",
+      "provider": {
+        "name": "Stanford Online",
+        "url": "https://github.com/Stanford-Online",
+        "logo": "https://www.edunext.co/wp-content/uploads/2023/08/stanford-online-logo.png"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/Stanford-Online/xblock-submit-and-compare/raw/master/docs/img/submitted.png"
+      ]
+    },
+    {
+      "name": "Vector Drawing",
+      "slug": "vector-drawing",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This XBlock allows course authors to create vector drawing exercises within a course.",
+      "description_long": "# Vector Drawing\n\nThis XBlock allows course authors to create vector drawing exercises within a course.",
+      "provider": {
+        "name": "OpenCraft",
+        "url": "https://opencraft.com/",
+        "logo": "https://avatars.githubusercontent.com/u/7414786?s=200&v=4"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://public.docs.edunext.co/en/latest/_images/vd_edit.png"
+      ]
+    },   
+    {
+      "name": "split test",
+      "slug": "split-test",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "XBlock that allows the creation of A/B test",
+      "description_long": "# split test\n\nXBlock that allows the creation of A/B test",
+      "provider": {
+        "name": "edX.org",
+        "url": "https://www.edx.org/es",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/EdX_newer_logo.svg/1200px-EdX_newer_logo.svg.png"
+      },
+      "repo_url": "",
+      "license": ", scope: \"Course content type\", type: \"XBlock\", details: \"allows to make A/B tests\", product_link: \"https://edx.readthedocs.io/projects/edx-partner-course-staff/en/latest/course_features/content_experiments/content_experiments_add.html\" , docs_link: \"https://edx.readthedocs.io/projects/edx-partner-course-staff/en/latest/course_features/content_experiments/content_experiments_add.html",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://edx.readthedocs.io/projects/edx-partner-course-staff/en/latest/_images/inactive_groups.png"
+      ]
+    },  
+    {
+      "name": "Voice recognizer XBlock",
+      "slug": "voice-recognizer-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This XBlock allows students to recognize his voice and he can see the what he spoke.",
+      "description_long": "# Voice recognizer XBlock\n\nThis XBlock allows students to recognize his voice and he can see the what he spoke.\n\n## Links\n- **Docs**: https://github.com/perpetualny/voicerecxblock\n- **Product**: https://github.com/perpetualny/voicerecxblock",
+      "provider": {
+        "name": "Perpetual Learning",
+        "url": "https://www.perpetualny.com/",
+        "logo": "https://media.designrush.com/agencies/314721/conversions/Perpetual-logo-profile.jpg"
+      },
+      "repo_url": "https://github.com/perpetualny/voicerecxblock",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "Ai coach",
+      "slug": "ai-coach",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "AI Coach Xblock helps learner in improving their answers by levering power of AI. It evaluates open response answer of a question using Open AI and provides feedback to learner.",
+      "description_long": "# Ai coach\n\nAI Coach Xblock helps learner in improving their answers by levering power of AI. It evaluates open response answer of a question using Open AI and provides feedback to learner.\n\n## Links\n- **Docs**: \"",
+      "provider": {
+        "name": "edly",
+        "url": "https://edly.io/",
+        "logo": "https://avatars.githubusercontent.com/u/47846473?s=280&v=4"
+      },
+      "repo_url": "\"",
+      "license": "GPL",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "ChatGPT Xblock",
+      "slug": "chatgpt-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "The ChatGPT XBlock is integrated as a component into Open edX® online courses at the unit level, so learners can access it directly from the course interface. A learner simply inputs a question and cl…",
+      "description_long": "# ChatGPT Xblock\n\nThe ChatGPT XBlock is integrated as a component into Open edX® online courses at the unit level, so learners can access it directly from the course interface. A learner simply inputs a question and clicks the Submit button. ChatGPT will then analyze the question and provide a response based on its understanding of the topic, and as it’s powered by AI it can provide answers to a wide range of questions, from simple queries to complex problems. One of the key benefits of the ChatGPT XBlock is that it can be trained to focus only on the course subject. In other words, ChatGPT will only answer questions related to the course topic, ensuring that students receive accurate and relevant information. The component can be inserted multiple times across the course in different units, with each component being provided a unique context so that it provides answers in said context.\n\n## Links\n- **Product**: , docs_link:",
+      "provider": {
+        "name": "Abc online",
+        "url": "https://abconlinecourses.com/",
+        "logo": "https://abconlinecourses.com/wp-content/uploads/2020/09/abc-online-courses-logo.png"
+      },
+      "repo_url": " , docs_link: ",
+      "license": ", scope: \"Ai tools\", type: \"XBlock\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "Carousel",
+      "slug": "carousel",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This XBlock allows Course authors to author content which can be displayed on multiple slides. Each slide can contain combination of Text and Image content.",
+      "description_long": "# Carousel\n\nThis XBlock allows Course authors to author content which can be displayed on multiple slides. Each slide can contain combination of Text and Image content.\n\n## Links\n- **Docs**: https://github.com/edly-io/carousel-xblock\n- **Product**: https://github.com/edly-io/carousel-xblock",
+      "provider": {
+        "name": "edly",
+        "url": "https://edly.io/",
+        "logo": "https://avatars.githubusercontent.com/u/47846473?s=280&v=4"
+      },
+      "repo_url": "https://github.com/edly-io/carousel-xblock",
+      "license": ", scope: \"Advanced learning tools\", type: \"XBlock\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "Sortable",
+      "slug": "sortable",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock that implements sorting problem. Learners have to sort items by dragging them at their correct position. Authors can define items and their correct order from studio. This Xblock also suppor…",
+      "description_long": "# Sortable\n\nAn XBlock that implements sorting problem. Learners have to sort items by dragging them at their correct position. Authors can define items and their correct order from studio. This Xblock also supports grading.\n\n## Links\n- **Docs**: https://github.com/edly-io/xblock-sortable\n- **Product**: https://github.com/edly-io/xblock-sortable",
+      "provider": {
+        "name": "edly",
+        "url": "https://edly.io/",
+        "logo": "https://avatars.githubusercontent.com/u/47846473?s=280&v=4"
+      },
+      "repo_url": "https://github.com/edly-io/xblock-sortable",
+      "license": ", scope: \"Advanced learning tools\", type: \"XBlock\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/edly-io/xblock-sortable/raw/master/docs/studio-view.png"
+      ]
+    },
+    {
+      "name": "Know Wonder Learn",
+      "slug": "know-wonder-learn",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This XBlock enables learners to organize their thoughts and expectations before starting a course. Specifically, learners can use this component to identify what they already know about the course con…",
+      "description_long": "# Know Wonder Learn\n\nThis XBlock enables learners to organize their thoughts and expectations before starting a course. Specifically, learners can use this component to identify what they already know about the course content, as well as what they are curious to learn. Once the course is completed, learners can revisit their initial thoughts and assess what they actually learned. They can then move each point into a third category called Learned which showcases the knowledge they gained through the course.\n\n## Links\n- **Docs**: https://github.com/edly-io/kwl-xblock\n- **Product**: https://github.com/edly-io/kwl-xblock",
+      "provider": {
+        "name": "edly",
+        "url": "https://edly.io/",
+        "logo": "https://avatars.githubusercontent.com/u/47846473?s=280&v=4"
+      },
+      "repo_url": "https://github.com/edly-io/kwl-xblock",
+      "license": ", scope: \"Advanced learning tools\", type: \"XBlock\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/edly-io/kwl-xblock/raw/main/assets/xblock-end.png"
+      ]
+    },
+    {
+      "name": "Feedback Xblock",
+      "slug": "feedback-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "The FeedbackXBlock encourages learners to reflect on their learning experiences and allows instructors to capture feedback from learners. Feedback is provided as sentiment on a predefined scale and fr…",
+      "description_long": "# Feedback Xblock\n\nThe FeedbackXBlock encourages learners to reflect on their learning experiences and allows instructors to capture feedback from learners. Feedback is provided as sentiment on a predefined scale and free text feedback. Feedback can be aggregated by instructors to understand which parts of a course work well and which parts work poorly.",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "MITx grading library",
+      "slug": "mitx-grading-library",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "A library of graders for edX Custom Response problems.",
+      "description_long": "# MITx grading library\n\nA library of graders for edX Custom Response problems.",
+      "provider": {
+        "name": "MIT Office of distant learning",
+        "url": "https://openlearning.mit.edu/",
+        "logo": "https://ocw.mit.edu/static_shared/images/mit-ol.8713e4407efc8841e4f2.png"
+      },
+      "repo_url": "",
+      "license": "BSD-3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "Hx JS",
+      "slug": "hx-js",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This project collects a large number of javascript and css tricks that have been used in various HX courses and puts them all in one place so that they're easier to implement.",
+      "description_long": "# Hx JS\n\nThis project collects a large number of javascript and css tricks that have been used in various HX courses and puts them all in one place so that they're easier to implement.\n\n## Links\n- **Docs**: https://github.com/Colin-Fredericks/hx-js\n- **Product**: https://github.com/Colin-Fredericks/hx-js",
+      "provider": {
+        "name": "HarvardX",
+        "url": "https://vpal.harvard.edu/harvardx/",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/7/70/Harvard_University_logo.svg"
+      },
+      "repo_url": "https://github.com/Colin-Fredericks/hx-js",
+      "license": ", scope: \"Advanced learning tools\", type: \"utils libraries\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "Hx xml",
+      "slug": "hx-xml",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This is a set of batch tools to work directly with a course export (the file structure, not the tarball) or with .srt files.",
+      "description_long": "# Hx xml\n\nThis is a set of batch tools to work directly with a course export (the file structure, not the tarball) or with .srt files.\n\n## Links\n- **Docs**: https://github.com/Colin-Fredericks/hx-xml\n- **Product**: https://github.com/Colin-Fredericks/hx-xml",
+      "provider": {
+        "name": "HarvardX",
+        "url": "https://vpal.harvard.edu/harvardx/",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/7/70/Harvard_University_logo.svg"
+      },
+      "repo_url": "https://github.com/Colin-Fredericks/hx-xml",
+      "license": ", scope: \"Advanced learning tools\", type: \"utils libraries\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "Hx py",
+      "slug": "hx-py",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This project collects the python grading functions that have been used in various HX courses and puts them all in one place so that they're easier to implement.",
+      "description_long": "# Hx py\n\nThis project collects the python grading functions that have been used in various HX courses and puts them all in one place so that they're easier to implement.\n\n## Links\n- **Docs**: https://github.com/Colin-Fredericks/hx-py\n- **Product**: https://github.com/Colin-Fredericks/hx-py",
+      "provider": {
+        "name": "HarvardX",
+        "url": "https://vpal.harvard.edu/harvardx/",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/7/70/Harvard_University_logo.svg"
+      },
+      "repo_url": "https://github.com/Colin-Fredericks/hx-py",
+      "license": ", scope: \"Advanced learning tools\", type: \"utils libraries\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "Hx utils",
+      "slug": "hx-utils",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This is a set of batch tools to work directly with a course export (the file structure, not the tarball) or with .srt files.",
+      "description_long": "# Hx utils\n\nThis is a set of batch tools to work directly with a course export (the file structure, not the tarball) or with .srt files.\n\n## Links\n- **Docs**: https://github.com/Colin-Fredericks/hx_util\n- **Product**: https://github.com/Colin-Fredericks/hx_util",
+      "provider": {
+        "name": "HarvardX",
+        "url": "https://vpal.harvard.edu/harvardx/",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/7/70/Harvard_University_logo.svg"
+      },
+      "repo_url": "https://github.com/Colin-Fredericks/hx_util",
+      "license": ", scope: \"Advanced learning tools\", type: \"utils libraries\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "Skill tagging xblock",
+      "slug": "skill-tagging-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "Django app for fetching and verifying tags/skills for video and vertical/unit XBlocks. It implements two openedx_filters pipelines to inject a form into the end unit XBlocks and video XBlocks",
+      "description_long": "# Skill tagging xblock\n\nDjango app for fetching and verifying tags/skills for video and vertical/unit XBlocks. It implements two openedx_filters pipelines to inject a form into the end unit XBlocks and video XBlocks\n\n## Links\n- **Docs**: https://github.com/openedx/xblock-skill-tagging\n- **Product**: https://github.com/openedx/xblock-skill-tagging",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "https://github.com/openedx/xblock-skill-tagging",
+      "license": ", scope: \"Advanced learning tools\", type: \"XBlock\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://user-images.githubusercontent.com/10894099/210078679-3cbac3d1-55a7-4fba-b841-7fb4468f32c5.png"
+      ]
+    },
+    {
+      "name": "Qualtrics Surveuy",
+      "slug": "qualtrics-surveuy",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "XBlock to ease linking to Qualtrics surveys.",
+      "description_long": "# Qualtrics Surveuy\n\nXBlock to ease linking to Qualtrics surveys.\n\n## Links\n- **Docs**: https://github.com/openedx/xblock-qualtrics-survey\n- **Product**: https://github.com/openedx/xblock-qualtrics-survey",
+      "provider": {
+        "name": "Stanford Online",
+        "url": "https://github.com/Stanford-Online",
+        "logo": "https://www.edunext.co/wp-content/uploads/2023/08/stanford-online-logo.png"
+      },
+      "repo_url": "https://github.com/openedx/xblock-qualtrics-survey",
+      "license": ", scope: \"Advanced learning tools\", type: \"3rd party Tool integrated via XBlock\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/_images/Qualtrics.png",
+        "https://global.discourse-cdn.com/business7/uploads/openedx/optimized/2X/3/31ee9495a0f47b7d6f0e649a37a83f66375d37d3_2_690x345.png"
+      ]
+    },
+    {
+      "name": "Audio Xblock",
+      "slug": "audio-xblock",
+      "type": "courseware-native",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This is a simple XBlock which will play audio files as an HTML5 audio element. If unavailable, it will fall back to an embed element.",
+      "description_long": "# Audio Xblock\n\nThis is a simple XBlock which will play audio files as an HTML5 audio element. If unavailable, it will fall back to an embed element.\n\n## Links\n- **Docs**: https://github.com/openedx/AudioXBlock\n- **Product**: https://github.com/openedx/AudioXBlock",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "https://github.com/openedx/AudioXBlock",
+      "license": ", scope: \"Advanced learning tools\", type: \"XBlock\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "badgr XBlock",
+      "slug": "badgr-xblock",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "The badgr-xblock communicates with the Badgr API, and awards badges based on a passing grade for a specified subsection in a course.",
+      "description_long": "# badgr XBlock\n\nThe badgr-xblock communicates with the Badgr API, and awards badges based on a passing grade for a specified subsection in a course.\n\n## Links\n- **Docs**: https://github.com/proversity-org/badgr-xblock\n- **Product**: https://github.com/proversity-org/badgr-xblock",
+      "provider": {
+        "name": "Construct education",
+        "url": "http://www.constructeducation.com/",
+        "logo": "https://i0.wp.com/constructeducation.com/wp-content/uploads/2021/05/Construct_Logo_Full_Black_White_BG.jpg"
+      },
+      "repo_url": "https://github.com/proversity-org/badgr-xblock",
+      "license": ", scope: \"Badges or credentials solutions\", type: \"3rd party Tool integrated via XBlock\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "Bibblio XBlock",
+      "slug": "bibblio-xblock",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock that allows easy inclusion of Bibblio content recommendation module as a courseware component.",
+      "description_long": "# Bibblio XBlock\n\nAn XBlock that allows easy inclusion of Bibblio content recommendation module as a courseware component.\n\n## Links\n- **Docs**: https://github.com/proversity-org/edx-xblock-bibblio\n- **Product**: https://github.com/proversity-org/edx-xblock-bibblio",
+      "provider": {
+        "name": "Construct education",
+        "url": "http://www.constructeducation.com/",
+        "logo": "https://i0.wp.com/constructeducation.com/wp-content/uploads/2021/05/Construct_Logo_Full_Black_White_BG.jpg"
+      },
+      "repo_url": "https://github.com/proversity-org/edx-xblock-bibblio",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "BigBlueButton",
+      "slug": "bigbluebutton",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "Open source web conferencing system for online learning",
+      "description_long": "# BigBlueButton\n\nOpen source web conferencing system for online learning",
+      "provider": {
+        "name": "Blindside Networks",
+        "url": "https://blindsidenetworks.com/",
+        "logo": "https://blindsidenetworks.com/wp-content/uploads/2021/04/cropped-bn_logo-02.png"
+      },
+      "repo_url": "",
+      "license": "LGPL",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://bigbluebutton.org/wp-content/uploads/2021/01/bigbluebutton-logo-p44ds2csv8278se0rpzkcti90c9n48cgkan8r8rhum.png"
+      ]
+    },
+    {
+      "name": "Codegrade",
+      "slug": "codegrade",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "A blended learning application designed especially for programming education. It makes grading and handing in programming exercises more insightful and effective for students and more efficient for te…",
+      "description_long": "# Codegrade\n\nA blended learning application designed especially for programming education. It makes grading and handing in programming exercises more insightful and effective for students and more efficient for teachers, by providing an online environment carefully designed to specifically suit the needs of modern programming education.",
+      "provider": {
+        "name": "Codegrade",
+        "url": "https://www.codegrade.com/",
+        "logo": "https://i.ytimg.com/vi/9PjglfePlM4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAEekiRUj7P0abZvWyMl4_Ax4QpNw"
+      },
+      "repo_url": "",
+      "license": "Commercial",
+      "price": "paid",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://uploads-ssl.webflow.com/5e83abdce8b19d90ac8ad20e/5ea42fb5d3a80fff84c26d43_cont_feedback.png",
+        "https://uploads-ssl.webflow.com/5e83abdce8b19d90ac8ad20e/5e83ac584bfbfa67a679177f_codegrade-color.svg"
+      ]
+    },
+    {
+      "name": "Collaborate",
+      "slug": "collaborate",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "A web conferencing application with intuitive capabilities to focus on the onlearning engagement of your students.",
+      "description_long": "# Collaborate\n\nA web conferencing application with intuitive capabilities to focus on the onlearning engagement of your students.",
+      "provider": {
+        "name": "Blackboard",
+        "url": "https://www.blackboard.com",
+        "logo": "https://www.blackboard.com/themes/custom/blackboard/images/Blackboard-Logo.png"
+      },
+      "repo_url": "",
+      "license": "Commercial",
+      "price": "paid",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://www.blackboard.com/sites/default/files/styles/650w/public/2019-09/Break-Out-Groups.png"
+      ]
+    },
+    {
+      "name": "Credly",
+      "slug": "credly",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "Credly's Acclaim platform is the world's largest network of individuals and organizations using verified achievements to unlock opportunities. Join millions of professionals in sharing your achievemen…",
+      "description_long": "# Credly\n\nCredly's Acclaim platform is the world's largest network of individuals and organizations using verified achievements to unlock opportunities. Join millions of professionals in sharing your achievements online.",
+      "provider": {
+        "name": "Credly Inc.",
+        "url": "https://info.credly.com/",
+        "logo": "https://info.credly.com/hs-fs/hubfs/Credly_Logo_Orange_10-Inch.png"
+      },
+      "repo_url": "",
+      "license": "Commercial",
+      "price": "paid",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://info.credly.com/hs-fs/hubfs/Credly%20Atos%20Web%20Assets/Credly_Web-Assets_2020_BadgeExpire.png?width=1200&height=900&name=Credly_Web-Assets_2020_BadgeExpire.png",
+        "https://info.credly.com/hs-fs/hubfs/Credly_Logo_Orange_10-Inch.png"
+      ]
+    },
+    {
+      "name": "Discourse",
+      "slug": "discourse",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An open source discussion platform with dinamic notification, a simple flat forum, designed for high touch resolution devices.",
+      "description_long": "# Discourse\n\nAn open source discussion platform with dinamic notification, a simple flat forum, designed for high touch resolution devices.",
+      "provider": {
+        "name": "Discourse",
+        "url": "https://www.discourse.org/",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Discourse_logo.svg/2560px-Discourse_logo.svg.png"
+      },
+      "repo_url": "",
+      "license": "AGPL",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://foomandoonian.files.wordpress.com/2013/02/discourse-screenshot.png",
+        "https://www.discourse.org/a/img/favicon.png"
+      ]
+    },
+    {
+      "name": "H5P.com",
+      "slug": "h5p-com",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "A tool that enables educators to create content such as interactive videos, quizzes and presentations",
+      "description_long": "# H5P.com\n\nA tool  that enables educators to create content such as interactive videos, quizzes and presentations",
+      "provider": {
+        "name": "H5P group",
+        "url": "https://h5p.group/",
+        "logo": "https://onlineweb4-prod.s3.eu-north-1.amazonaws.com/media/images/responsive/md/3bc6cb63-3762-47b5-abf3-4e72041af3a0.png"
+      },
+      "repo_url": "",
+      "license": "MIT",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://h5p.org/sites/default/files/blog-post-banner_960_3_1.png",
+        "https://commons.wikimedia.org/wiki/File:H5P_Logo.svg"
+      ]
+    },
+    {
+      "name": "Smowl proctoring",
+      "slug": "smowl-proctoring",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "A proctoring solution that has gained the trust of educational institutions and organizations worldwide. Its mission is to improve the quality of online assessments.",
+      "description_long": "# Smowl proctoring\n\nA proctoring solution that has gained the trust of educational institutions and organizations worldwide. Its mission is to improve the quality of online assessments.",
+      "provider": {
+        "name": "Smowltech",
+        "url": "https://smowl.net/en/",
+        "logo": "https://www.edunext.co/wp-content/uploads/2023/11/smowl-tech.png"
+      },
+      "repo_url": "",
+      "license": "Commercial",
+      "price": "paid",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://d24jp206mxeyfm.cloudfront.net/assets/courseware/v1/fa7206704af46378a03e38ede53d2d45/asset-v1:marketplace+smowl+01+type@asset+block/smowl.png",
+        "https://d24jp206mxeyfm.cloudfront.net/asset-v1:marketplace+smowl+01+type@asset+block@smowl_image.png"
+      ]
+    },
+    {
+      "name": "Limesurvey Xblock",
+      "slug": "limesurvey-xblock",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "LimeSurvey XBlock allows a better integration between the Open edX platform and the Open source LimeSurvey service. Once the LimeSurvey component has been added and configured into a course unit, lear…",
+      "description_long": "# Limesurvey Xblock\n\nLimeSurvey XBlock allows a better integration between the Open edX platform and the Open source LimeSurvey service. Once the LimeSurvey component has been added and configured into a course unit, learners can view and complete the different surveys assigned to them. NOTE: This XBlock doesn't deploy the LimeSurvey service. It requires an external service or a service installed from the Tutor stack. If you want to install a brand new LimeSurvey service using Tutor, you can use the LimeSurvey Plugin",
+      "provider": {
+        "name": "edunext",
+        "url": "https://www.edunext.co",
+        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://www.edunext.co/wp-content/uploads/2023/10/Xblock-Limesurvey.webp"
+      ]
+    },
+    {
+      "name": "ProctorU",
+      "slug": "proctoru",
+      "type": "external tool",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This XBlock can be used to schedule a proctoring session for exams within an Open edX course.",
+      "description_long": "# ProctorU\n\nThis XBlock can be used to schedule a proctoring session for exams within an Open edX course.\n\n## Links\n- **Docs**: https://github.com/perpetualny/proctoru-xblock\n- **Product**: https://github.com/perpetualny/proctoru-xblock",
+      "provider": {
+        "name": "Perpetual Learning",
+        "url": "https://www.perpetualny.com/",
+        "logo": "https://media.designrush.com/agencies/314721/conversions/Perpetual-logo-profile.jpg"
+      },
+      "repo_url": "https://github.com/perpetualny/proctoru-xblock",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": []
+    },
+    {
+      "name": "PuMuKIT2 Opencast Video XBlock",
+      "slug": "pumukit2-opencast-video-xblock",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "This XBlocks allows to integrate PuMuKIT2 Video Platform into Open edX to add videos, upload videos, manage videos or even record personal videos.",
+      "description_long": "# PuMuKIT2 Opencast Video XBlock\n\nThis XBlocks allows to integrate PuMuKIT2 Video Platform into Open edX to add videos, upload videos, manage videos or even record personal videos.\n\n## Links\n- **Docs**: https://github.com/teltek/pumukit2-opencast-video-xblock\n- **Product**: https://github.com/teltek/pumukit2-opencast-video-xblock",
+      "provider": {
+        "name": "TELTEK Video Research",
+        "url": "https://teltek.es/",
+        "logo": "https://teltek.es/wp-content/uploads/2015/03/Logo-TELTEK-22_OK.png"
+      },
+      "repo_url": "https://github.com/teltek/pumukit2-opencast-video-xblock",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/teltek/pumukit2-opencast-video-xblock/raw/master/images/04.STUDIO.png"
+      ]
+    },    
+    {
+      "name": "Schoolyourself XBlock",
+      "slug": "schoolyourself-xblock",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An XBlock for displaying School Yourself (SY) content on the edX platform.",
+      "description_long": "# Schoolyourself XBlock\n\nAn XBlock for displaying School Yourself (SY) content on the edX platform.\n\n## Links\n- **Docs**: https://github.com/schoolyourself/schoolyourself-xblock\n- **Product**: https://schoolyourself.org/",
+      "provider": {
+        "name": "School Yourself, Inc.",
+        "url": "https://schoolyourself.org/",
+        "logo": "https://prod-discovery.edx-cdn.org/organization/logos/35d5c4f2-353a-4171-ab1f-29640d144e8e-76af7f0cb3e5.png"
+      },
+      "repo_url": "https://schoolyourself.org/",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://static.schoolyourself.org/images/demo_web.gif",
+        "https://prod-discovery.edx-cdn.org/organization/logos/35d5c4f2-353a-4171-ab1f-29640d144e8e-76af7f0cb3e5.png"
+      ]
+    },
+    {
+      "name": "Safe Exam browser plugin",
+      "slug": "safe-exam-browser-plugin",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An application to carry out e-assessments safely. It turns any computer temporarily into a secure workstation, controlling access to resources like system functions, other websites, and applications, …",
+      "description_long": "# Safe Exam browser plugin\n\nAn application to carry out e-assessments safely. It turns any computer temporarily into a secure workstation, controlling access to resources like system functions, other websites, and applications, and preventing unauthorized resources from being used during an exam.",
+      "provider": {
+        "name": "edunext",
+        "url": "https://www.edunext.co",
+        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
+      },
+      "repo_url": "",
+      "license": "AGPL",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://seb-openedx.readthedocs.io/en/latest/_images/access_denied.png"
+      ]
+    },
+    {
+      "name": "Smowl",
+      "slug": "smowl",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "An online user authentication system that uses an automatic Artificial Intelligence algorithm to verify the identity of the online user and detect suspicious behaviors throughout the whole learning pr…",
+      "description_long": "# Smowl\n\nAn online user authentication system that uses an automatic Artificial Intelligence algorithm to verify the identity of the online user and detect suspicious behaviors throughout the whole learning process",
+      "provider": {
+        "name": "Smowltech",
+        "url": "https://smowl.net/en/",
+        "logo": "https://www.edunext.co/wp-content/uploads/2023/11/smowl-tech.png"
+      },
+      "repo_url": "",
+      "license": "Commercial",
+      "price": "paid",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://smowl.net/wp-content/uploads/2023/05/imac-con-imagen-plataforma-smowl-class-1024x781.png",
+        "https://d24jp206mxeyfm.cloudfront.net/asset-v1:marketplace+smowl+01+type@asset+block@smowl_image.png"
+      ]
+    },
+    {
+      "name": "Vocareum",
+      "slug": "vocareum",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "Cloud-based learning and assessment tool for a broad range of technical courses in CS, data science, machine learning, IoT, cloud computing and cybersecurity.",
+      "description_long": "# Vocareum\n\nCloud-based learning and assessment tool for a broad range of technical courses in CS, data science, machine learning, IoT, cloud computing and cybersecurity.",
+      "provider": {
+        "name": "Vocareum",
+        "url": "https://www.vocareum.com/",
+        "logo": "https://d1.awsstatic.com/case-studies/600x400_Vocareum_Logo_Transparent.6601051ee07ec715f7d9b786ec3d51dfcb73ebc6.png"
+      },
+      "repo_url": "",
+      "license": "Commercial",
+      "price": "paid",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://www.vocareum.com/wp-content/uploads/2019/02/Vocareum-Jupyter-1030x736.gif",
+        "https://www.vocareum.com/wp-content/uploads/2020/09/Vocareum-Logo-Wordpress-300x68.png"
+      ]
+    }, 
+    {
+      "name": "VSend",
+      "slug": "vsend",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "A Video Monitoring Platform Designed to Optimize your Content's Performance. Vsend leverages automated algorithms to identify a viewer's behavior and detect specific insights which content creators ca…",
+      "description_long": "# VSend\n\nA Video Monitoring Platform Designed to Optimize your Content's Performance. Vsend leverages automated algorithms to identify a viewer's behavior and detect specific insights which content creators can leverage to optimize their audience delivery.\n\n## Links\n- **Docs**: \"",
+      "provider": {
+        "name": "Examus Inc",
+        "url": "http://vsend.us/",
+        "logo": "https://static.tildacdn.com/tild6531-6263-4138-a663-336432383033/examus_60.png"
+      },
+      "repo_url": "\"",
+      "license": "Commercial",
+      "price": "paid",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://static.tildacdn.com/tild6531-6263-4138-a663-336432383033/examus_60.png"
+      ]
+    },
+    {
+      "name": "Wistia",
+      "slug": "wistia",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "A video-sharing platform for creating professional videos, it comes with a heat map to help users to see individual view insights and no ads.",
+      "description_long": "# Wistia\n\nA video-sharing platform for creating professional videos, it comes with a heat map to help users to see individual view insights and no ads.",
+      "provider": {
+        "name": "Wistia",
+        "url": "https://wistia.com/",
+        "logo": "https://www.edunext.co/wp-content/uploads/2024/01/wistia-logo.png"
+      },
+      "repo_url": "",
+      "license": "Commercial",
+      "price": "paid",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://www.sharpeyeanimation.com/wp-content/uploads/2019/10/wistia-homepage-screenshot-1024x509.png"
+      ]
+    },
+    {
+      "name": "XBlock video with plugable backend",
+      "slug": "xblock-video-with-plugable-backend",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "A tool for deliver video content to your learners via web and mobile.",
+      "description_long": "# XBlock video with plugable backend\n\nA tool for deliver video content to your learners via web and mobile.\n\n## Links\n- **Docs**: https://github.com/raccoongang/xblock-video\n- **Product**: https://raccoongang.com/blog/new-open-edx-video-xblock-appsembler-and-raccoon-g/",
+      "provider": {
+        "name": "Raccoon Gang",
+        "url": "https://raccoongang.com/",
+        "logo": "https://raccoongang.com/media/uploads/2019/04/25/raccoon_logo_200x200px.png"
+      },
+      "repo_url": "https://raccoongang.com/blog/new-open-edx-video-xblock-appsembler-and-raccoon-g/",
+      "license": ", scope: \"Video delivery\", type: \"3rd party Tool integrated via XBlock\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://github.com/raccoongang/xblock-video/raw/master/doc/img/wistia_1.png"
+      ]
+    },  
+    {
+      "name": "Annoto",
+      "slug": "annoto",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "Annoto is an in-video collaboration solution that turns static, 1-way video Stream/VOD into an active and interactive group experience, where participants contribute, share and learn together. Users c…",
+      "description_long": "# Annoto\n\nAnnoto is an in-video collaboration solution that turns static, 1-way video Stream/VOD into an active and interactive group experience, where participants contribute, share and learn together. Users can lean forward and become participants and not just passive and lonely viewers, causing all users to be actively involved and return to the video content, sharing more ideas and creating more meaningful content. Resulting in higher engagement and retention, supported by comprehensive analytics and insights, that facilitate dramatic improvements to content, communications, and measurable outcomes.\n\n## Links\n- **Product**: , docs_link:",
+      "provider": {
+        "name": "Annoto",
+        "url": "https://www.annoto.net/",
+        "logo": "https://www.muvi.com/wp-content/uploads/2019/06/1546644729_Annoto-logo.png"
+      },
+      "repo_url": " , docs_link: ",
+      "license": ", scope: \"Advanced learning tools\", type: \"3rd party Tool integrated via XBlock\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://openedx.org/wp-content/uploads/2022/05/Annoto-features-overlay.png",
+        "https://www.muvi.com/wp-content/uploads/2019/06/1546644729_Annoto-logo.png"
+      ]
+    },
+    {
+      "name": "Instruqt",
+      "slug": "instruqt",
+      "type": "courseware-connector",
+      "latest_version": "",
+      "core_compat": [],
+      "description_short": "Instruqt is a hands-on virtual IT Lab Platform for interactive learning. Virtual IT labs provide learners with hands-on sandbox environments. Learners can use the platform to learn about products and …",
+      "description_long": "# Instruqt\n\nInstruqt is a hands-on virtual IT Lab Platform for interactive learning. Virtual IT labs provide learners with hands-on sandbox environments. Learners can use the platform to learn about products and technology.Instruqt XBlock allows Open edX users to embed Instruqt tracks inside an Open edX course. It provides ability to track learner progress and reflects track completion in Open edX.\n\n## Links\n- **Docs**: https://github.com/edly-io/instruqt-xblock\n- **Product**: https://github.com/edly-io/instruqt-xblock",
+      "provider": {
+        "name": "edly",
+        "url": "https://edly.io/",
+        "logo": "https://avatars.githubusercontent.com/u/47846473?s=280&v=4"
+      },
+      "repo_url": "https://github.com/edly-io/instruqt-xblock",
+      "license": ", scope: \"Advanced learning tools\", type: \"3rd party Tool integrated via XBlock\", details:",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://assets-global.website-files.com/630ca01fa9cb3c92ec13b5c3/636516792a3c828ff859d3a4_instruqt_logo.svg"
+      ]
     }
+
+
   ]
 }
