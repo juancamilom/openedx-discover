@@ -1,12 +1,12 @@
 import { useParams, Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useRegistry, ExtensionWithProvider } from "@/hooks/useRegistry";
-import { ArrowLeft, Star, ExternalLink, Download, Github, Shield, DollarSign } from "lucide-react";
+import { ArrowLeft, Star, ExternalLink, Download, Github, Shield, DollarSign, ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
 const typeColors = {
@@ -25,8 +25,34 @@ export default function ExtensionDetail() {
   const { slug } = useParams<{ slug: string }>();
   const { extensions, loading } = useRegistry();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const extension = extensions.find(ext => ext.slug === slug) || null;
+
+  // Autoplay functionality
+  useEffect(() => {
+    if (!extension || extension.screenshots.length <= 1 || !isAutoPlaying) return;
+
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % extension.screenshots.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [extension, isAutoPlaying]);
+
+  const goToNextImage = () => {
+    if (!extension) return;
+    setCurrentImageIndex((prev) => (prev + 1) % extension.screenshots.length);
+  };
+
+  const goToPrevImage = () => {
+    if (!extension) return;
+    setCurrentImageIndex((prev) => (prev - 1 + extension.screenshots.length) % extension.screenshots.length);
+  };
+
+  const toggleAutoPlay = () => {
+    setIsAutoPlaying(!isAutoPlaying);
+  };
 
   if (loading) {
     return (
@@ -133,25 +159,70 @@ export default function ExtensionDetail() {
         </div>
 
         {/* Screenshots Carousel */}
-        <Card className="mb-8">
+        <Card className="mb-8 overflow-hidden">
           <CardContent className="p-0">
-            <div className="relative">
-              <img
-                src={extension.screenshots[currentImageIndex]}
-                alt={`${extension.name} screenshot ${currentImageIndex + 1}`}
-                className="w-full h-96 object-cover rounded-lg"
-              />
+            <div className="relative group">
+              <div className="relative h-96 overflow-hidden rounded-lg">
+                <img
+                  src={extension.screenshots[currentImageIndex]}
+                  alt={`${extension.name} screenshot ${currentImageIndex + 1}`}
+                  className="w-full h-full object-contain bg-muted/20 transition-all duration-500"
+                />
+                
+                {/* Navigation Arrows */}
+                {extension.screenshots.length > 1 && (
+                  <>
+                    <button
+                      onClick={goToPrevImage}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      aria-label="Previous image"
+                    >
+                      <ChevronLeft className="h-5 w-5" />
+                    </button>
+                    <button
+                      onClick={goToNextImage}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      aria-label="Next image"
+                    >
+                      <ChevronRight className="h-5 w-5" />
+                    </button>
+                  </>
+                )}
+                
+                {/* Autoplay Control */}
+                {extension.screenshots.length > 1 && (
+                  <button
+                    onClick={toggleAutoPlay}
+                    className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    aria-label={isAutoPlaying ? "Pause autoplay" : "Start autoplay"}
+                  >
+                    {isAutoPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+                  </button>
+                )}
+              </div>
+              
+              {/* Dot Indicators */}
               {extension.screenshots.length > 1 && (
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
                   {extension.screenshots.map((_, index) => (
                     <button
                       key={index}
-                      className={`w-3 h-3 rounded-full transition-colors ${
-                        index === currentImageIndex ? 'bg-white' : 'bg-white/50'
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === currentImageIndex 
+                          ? 'bg-white scale-110' 
+                          : 'bg-white/50 hover:bg-white/75'
                       }`}
                       onClick={() => setCurrentImageIndex(index)}
+                      aria-label={`Go to screenshot ${index + 1}`}
                     />
                   ))}
+                </div>
+              )}
+              
+              {/* Image Counter */}
+              {extension.screenshots.length > 1 && (
+                <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                  {currentImageIndex + 1} / {extension.screenshots.length}
                 </div>
               )}
             </div>
