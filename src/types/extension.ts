@@ -1,3 +1,17 @@
+export interface Organization {
+  id: string;
+  name: string;
+  url: string;
+  logo: string | null;
+  description?: string;
+  contact_email?: string;
+  social_links?: {
+    github?: string;
+    twitter?: string;
+    linkedin?: string;
+  };
+}
+
 export interface Extension {
   name: string;
   slug: string;
@@ -6,11 +20,7 @@ export interface Extension {
   core_compat: string[];
   description_short: string;
   description_long: string;
-  provider: {
-    name: string;
-    url: string;
-    logo: string;
-  };
+  provider_id: string;
   repo_url: string;
   license: string;
   price: 'free' | 'paid';
@@ -22,6 +32,10 @@ export interface Extension {
 
 export interface ExtensionRegistry {
   extensions: Extension[];
+}
+
+export interface OrganizationRegistry {
+  organizations: Organization[];
 }
 
 export interface FilterOptions {

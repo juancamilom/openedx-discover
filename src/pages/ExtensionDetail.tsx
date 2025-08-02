@@ -1,11 +1,11 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Extension, ExtensionRegistry } from "@/types/extension";
+import { useRegistry, ExtensionWithProvider } from "@/hooks/useRegistry";
 import { ArrowLeft, Star, ExternalLink, Download, Github, Shield, DollarSign } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
@@ -23,26 +23,10 @@ const typeLabels = {
 
 export default function ExtensionDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const [extension, setExtension] = useState<Extension | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { extensions, loading } = useRegistry();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => {
-    async function fetchExtension() {
-      try {
-        const response = await fetch('/registry.json');
-        const data: ExtensionRegistry = await response.json();
-        const found = data.extensions.find(ext => ext.slug === slug);
-        setExtension(found || null);
-      } catch (error) {
-        console.error('Failed to load extension:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchExtension();
-  }, [slug]);
+  const extension = extensions.find(ext => ext.slug === slug) || null;
 
   if (loading) {
     return (
