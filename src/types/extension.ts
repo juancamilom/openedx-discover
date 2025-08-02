@@ -15,7 +15,7 @@ export interface Organization {
 export interface Extension {
   name: string;
   slug: string;
-  type: 'platform-addon' | 'external-tool' | 'operational-service';
+  type: 'platform-native' | 'platform-connector' | 'courseware-native' | 'courseware-connector';
   latest_version: string;
   core_compat: string[];
   description_short: string;

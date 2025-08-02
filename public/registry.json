@@ -3,7 +3,7 @@
     {
       "name": "Open edX Aspects",
       "slug": "open-edx-aspects",
-      "type": "platform-addon",
+      "type": "platform-native",
       "latest_version": "2.3.1",
       "core_compat": ["redwood", "sumac", "teak"],
       "description_short": "Official analytics stack for Open edX, delivered as a Tutor plugin that integrates ClickHouse, Superset, dbt, Ralph, and event pipelines for actionable course and learner insights.",
@@ -20,7 +20,7 @@
     {
       "name": "Open edX Mobile App",
       "slug": "open-edx-mobile-app",
-      "type": "platform-addon",
+      "type": "platform-connector",
       "latest_version": "2.1",
       "core_compat": ["quince", "redwood", "sumac", "teak"],
       "description_short": "Modern native (Kotlin & Swift) mobile apps for Open edX, originally developed by Raccoon Gang and adopted by the Open edX project.",
@@ -37,7 +37,7 @@
     {
       "name": "Open edX Credential Service",
       "slug": "open-edx-credential-service",
-      "type": "platform-addon",
+      "type": "courseware-native",
       "latest_version": "tutor-credentials 20.0.0",
       "core_compat": ["palm", "quince", "redwood", "sumac"],
       "description_short": "Microservice that issues and manages Open edX course and program certificates, with a Learner Record UI and optional W3C verifiable credentials.",
@@ -54,7 +54,7 @@
     {
       "name": "Cairn",
       "slug": "cairn",
-      "type": "operational-service",
+      "type": "courseware-connector",
       "latest_version": "",
       "core_compat": [],
       "description_short": "The next-generation, scalable, customisable, real-time Analytics solution for Open edX that you have been waiting for.",
@@ -73,7 +73,7 @@
     {
       "name": "Cohort manager",
       "slug": "cohort-manager",
-      "type": "platform-addon",
+      "type": "platform-native",
       "latest_version": "",
       "core_compat": [],
       "description_short": "A new interface where staff members can copy all cohorts from one course into another. Developed with funding from Centrale Lille for an I-SITE project.",
