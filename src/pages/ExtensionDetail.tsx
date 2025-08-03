@@ -1,12 +1,13 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 import { Extension, ExtensionRegistry } from "@/types/extension";
-import { ArrowLeft, Star, ExternalLink, Download, Github, Shield, DollarSign } from "lucide-react";
+import { ArrowLeft, Star, ExternalLink, Download, Github, Shield, DollarSign, Play, Pause } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
 const typeColors = {
@@ -25,7 +26,8 @@ export default function ExtensionDetail() {
   const { slug } = useParams<{ slug: string }>();
   const [extension, setExtension] = useState<Extension | null>(null);
   const [loading, setLoading] = useState(true);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [api, setApi] = useState<CarouselApi>();
+  const [isPlaying, setIsPlaying] = useState(true);
 
   useEffect(() => {
     async function fetchExtension() {
@@ -43,6 +45,25 @@ export default function ExtensionDetail() {
 
     fetchExtension();
   }, [slug]);
+
+  // Autoplay functionality
+  useEffect(() => {
+    if (!api || !extension?.screenshots || extension.screenshots.length <= 1) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      if (isPlaying) {
+        api.scrollNext();
+      }
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [api, isPlaying, extension?.screenshots]);
+
+  const toggleAutoplay = useCallback(() => {
+    setIsPlaying(!isPlaying);
+  }, [isPlaying]);
 
   if (loading) {
     return (
@@ -151,25 +172,48 @@ export default function ExtensionDetail() {
         {/* Screenshots Carousel */}
         <Card className="mb-8">
           <CardContent className="p-0">
-            <div className="relative">
-              <img
-                src={extension.screenshots[currentImageIndex]}
-                alt={`${extension.name} screenshot ${currentImageIndex + 1}`}
-                className="w-full h-96 object-cover rounded-lg"
-              />
-              {extension.screenshots.length > 1 && (
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                  {extension.screenshots.map((_, index) => (
-                    <button
-                      key={index}
-                      className={`w-3 h-3 rounded-full transition-colors ${
-                        index === currentImageIndex ? 'bg-white' : 'bg-white/50'
-                      }`}
-                      onClick={() => setCurrentImageIndex(index)}
-                    />
+            <div className="relative group">
+              <Carousel
+                setApi={setApi}
+                className="w-full"
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+              >
+                <CarouselContent>
+                  {extension.screenshots.map((screenshot, index) => (
+                    <CarouselItem key={index}>
+                      <img
+                        src={screenshot}
+                        alt={`${extension.name} screenshot ${index + 1}`}
+                        className="w-full h-96 object-cover rounded-lg"
+                      />
+                    </CarouselItem>
                   ))}
-                </div>
-              )}
+                </CarouselContent>
+                
+                {extension.screenshots.length > 1 && (
+                  <>
+                    <CarouselPrevious className="left-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <CarouselNext className="right-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    
+                    {/* Autoplay controls */}
+                    <Button
+                      variant="secondary"
+                      size="icon"
+                      className="absolute top-4 right-4 h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity"
+                      onClick={toggleAutoplay}
+                    >
+                      {isPlaying ? (
+                        <Pause className="h-4 w-4" />
+                      ) : (
+                        <Play className="h-4 w-4" />
+                      )}
+                    </Button>
+                  </>
+                )}
+              </Carousel>
             </div>
           </CardContent>
         </Card>
