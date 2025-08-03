@@ -297,7 +297,7 @@ export default function ExtensionDetail() {
                   <img
                     src={extension.provider.logo}
                     alt={extension.provider.name}
-                    className="w-12 h-12 rounded-full"
+                    className="w-36 h-36 rounded-full"
                   />
                   <div>
                     <h3 className="font-semibold">{extension.provider.name}</h3>
