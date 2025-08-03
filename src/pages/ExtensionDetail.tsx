@@ -7,8 +7,11 @@ import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 import { Extension, ExtensionRegistry } from "@/types/extension";
-import { ArrowLeft, Star, ExternalLink, Download, Github, Shield, DollarSign, Play, Pause } from "lucide-react";
+import { ArrowLeft, Star, ExternalLink, Download, Github, Shield, DollarSign, Play, Pause, MessageSquare } from "lucide-react";
 import ReactMarkdown from "react-markdown";
+import { RatingModal } from "@/components/RatingModal";
+import { ReviewsList } from "@/components/ReviewsList";
+import { useExtensionStats } from "@/hooks/useExtensionStats";
 
 const typeColors = {
   "platform-addon": "bg-primary/10 text-primary border-primary/20",
@@ -28,6 +31,9 @@ export default function ExtensionDetail() {
   const [loading, setLoading] = useState(true);
   const [api, setApi] = useState<CarouselApi>();
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isRatingModalOpen, setIsRatingModalOpen] = useState(false);
+  
+  const { stats, refetch: refetchStats } = useExtensionStats(slug || "");
 
   useEffect(() => {
     async function fetchExtension() {
@@ -144,8 +150,12 @@ export default function ExtensionDetail() {
                 
                 <div className="flex items-center gap-1">
                   <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                  <span className="font-medium">{extension.rating_avg}</span>
-                  <span className="text-muted-foreground">({extension.rating_count} reviews)</span>
+                  <span className="font-medium">
+                    {stats.reviewCount > 0 ? stats.averageRating : extension.rating_avg}
+                  </span>
+                  <span className="text-muted-foreground">
+                    ({stats.reviewCount > 0 ? stats.reviewCount : extension.rating_count} reviews)
+                  </span>
                 </div>
                 
                 <div className="text-muted-foreground">
@@ -158,6 +168,15 @@ export default function ExtensionDetail() {
               <Button size="lg" className="gap-2">
                 <Download className="h-5 w-5" />
                 Install Extension
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                onClick={() => setIsRatingModalOpen(true)}
+                className="gap-2"
+              >
+                <MessageSquare className="h-5 w-5" />
+                Rate it
               </Button>
               <Button variant="outline" size="lg" asChild>
                 <a href={extension.repo_url} target="_blank" rel="noopener noreferrer" className="gap-2">
@@ -244,6 +263,16 @@ export default function ExtensionDetail() {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Reviews */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Reviews & Ratings</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ReviewsList extensionSlug={extension.slug} />
+              </CardContent>
+            </Card>
           </div>
 
           {/* Sidebar */}
@@ -316,6 +345,18 @@ export default function ExtensionDetail() {
           </div>
         </div>
       </div>
+
+      {/* Rating Modal */}
+      {extension && (
+        <RatingModal
+          isOpen={isRatingModalOpen}
+          onClose={() => {
+            setIsRatingModalOpen(false);
+            refetchStats();
+          }}
+          extensionSlug={extension.slug}
+        />
+      )}
     </div>
   );
 }

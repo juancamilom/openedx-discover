@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Extension } from "@/types/extension";
 import { Star, ExternalLink, Download } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useExtensionStats } from "@/hooks/useExtensionStats";
 
 interface ExtensionCardProps {
   extension: Extension;
@@ -22,6 +23,8 @@ const typeLabels = {
 };
 
 export function ExtensionCard({ extension }: ExtensionCardProps) {
+  const { stats } = useExtensionStats(extension.slug);
+
   return (
     <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card/50 backdrop-blur-sm border-border/50">
       <div className="relative overflow-hidden rounded-t-lg">
@@ -66,8 +69,12 @@ export function ExtensionCard({ extension }: ExtensionCardProps) {
         <div className="flex items-center gap-4 text-sm">
           <div className="flex items-center gap-1">
             <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-            <span className="font-medium">{extension.rating_avg}</span>
-            <span className="text-muted-foreground">({extension.rating_count})</span>
+            <span className="font-medium">
+              {stats.reviewCount > 0 ? stats.averageRating : extension.rating_avg}
+            </span>
+            <span className="text-muted-foreground">
+              ({stats.reviewCount > 0 ? stats.reviewCount : extension.rating_count})
+            </span>
           </div>
           <div className="flex gap-1">
             {extension.core_compat.slice(0, 2).map((version) => (
