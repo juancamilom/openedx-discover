@@ -28,11 +28,13 @@ export function ExtensionCard({ extension }: ExtensionCardProps) {
   return (
     <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card/50 backdrop-blur-sm border-border/50">
       <div className="relative overflow-hidden rounded-t-lg">
-        <img
-          src={extension.screenshots[0]}
-          alt={extension.name}
-          className="w-full h-48 object-contain bg-muted/20 transition-transform duration-300 group-hover:scale-105"
-        />
+        <Link to={`/extension/${extension.slug}`} className="block">
+          <img
+            src={extension.screenshots[0]}
+            alt={extension.name}
+            className="w-full h-48 object-contain bg-muted/20 transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+          />
+        </Link>
         <div className="absolute top-4 left-4">
           <Badge className={typeColors[extension.type]}>
             {typeLabels[extension.type]}
