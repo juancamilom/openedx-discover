@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Extension, ExtensionRegistry } from "@/types/extension";
 import { ArrowLeft, Star, ExternalLink, Download, Github, Shield, DollarSign, Play, Pause, MessageSquare } from "lucide-react";
 import ReactMarkdown from "react-markdown";
@@ -165,10 +166,21 @@ export default function ExtensionDetail() {
             </div>
             
             <div className="flex gap-3">
-              <Button size="lg" className="gap-2">
-                <Download className="h-5 w-5" />
-                Install Extension
-              </Button>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <span>
+                      <Button size="lg" className="gap-2" disabled>
+                        <Download className="h-5 w-5" />
+                        Install Extension
+                      </Button>
+                    </span>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>This feature may be available in the future</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
               <Button 
                 variant="outline" 
                 size="lg" 
