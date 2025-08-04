@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import ReactMarkdown from "react-markdown";
 import { SearchBar } from "@/components/SearchBar";
 import { FilterBar } from "@/components/FilterBar";
@@ -6,6 +7,7 @@ import { ExtensionCard } from "@/components/ExtensionCard";
 import { Pagination } from "@/components/Pagination";
 import { ExtensionCardSkeleton, FilterSkeleton } from "@/components/LoadingSkeleton";
 import { Extension, ExtensionRegistry, FilterOptions } from "@/types/extension";
+import { useAllExtensionStats } from "@/hooks/useAllExtensionStats";
 import { Button } from "@/components/ui/button";
 import { Puzzle, ExternalLink, Server, BookOpen, Grid3x3 } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
@@ -16,6 +18,7 @@ const Index = () => {
   const [extensions, setExtensions] = useState<Extension[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
+  const { extensionStats, loading: statsLoading } = useAllExtensionStats();
   const [filters, setFilters] = useState<FilterOptions>({
     search: "",
     type: "all",
@@ -71,8 +74,9 @@ const Index = () => {
       // Rating filter
       if (filters.rating !== "all") {
         const minRating = parseFloat(filters.rating.replace("+", ""));
-        // Use the static rating from extension data for filtering
-        const currentRating = extension.rating_avg || 0;
+        // Check if extension has database rating, otherwise use static rating
+        const dbStats = extensionStats[extension.slug];
+        const currentRating = dbStats?.averageRating || extension.rating_avg || 0;
         if (currentRating < minRating) {
           return false;
         }
@@ -85,7 +89,7 @@ const Index = () => {
 
       return true;
     });
-  }, [extensions, filters]);
+  }, [extensions, filters, extensionStats]);
 
   const totalPages = Math.ceil(filteredExtensions.length / ITEMS_PER_PAGE);
   const paginatedExtensions = filteredExtensions.slice(
