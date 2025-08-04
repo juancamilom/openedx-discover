@@ -1,13 +1,13 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Extension } from "@/types/extension";
+import { ExtensionWithProvider } from "@/types/extension";
 import { Star, ExternalLink, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useExtensionStats } from "@/hooks/useExtensionStats";
 
 interface ExtensionCardProps {
-  extension: Extension;
+  extension: ExtensionWithProvider;
 }
 
 const typeColors = {

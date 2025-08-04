@@ -7,12 +7,13 @@ import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Extension, ExtensionRegistry } from "@/types/extension";
+import { ExtensionWithProvider } from "@/types/extension";
 import { ArrowLeft, Star, ExternalLink, Download, Github, Shield, DollarSign, Play, Pause, MessageSquare } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { RatingModal } from "@/components/RatingModal";
 import { ReviewsList } from "@/components/ReviewsList";
 import { useExtensionStats } from "@/hooks/useExtensionStats";
+import { useExtensionData } from "@/hooks/useExtensionData";
 
 const typeColors = {
   "platform-addon": "bg-primary/10 text-primary border-primary/20",
@@ -28,8 +29,8 @@ const typeLabels = {
 
 export default function ExtensionDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const [extension, setExtension] = useState<Extension | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { extensions, loading } = useExtensionData();
+  const [extension, setExtension] = useState<ExtensionWithProvider | null>(null);
   const [api, setApi] = useState<CarouselApi>();
   const [isPlaying, setIsPlaying] = useState(true);
   const [isRatingModalOpen, setIsRatingModalOpen] = useState(false);
@@ -37,21 +38,11 @@ export default function ExtensionDetail() {
   const { stats, refetch: refetchStats } = useExtensionStats(slug || "");
 
   useEffect(() => {
-    async function fetchExtension() {
-      try {
-        const response = await fetch('/registry.json');
-        const data: ExtensionRegistry = await response.json();
-        const found = data.extensions.find(ext => ext.slug === slug);
-        setExtension(found || null);
-      } catch (error) {
-        console.error('Failed to load extension:', error);
-      } finally {
-        setLoading(false);
-      }
+    if (!loading && extensions.length > 0) {
+      const found = extensions.find(ext => ext.slug === slug);
+      setExtension(found || null);
     }
-
-    fetchExtension();
-  }, [slug]);
+  }, [slug, extensions, loading]);
 
   // Autoplay functionality
   useEffect(() => {

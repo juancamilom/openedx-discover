@@ -1,0 +1,90 @@
+{
+  "version": "1.0",
+  "last_updated": "2025-01-04T14:00:00.000Z",
+  "providers": [
+    {
+      "id": "openedx-axim",
+      "name": "Open edX / Axim Collaborative",
+      "url": "https://openedx.org/",
+      "logo": "https://logos.openedx.org/open-edx-logo-color.png",
+      "description": "The Open edX project is a collaboration between edX and the global open-source community. Axim Collaborative is the nonprofit organization that supports the Open edX project.",
+      "website": "https://openedx.org/",
+      "contact_email": null,
+      "founded": "2012",
+      "headquarters": "Cambridge, MA, USA",
+      "type": "organization",
+      "specializations": ["Open Source Learning Platform", "Educational Technology", "Learning Management Systems"],
+      "verified": true
+    },
+    {
+      "id": "raccoon-gang",
+      "name": "Raccoon Gang (contributed to Open edX)",
+      "url": "https://raccoongang.com/",
+      "logo": "https://raccoongang.com/static/img/logo.png",
+      "description": "Raccoon Gang is a leading provider of e-learning solutions, specializing in custom Open edX development, mobile applications, and educational technology consulting.",
+      "website": "https://raccoongang.com/",
+      "contact_email": null,
+      "founded": "2010",
+      "headquarters": "Kharkiv, Ukraine",
+      "type": "organization",
+      "specializations": ["Open edX Development", "Mobile App Development", "E-learning Solutions", "Educational Technology"],
+      "verified": true
+    },
+    {
+      "id": "overhang-io",
+      "name": "Overhang.IO",
+      "url": "https://overhang.io/",
+      "logo": "https://overhang.io/static/img/Overhang.IO-small.png",
+      "description": "Overhang.IO is the company behind Tutor, the leading Open edX deployment and management tool. They provide commercial support and premium plugins for Open edX.",
+      "website": "https://overhang.io/",
+      "contact_email": null,
+      "founded": "2018",
+      "headquarters": "Paris, France",
+      "type": "organization",
+      "specializations": ["Open edX Deployment", "DevOps", "Educational Technology", "Kubernetes"],
+      "verified": true
+    },
+    {
+      "id": "opencraft",
+      "name": "OpenCraft",
+      "url": "https://opencraft.com/",
+      "logo": "https://avatars.githubusercontent.com/u/7414786?s=200&v=4",
+      "description": "OpenCraft is a specialized provider of Open edX hosting, development, and consulting services. They focus on creating scalable and custom e-learning solutions.",
+      "website": "https://opencraft.com/",
+      "contact_email": null,
+      "founded": "2013",
+      "headquarters": "Berlin, Germany",
+      "type": "organization",
+      "specializations": ["Open edX Hosting", "Custom Development", "E-learning Consulting", "Platform Integration"],
+      "verified": true
+    },
+    {
+      "id": "edunext",
+      "name": "edunext",
+      "url": "https://www.edunext.co",
+      "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png",
+      "description": "eduNEXT is a leading provider of Open edX solutions in Latin America, offering platform development, hosting, and educational technology consulting services.",
+      "website": "https://www.edunext.co",
+      "contact_email": null,
+      "founded": "2013",
+      "headquarters": "Medellín, Colombia",
+      "type": "organization",
+      "specializations": ["Open edX Development", "E-learning Platform", "Educational Technology", "Latin America"],
+      "verified": true
+    },
+    {
+      "id": "appsembler",
+      "name": "Appsembler",
+      "url": "https://www.appsembler.com/",
+      "logo": "https://appsembler.com/wp-content/themes/wordpress-appsembler-theme/assets/images/branding/appsembler-logo-positive.svg",
+      "description": "Appsembler provides an enterprise-ready Open edX platform for corporate training and education, with focus on scalability and enterprise features.",
+      "website": "https://www.appsembler.com/",
+      "contact_email": null,
+      "founded": "2012",
+      "headquarters": "San Diego, CA, USA",
+      "type": "organization",
+      "specializations": ["Enterprise Training", "Corporate Learning", "Open edX Hosting", "Analytics"],
+      "verified": true
+    }
+  ]
+}
