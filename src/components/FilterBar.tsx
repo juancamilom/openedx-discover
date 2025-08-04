@@ -85,15 +85,17 @@ export function FilterBar({ filters, onFilterChange, onClearFilters, resultCount
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground">Price</label>
-          <Select value={filters.price} onValueChange={(value) => onFilterChange("price", value)}>
+          <label className="text-sm font-medium text-foreground">Rating</label>
+          <Select value={filters.rating} onValueChange={(value) => onFilterChange("rating", value)}>
             <SelectTrigger>
-              <SelectValue placeholder="All prices" />
+              <SelectValue placeholder="All ratings" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All prices</SelectItem>
-              <SelectItem value="free">Free</SelectItem>
-              <SelectItem value="paid">Paid</SelectItem>
+              <SelectItem value="all">All ratings</SelectItem>
+              <SelectItem value="4+">4+ stars</SelectItem>
+              <SelectItem value="3+">3+ stars</SelectItem>
+              <SelectItem value="2+">2+ stars</SelectItem>
+              <SelectItem value="1+">1+ stars</SelectItem>
             </SelectContent>
           </Select>
         </div>

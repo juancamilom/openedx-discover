@@ -21,7 +21,7 @@ const Index = () => {
     type: "all",
     compatibility: "all",
     license: "all",
-    price: "all",
+    rating: "all",
     provider: "all",
   });
 
@@ -68,9 +68,12 @@ const Index = () => {
         return false;
       }
 
-      // Price filter
-      if (filters.price !== "all" && extension.price !== filters.price) {
-        return false;
+      // Rating filter
+      if (filters.rating !== "all") {
+        const minRating = parseInt(filters.rating.replace("+", ""));
+        if (extension.rating_avg < minRating) {
+          return false;
+        }
       }
 
       // Provider filter
@@ -99,7 +102,7 @@ const Index = () => {
       type: "all",
       compatibility: "all",
       license: "all",
-      price: "all",
+      rating: "all",
       provider: "all",
     });
     setCurrentPage(1);

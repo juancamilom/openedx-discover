@@ -29,6 +29,6 @@ export interface FilterOptions {
   type: string;
   compatibility: string;
   license: string;
-  price: string;
+  rating: string;
   provider: string;
 }
