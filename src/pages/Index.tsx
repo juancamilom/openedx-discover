@@ -70,8 +70,10 @@ const Index = () => {
 
       // Rating filter
       if (filters.rating !== "all") {
-        const minRating = parseInt(filters.rating.replace("+", ""));
-        if (extension.rating_avg < minRating) {
+        const minRating = parseFloat(filters.rating.replace("+", ""));
+        // Use the static rating from extension data for filtering
+        const currentRating = extension.rating_avg || 0;
+        if (currentRating < minRating) {
           return false;
         }
       }
