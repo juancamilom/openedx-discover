@@ -6,9 +6,8 @@ import { FilterBar } from "@/components/FilterBar";
 import { ExtensionCard } from "@/components/ExtensionCard";
 import { Pagination } from "@/components/Pagination";
 import { ExtensionCardSkeleton, FilterSkeleton } from "@/components/LoadingSkeleton";
-import { ExtensionWithProvider, FilterOptions } from "@/types/extension";
+import { Extension, ExtensionRegistry, FilterOptions } from "@/types/extension";
 import { useAllExtensionStats } from "@/hooks/useAllExtensionStats";
-import { useExtensionData } from "@/hooks/useExtensionData";
 import { Button } from "@/components/ui/button";
 import { Puzzle, ExternalLink, Server, BookOpen, Grid3x3 } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
@@ -16,8 +15,9 @@ import heroBackground from "@/assets/hero-background.jpg";
 const ITEMS_PER_PAGE = 20;
 
 const Index = () => {
+  const [extensions, setExtensions] = useState<Extension[]>([]);
+  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const { extensions, loading, error } = useExtensionData();
   const { extensionStats, loading: statsLoading } = useAllExtensionStats();
   const [filters, setFilters] = useState<FilterOptions>({
     search: "",
@@ -28,7 +28,21 @@ const Index = () => {
     provider: "all",
   });
 
-  // Remove the old useEffect that fetched data
+  useEffect(() => {
+    async function fetchExtensions() {
+      try {
+        const response = await fetch('/registry.json');
+        const data: ExtensionRegistry = await response.json();
+        setExtensions(data.extensions);
+      } catch (error) {
+        console.error('Failed to load extensions:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchExtensions();
+  }, []);
 
   const filteredExtensions = useMemo(() => {
     return extensions.filter((extension) => {
