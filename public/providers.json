@@ -1,0 +1,109 @@
+{
+  "providers": [
+    {
+      "id": "open-edx-axim",
+      "name": "Open edX / Axim Collaborative",
+      "url": "https://docs.openedx.org/projects/openedx-aspects/en/latest/",
+      "logo": "https://logos.openedx.org/open-edx-logo-color.png",
+      "description": "The official Open edX organization and Axim Collaborative, maintaining the core platform and official extensions."
+    },
+    {
+      "id": "raccoon-gang",
+      "name": "Raccoon Gang",
+      "url": "https://raccoongang.com/open-edx-services/mobile-application-development/",
+      "logo": "https://raccoongang.com/wp-content/uploads/2023/05/RG-logo.svg",
+      "description": "Professional Open edX development and services company, creators of the official Open edX mobile apps."
+    },
+    {
+      "id": "overhang-io",
+      "name": "Overhang.io",
+      "url": "https://overhang.io/",
+      "logo": "https://overhang.io/static/img/Overhang.IO-small.png",
+      "description": "Creators of Tutor, the Docker-based Open edX distribution, and various analytics and theming solutions."
+    },
+    {
+      "id": "opencraft",
+      "name": "OpenCraft",
+      "url": "https://opencraft.com/",
+      "logo": "https://avatars.githubusercontent.com/u/7414786?s=200&v=4",
+      "description": "Open source software development company specializing in Open edX hosting and custom development."
+    },
+    {
+      "id": "edunext",
+      "name": "eduNEXT",
+      "url": "https://www.edunext.co",
+      "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png",
+      "description": "Leading Open edX services provider offering hosting, development, and enterprise solutions."
+    },
+    {
+      "id": "appsembler",
+      "name": "Appsembler",
+      "url": "https://www.appsembler.com/",
+      "logo": "https://appsembler.com/wp-content/themes/wordpress-appsembler-theme/assets/images/branding/appsembler-logo-positive.svg",
+      "description": "Enterprise Open edX platform provider focusing on corporate training and analytics solutions."
+    },
+    {
+      "id": "edly",
+      "name": "edly",
+      "url": "https://edly.io/",
+      "logo": "https://edly.io/static/edly/images/logos/edly-logo.png",
+      "description": "Open edX development and hosting company providing enterprise solutions and custom development."
+    },
+    {
+      "id": "hastexo",
+      "name": "hastexo",
+      "url": "https://www.hastexo.com/",
+      "logo": "https://www.hastexo.com/static/img/hastexo-logo.svg",
+      "description": "Professional training and Open edX services company specializing in cloud technologies."
+    },
+    {
+      "id": "mitxpro",
+      "name": "MIT xPRO",
+      "url": "https://xpro.mit.edu/",
+      "logo": "https://xpro.mit.edu/static/images/mit-xpro-logo.svg",
+      "description": "MIT's professional education platform built on Open edX."
+    },
+    {
+      "id": "stanford-online",
+      "name": "Stanford Online",
+      "url": "https://online.stanford.edu/",
+      "logo": "https://online.stanford.edu/themes/stanford_basic/logo.png",
+      "description": "Stanford University's online education platform and Open edX contributor."
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "url": "https://www.microsoft.com/",
+      "logo": "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b",
+      "description": "Technology company providing various integrations and tools for Open edX."
+    },
+    {
+      "id": "google",
+      "name": "Google",
+      "url": "https://www.google.com/",
+      "logo": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+      "description": "Technology company providing analytics and integration tools for educational platforms."
+    },
+    {
+      "id": "intelliboard",
+      "name": "IntelliBoard",
+      "url": "https://intelliboard.net/",
+      "logo": "https://intelliboard.net/wp-content/uploads/2021/01/IntelliBoard-logo.png",
+      "description": "Learning analytics platform providing insights and reporting for educational institutions."
+    },
+    {
+      "id": "proversity",
+      "name": "Proversity",
+      "url": "https://proversity.org/",
+      "logo": "https://proversity.org/static/images/logo.png",
+      "description": "Open edX development and services company focusing on accessibility and user experience."
+    },
+    {
+      "id": "triboo",
+      "name": "Triboo",
+      "url": "https://triboo.com/",
+      "logo": "https://triboo.com/wp-content/uploads/2021/03/triboo-logo.png",
+      "description": "Digital transformation company providing Open edX solutions and services."
+    }
+  ]
+}

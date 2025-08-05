@@ -7,7 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Extension, ExtensionRegistry } from "@/types/extension";
+import { useExtensionRegistry, ExtensionWithProvider } from "@/hooks/useExtensionRegistry";
 import { ArrowLeft, Star, ExternalLink, Download, Github, Shield, DollarSign, Play, Pause, MessageSquare } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { RatingModal } from "@/components/RatingModal";
@@ -28,30 +28,14 @@ const typeLabels = {
 
 export default function ExtensionDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const [extension, setExtension] = useState<Extension | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { data: registryData, isLoading: loading } = useExtensionRegistry();
+  const extension = registryData?.extensions.find(ext => ext.slug === slug) || null;
   const [api, setApi] = useState<CarouselApi>();
   const [isPlaying, setIsPlaying] = useState(true);
   const [isRatingModalOpen, setIsRatingModalOpen] = useState(false);
   
   const { stats, refetch: refetchStats } = useExtensionStats(slug || "");
 
-  useEffect(() => {
-    async function fetchExtension() {
-      try {
-        const response = await fetch('/registry.json');
-        const data: ExtensionRegistry = await response.json();
-        const found = data.extensions.find(ext => ext.slug === slug);
-        setExtension(found || null);
-      } catch (error) {
-        console.error('Failed to load extension:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchExtension();
-  }, [slug]);
 
   // Autoplay functionality
   useEffect(() => {
