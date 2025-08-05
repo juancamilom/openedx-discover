@@ -1,4 +1,3 @@
-import { Extension, ExtensionRegistry, Provider, ProviderRegistry } from "@/types/extension";
 import { ExtensionWithProvider } from "@/hooks/useExtensionRegistry";
 
 interface OldExtension {
@@ -12,7 +11,7 @@ interface OldExtension {
   provider: {
     name: string;
     url: string;
-    logo: string;
+    logo: string | null;
   };
   repo_url: string;
   license: string;
@@ -32,47 +31,37 @@ export async function convertRegistryData(): Promise<{ extensions: ExtensionWith
   const response = await fetch('/registry.json');
   const oldRegistry: OldRegistry = await response.json();
 
-  // Create providers map to track unique providers
-  const providersMap = new Map<string, Provider>();
-  let providerId = 1;
+  console.log(`Processing ${oldRegistry.extensions.length} extensions from registry`);
 
   // Convert extensions and extract providers
-  const extensions: ExtensionWithProvider[] = oldRegistry.extensions.map(oldExt => {
-    // Generate a provider ID based on name
-    const providerKey = oldExt.provider?.name?.toLowerCase().replace(/[^a-z0-9]/g, '-') || 'unknown';
+  const extensions: ExtensionWithProvider[] = oldRegistry.extensions.map((oldExt, index) => {
+    console.log(`Processing extension ${index + 1}: ${oldExt.name}`);
     
-    if (!providersMap.has(providerKey) && oldExt.provider) {
-      providersMap.set(providerKey, {
-        id: providerKey,
-        name: oldExt.provider.name || 'Unknown Provider',
-        url: oldExt.provider.url || '',
-        logo: oldExt.provider.logo || '',
-        description: `Provider: ${oldExt.provider.name || 'Unknown'}`
-      });
-    }
-
     return {
-      name: oldExt.name,
-      slug: oldExt.slug,
-      type: oldExt.type as 'platform-addon' | 'external-tool' | 'operational-service',
-      latest_version: oldExt.latest_version,
-      core_compat: oldExt.core_compat,
-      description_short: oldExt.description_short,
-      description_long: oldExt.description_long,
+      name: oldExt.name || 'Unknown Extension',
+      slug: oldExt.slug || `unknown-${index}`,
+      type: (oldExt.type === 'platform-native' || oldExt.type === 'platform-connector' || oldExt.type === 'courseware-native' || oldExt.type === 'courseware-connector') 
+        ? oldExt.type as 'platform-addon' | 'external-tool' | 'operational-service'
+        : 'platform-addon',
+      latest_version: oldExt.latest_version || '',
+      core_compat: Array.isArray(oldExt.core_compat) ? oldExt.core_compat : [],
+      description_short: oldExt.description_short || '',
+      description_long: oldExt.description_long || '',
       provider: {
         name: oldExt.provider?.name || 'Unknown Provider',
         url: oldExt.provider?.url || '',
         logo: oldExt.provider?.logo || '',
       },
-      repo_url: oldExt.repo_url,
-      license: oldExt.license,
-      price: oldExt.price as 'free' | 'paid',
+      repo_url: oldExt.repo_url || '',
+      license: oldExt.license || 'Unknown',
+      price: (oldExt.price === 'free' || oldExt.price === 'paid') ? oldExt.price : 'free',
       rating_avg: oldExt.rating_avg,
       rating_count: oldExt.rating_count,
-      install_notes: oldExt.install_notes,
-      screenshots: oldExt.screenshots
+      install_notes: oldExt.install_notes || '',
+      screenshots: Array.isArray(oldExt.screenshots) ? oldExt.screenshots : []
     };
   });
 
+  console.log(`Converted ${extensions.length} extensions successfully`);
   return { extensions };
 }
