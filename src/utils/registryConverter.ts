@@ -40,9 +40,10 @@ export async function convertRegistryData(): Promise<{ extensions: ExtensionWith
     return {
       name: oldExt.name || 'Unknown Extension',
       slug: oldExt.slug || `unknown-${index}`,
-      type: (oldExt.type === 'platform-native' || oldExt.type === 'platform-connector' || oldExt.type === 'courseware-native' || oldExt.type === 'courseware-connector') 
+      category: (oldExt.type === 'platform-native' || oldExt.type === 'platform-connector' || oldExt.type === 'courseware-native' || oldExt.type === 'courseware-connector') 
         ? oldExt.type as 'platform-addon' | 'external-tool' | 'operational-service'
         : 'platform-addon',
+      type: '',
       latest_version: oldExt.latest_version || '',
       core_compat: Array.isArray(oldExt.core_compat) ? oldExt.core_compat : [],
       description_short: oldExt.description_short || '',

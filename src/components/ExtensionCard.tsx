@@ -10,13 +10,13 @@ interface ExtensionCardProps {
   extension: ExtensionWithProvider;
 }
 
-const typeColors = {
+const categoryColors = {
   "platform-addon": "bg-primary/10 text-primary border-primary/20",
   "external-tool": "bg-accent/10 text-accent border-accent/20", 
   "operational-service": "bg-orange-500/10 text-orange-600 border-orange-500/20",
 };
 
-const typeLabels = {
+const categoryLabels = {
   "platform-addon": "Platform Add-on",
   "external-tool": "External Tool",
   "operational-service": "Operational Service",
@@ -36,8 +36,8 @@ export function ExtensionCard({ extension }: ExtensionCardProps) {
           />
         </Link>
         <div className="absolute top-4 left-4">
-          <Badge className={typeColors[extension.type]}>
-            {typeLabels[extension.type]}
+          <Badge className={categoryColors[extension.category]}>
+            {categoryLabels[extension.category]}
           </Badge>
         </div>
         <div className="absolute top-4 right-4">

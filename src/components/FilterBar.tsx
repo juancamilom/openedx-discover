@@ -34,13 +34,13 @@ export function FilterBar({ filters, onFilterChange, onClearFilters, resultCount
       {/* Advanced Filters */}
       <div className="space-y-4">
         <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground">Type</label>
-          <Select value={filters.type} onValueChange={(value) => onFilterChange("type", value)}>
+          <label className="text-sm font-medium text-foreground">Category</label>
+          <Select value={filters.category} onValueChange={(value) => onFilterChange("category", value)}>
             <SelectTrigger>
-              <SelectValue placeholder="All types" />
+              <SelectValue placeholder="All categories" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All types</SelectItem>
+              <SelectItem value="all">All categories</SelectItem>
               {typeOptions.map((type) => (
                 <SelectItem key={type.value} value={type.value}>
                   {type.label}

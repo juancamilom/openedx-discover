@@ -22,7 +22,7 @@ const Index = () => {
   const extensions = registryData?.extensions || [];
   const [filters, setFilters] = useState<FilterOptions>({
     search: "",
-    type: "all",
+    category: "all",
     compatibility: "all",
     license: "all",
     rating: "all",
@@ -42,8 +42,8 @@ const Index = () => {
         if (!matchesSearch) return false;
       }
 
-      // Type filter
-      if (filters.type !== "all" && extension.type !== filters.type) {
+      // Category filter
+      if (filters.category !== "all" && extension.category !== filters.category) {
         return false;
       }
 
@@ -91,7 +91,7 @@ const Index = () => {
   const handleClearFilters = () => {
     setFilters({
       search: "",
-      type: "all",
+      category: "all",
       compatibility: "all",
       license: "all",
       rating: "all",
@@ -105,14 +105,14 @@ const Index = () => {
     setCurrentPage(1);
   };
 
-  const getCategoryDescription = (type: string) => {
+  const getCategoryDescription = (category: string) => {
     const descriptions = {
       "platform-native": "A self-hosted module that becomes a first-class part of your Open edX installation—no extra subscriptions or outside hosting needed. Once deployed, the feature works natively across every course and user. Classic examples include the **Credentials** micro-service, an **Indigo theme pack**, or a built-in **analytics pipeline** that processes learner data on your own servers.",
       "platform-connector": "A connector that wires your Open edX site to an **external** system running elsewhere. You still need an active account or license for that outside service; the module simply handles authentication and data flow. Think **Stripe Checkout** for payments, a **Salesforce CRM sync**, or a **WordPress CMS bridge**—all orchestrated at the platform level while the external tool remains separately procured.",
       "courseware-native": "Adds new interactive blocks that live entirely on your Open edX servers and appear in Studio like any built-in problem type. Learners stay inside the LMS, and authors gain fresh activity formats without external dependencies. Examples include the **Drag-and-Drop XBlock**, a self-hosted **H5P problem type**, or an in-platform **coding exercise** block.",
       "courseware-connector": "Embeds or launches a third-party learning tool inside course units—typically via **LTI 1.3** or a custom API. You license the external tool separately; the connector manages the handshake, grade pass-back, and roster sync. Popular cases are **Zoom LTI** for live sessions, **Labster virtual labs**, or **ProctorU** online proctoring, all dropped seamlessly into courseware."
     };
-    return descriptions[type as keyof typeof descriptions] || "";
+    return descriptions[category as keyof typeof descriptions] || "";
   };
 
   return (
@@ -142,9 +142,9 @@ const Index = () => {
               <h2 className="text-lg font-semibold mb-4 text-white/90">Choose your category</h2>
               <div className="flex flex-wrap justify-center items-center gap-4 mb-6">
                 <Button
-                  variant={filters.type === "platform-native" ? "default" : "outline"}
+                  variant={filters.category === "platform-native" ? "default" : "outline"}
                   size="lg"
-                  onClick={() => handleFilterChange("type", "platform-native")}
+                  onClick={() => handleFilterChange("category", "platform-native")}
                   className="h-20 w-56 px-4 text-center"
                 >
                   <div className="flex flex-col items-center">
@@ -154,9 +154,9 @@ const Index = () => {
                   </div>
                 </Button>
                 <Button
-                  variant={filters.type === "platform-connector" ? "default" : "outline"}
+                  variant={filters.category === "platform-connector" ? "default" : "outline"}
                   size="lg"
-                  onClick={() => handleFilterChange("type", "platform-connector")}
+                  onClick={() => handleFilterChange("category", "platform-connector")}
                   className="h-20 w-56 px-4 text-center"
                 >
                   <div className="flex flex-col items-center">
@@ -166,9 +166,9 @@ const Index = () => {
                   </div>
                 </Button>
                 <Button
-                  variant={filters.type === "courseware-native" ? "default" : "outline"}
+                  variant={filters.category === "courseware-native" ? "default" : "outline"}
                   size="lg"
-                  onClick={() => handleFilterChange("type", "courseware-native")}
+                  onClick={() => handleFilterChange("category", "courseware-native")}
                   className="h-20 w-56 px-4 text-center"
                 >
                   <div className="flex flex-col items-center">
@@ -178,9 +178,9 @@ const Index = () => {
                   </div>
                 </Button>
                 <Button
-                  variant={filters.type === "courseware-connector" ? "default" : "outline"}
+                  variant={filters.category === "courseware-connector" ? "default" : "outline"}
                   size="lg"
-                  onClick={() => handleFilterChange("type", "courseware-connector")}
+                  onClick={() => handleFilterChange("category", "courseware-connector")}
                   className="h-20 w-56 px-4 text-center"
                 >
                   <div className="flex flex-col items-center">
@@ -190,9 +190,9 @@ const Index = () => {
                   </div>
                 </Button>
                 <Button
-                  variant={filters.type === "all" ? "default" : "outline"}
+                  variant={filters.category === "all" ? "default" : "outline"}
                   size="lg"
-                  onClick={() => handleFilterChange("type", "all")}
+                  onClick={() => handleFilterChange("category", "all")}
                   className="h-20 px-6"
                 >
                   <div className="flex items-center">
@@ -205,7 +205,7 @@ const Index = () => {
             
             {/* Category Description - Fixed space reserved */}
             <div className="mb-6 max-w-3xl mx-auto h-32 flex items-center">
-              {filters.type !== "all" && (
+              {filters.category !== "all" && (
                 <div className="w-full">
                   <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6">
                     <div className="text-base text-white leading-relaxed">
@@ -215,7 +215,7 @@ const Index = () => {
                           strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>
                         }}
                       >
-                        {getCategoryDescription(filters.type)}
+                        {getCategoryDescription(filters.category)}
                       </ReactMarkdown>
                     </div>
                   </div>

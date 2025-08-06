@@ -9,7 +9,8 @@ export interface Provider {
 export interface Extension {
   name: string;
   slug: string;
-  type: 'platform-addon' | 'external-tool' | 'operational-service';
+  category: 'platform-addon' | 'external-tool' | 'operational-service';
+  type: string;
   latest_version: string;
   core_compat: string[];
   description_short: string;
@@ -34,7 +35,7 @@ export interface ProviderRegistry {
 
 export interface FilterOptions {
   search: string;
-  type: string;
+  category: string;
   compatibility: string;
   license: string;
   rating: string;
