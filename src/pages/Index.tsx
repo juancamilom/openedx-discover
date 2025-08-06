@@ -248,6 +248,7 @@ const Index = () => {
                   onFilterChange={handleFilterChange}
                   onClearFilters={handleClearFilters}
                   resultCount={filteredExtensions.length}
+                  extensions={extensions}
                 />
               )}
             </div>

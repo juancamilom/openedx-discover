@@ -14,6 +14,7 @@ interface FilterBarProps {
   onFilterChange: (key: keyof FilterOptions, value: string) => void;
   onClearFilters: () => void;
   resultCount: number;
+  extensions: any[]; // Add extensions prop to extract compatibility options
 }
 
 const typeOptions = [
@@ -22,11 +23,17 @@ const typeOptions = [
   { value: "courseware-native", label: "Courseware Component – Native" },
   { value: "courseware-connector", label: "Courseware Component – 3rd-Party Integration" }
 ];
-const compatibilityOptions = ["olive", "palm", "quince"];
 const licenseOptions = ["MIT", "Apache-2.0", "AGPL-3.0", "GPL-3.0", "BSD-3-Clause"];
 const providerOptions = ["edX", "OpenCraft", "Raccoon Gang", "Appsembler", "eduNEXT"];
 
-export function FilterBar({ filters, onFilterChange, onClearFilters, resultCount }: FilterBarProps) {
+export function FilterBar({ filters, onFilterChange, onClearFilters, resultCount, extensions }: FilterBarProps) {
+  // Dynamically extract all unique compatibility options from extensions
+  const compatibilityOptions = Array.from(
+    new Set(
+      extensions.flatMap(ext => ext.core_compat || [])
+    )
+  ).sort((a, b) => b.localeCompare(a)); // Sort alphabetically descending
+  
   const hasActiveFilters = Object.values(filters).some(value => value && value !== "all");
 
   return (
