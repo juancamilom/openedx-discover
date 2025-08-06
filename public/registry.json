@@ -15,33 +15,58 @@
         "logo": "https://logos.openedx.org/open-edx-logo-color.png"
       },
       "repo_url": "https://github.com/openedx/openedx-aspects",
-      "license": "Apache-2.0",
+      "license": "AGPLv3",
       "price": "free",
       "rating_avg": null,
       "rating_count": 0,
       "install_notes": "# Installation (Tutor)\n\n1. **Install & enable plugin**\n```bash\npip install tutor-contrib-aspects\n tutor plugins enable aspects\n tutor config save\n```\n2. **Build images & init**\n```bash\n# Build images (include MFEs if using in-context metrics)\ntutor images build openedx --no-cache\n tutor images build mfe --no-cache\n tutor images build aspects aspects-superset\n tutor local do init\n```\n3. **(Optional) Import or generate demo data**\n```bash\n# Import Superset assets and/or generate test data\ntutor local do import-assets\n tutor local do load-xapi-test-data\n```\n4. **Access**: Superset URL and credentials are provided by Tutor after init; in‑context dashboards appear in LMS/Studio when the platform plugin is enabled.",
-      "screenshots": ["https://docs.openedx.org/en/latest/_images/aspects_screenshot1.png"]
+      "screenshots": ["https://docs.openedx.org/en/latest/_images/aspects_screenshot1.png", "https://global-teacher-campus.docs.edunext.co/en/latest/_images/data_dashboard.jpg"]
     },
     {
-      "name": "Open edX Mobile App",
-      "slug": "open-edx-mobile-app",
+      "name": "Mobile app iOS",
+      "slug": "mobile-app-ios",
       "type": "platform-native",
-      "latest_version": "2.1",
+      "latest_version": "",
       "core_compat": ["quince", "redwood", "sumac", "teak"],
-      "description_short": "Modern native (Kotlin & Swift) mobile apps for Open edX, originally developed by Raccoon Gang and adopted by the Open edX project.",
-      "description_long": "# Open edX Mobile App\n\nNative Android (Kotlin) and iOS (Swift) applications for Open edX, created by **Raccoon Gang** and made the default apps for the platform starting with the Quince release. These codebases implement an MVVM architecture and target the latest Open edX mobile APIs.\n\n## Key Features\n- **Core learning flows**: course discovery, enrollment access, dashboards, course content (videos, units), discussions, and profiles.\n- **Internationalization**: translations managed via Transifex and pulled at build time.\n- **White‑labeling**: configurable branding and environment settings per build variant.\n- **Backwards support**: sites older than Dec 2023 can use the Mobile API Plugin.\n\n## Platforms & Repos\n- **Android**: `openedx/openedx-app-android` (Kotlin)\n- **iOS**: `openedx/openedx-app-ios` (Swift)\n\n## Use Cases\n- Provide branded mobile access to Open edX courses, discussions, and learner progress.\n- Ship institution‑specific builds for different tenants/brands.\n\n## Technical Requirements\n- Open edX **Quince or newer** recommended; older sites (pre‑Dec 2023) should enable the **Mobile API Plugin**.\n- Android Studio (Android) / Xcode + CocoaPods (iOS).\n\n",
+      "description_short": "Mobile app iOS for the Open edX platform.",
+      "description_long": "Modern native (Kotlin & Swift) mobile application for the Open edX platform initially developed by RaccoonGang and now adopted by Axim.",
       "provider": {
-        "name": "Raccoon Gang (contributed to Open edX)",
-        "url": "https://raccoongang.com/open-edx-services/mobile-application-development/",
-        "logo": null
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
       },
-      "repo_url": "https://github.com/openedx/openedx-app-android",
-      "license": "Apache-2.0",
+      "repo_url": "",
+      "license": "AGPLv3",
       "price": "free",
       "rating_avg": null,
-      "rating_count": 0,
-      "install_notes": "# Build & Configure\n\n**Android**\n1) `git clone https://github.com/openedx/openedx-app-android.git`\n2) Open in Android Studio.\n3) Configure `default_config/config_settings.yaml` and each module’s `config.yaml` with your site URLs and OAuth.\n4) Choose build variant (`develop`, `stage`, `prod`) and Run. \n\n**iOS**\n1) `git clone https://github.com/openedx/openedx-app-ios.git`\n2) `pod install` and open `OpenEdX.xcworkspace`.\n3) Configure `default_config/config_settings.yaml` and module `config.yaml` files.\n4) Select `OpenEdXDev`/`OpenEdXStage`/`OpenEdXProd` scheme and Run.\n\n**Translations** (both): run the provided `make` targets to pull translations from `openedx/openedx-translations` before building.\n\n**For older platforms**: if your Open edX version is older than **December 2023**, enable the Mobile **API Plugin** as noted in each repo’s README.",
-      "screenshots": ["https://cdn.dribbble.com/userupload/4886738/file/original-c5028ed85b726e1d8fdcf8adbe5d980e.jpg"]
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://y7b6t9n6.rocketcdn.me/wp-content/themes/generatepress/assets/images/template-open-edx-mobile-app/app-features-image-2.png"
+      ]
+    },
+    {
+      "name": "Mobile app android",
+      "slug": "mobile-app-android",
+      "type": "platform-native",
+      "latest_version": "",
+      "core_compat": ["quince", "redwood", "sumac", "teak"],
+      "description_short": "Modern native (Kotlin & Swift) of the mobile application for the Open EdX platform from Raccoon Gang.",
+      "description_long": "# Mobile app android\n\nModern vision of the mobile application for the Open EdX platform from Raccoon Gang.",
+      "provider": {
+        "name": "Axim collaborative",
+        "url": "https://www.axim.org/",
+        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
+      },
+      "repo_url": "",
+      "license": "AGPLv3",
+      "price": "free",
+      "rating_avg": null,
+      "rating_count": null,
+      "install_notes": "",
+      "screenshots": [
+        "https://y7b6t9n6.rocketcdn.me/wp-content/themes/generatepress/assets/images/template-open-edx-mobile-app/app-features-image-2.png", "https://cdn.dribbble.com/userupload/4886738/file/original-c5028ed85b726e1d8fdcf8adbe5d980e.jpg"
+      ]
     },
     {
       "name": "Open edX Credential Service",
@@ -62,7 +87,7 @@
       "rating_avg": null,
       "rating_count": 0,
       "install_notes": "# Installation (Tutor)\n\n1) Install & enable plugins\n```bash\npip install tutor-credentials\n# (For programs) also enable Discovery\ntutor plugins enable discovery mfe credentials\n```\n\n2) Launch / upgrade\n```bash\ntutor local launch\n```\n\n3) (Optional) Copy program data from Discovery into Credentials\n```bash\ntutor local run credentials ./manage.py copy_catalog\n```\n\n4) Access admin & Learner Record UI\n- Credentials admin: `https://credentials.<your-domain>/admin`\n- Learner Record MFE is enabled by default; link from learner profile.\n",
-      "screenshots": ["https://opengraph.githubassets.com/eaf71c8606fbff10d2b7c47eb28f98317140fe13492da20a867281053ab6f138/openedx/credentials"]
+      "screenshots": ["https://opengraph.githubassets.com/eaf71c8606fbff10d2b7c47eb28f98317140fe13492da20a867281053ab6f138/openedx/credentials", "https://edx-credentials.readthedocs.io/en/latest/_images/theme-sections.png"]
     },
     {
       "name": "Cairn",
@@ -298,98 +323,6 @@
         "https://www.edunext.co/wp-content/uploads/2023/10/Limesurvey-plugin.webp"
       ]
     },    
-    {
-      "name": "Aspects",
-      "slug": "aspects",
-      "type": "platform-native",
-      "latest_version": "",
-      "core_compat": [],
-      "description_short": "Aspects is an optional implementation of analytics for the Open edX LMS. It is the combined solution of Cairn by Overhang.io and the OARS project developed by Axim Collaborative with a huge amount of …",
-      "description_long": "# Aspects\n\nAspects is an optional implementation of analytics for the Open edX LMS. It is the combined solution of Cairn by Overhang.io and the OARS project developed by Axim Collaborative with a huge amount of help from the Open edX community. Primarily it is intended to be a (batteries included) set of configurations and plugins to combine 3rd party tools into a powerful and flexible system for learner analytics.",
-      "provider": {
-        "name": "Axim collaborative",
-        "url": "https://www.axim.org/",
-        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
-      },
-      "repo_url": "",
-      "license": "AGPLv3",
-      "price": "free",
-      "rating_avg": null,
-      "rating_count": null,
-      "install_notes": "",
-      "screenshots": [
-        "https://global-teacher-campus.docs.edunext.co/en/latest/_images/data_dashboard.jpg"
-      ]
-    },
-    {   
-       "name": "Credentials",
-      "slug": "credentials",
-      "type": "platform-native",
-      "latest_version": "",
-      "core_compat": [],
-      "description_short": "edX Credentials Service, which supports course and program certificates. This service is a replacement for the certificates app in edx-platform.",
-      "description_long": "# Credentials\n\nedX Credentials Service, which supports course and program certificates. This service is a replacement for the certificates app in edx-platform.",
-      "provider": {
-        "name": "Axim collaborative",
-        "url": "https://www.axim.org/",
-        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
-      },
-      "repo_url": "",
-      "license": "AGPLv3",
-      "price": "free",
-      "rating_avg": null,
-      "rating_count": null,
-      "install_notes": "",
-      "screenshots": [
-        "https://edx-credentials.readthedocs.io/en/latest/_images/theme-sections.png"
-      ]
-    },
-    {
-      "name": "Mobile app iOS",
-      "slug": "mobile-app-ios",
-      "type": "platform-native",
-      "latest_version": "",
-      "core_compat": [],
-      "description_short": "Modern vision of the mobile application for the Open EdX platform from Raccoon Gang.",
-      "description_long": "# Mobile app iOS\n\nModern vision of the mobile application for the Open EdX platform from Raccoon Gang.",
-      "provider": {
-        "name": "Axim collaborative",
-        "url": "https://www.axim.org/",
-        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
-      },
-      "repo_url": "",
-      "license": "AGPLv3",
-      "price": "free",
-      "rating_avg": null,
-      "rating_count": null,
-      "install_notes": "",
-      "screenshots": [
-        "https://y7b6t9n6.rocketcdn.me/wp-content/themes/generatepress/assets/images/template-open-edx-mobile-app/app-features-image-2.png"
-      ]
-    },
-    {
-      "name": "Mobile app android",
-      "slug": "mobile-app-android",
-      "type": "platform-native",
-      "latest_version": "",
-      "core_compat": [],
-      "description_short": "Modern vision of the mobile application for the Open EdX platform from Raccoon Gang.",
-      "description_long": "# Mobile app android\n\nModern vision of the mobile application for the Open EdX platform from Raccoon Gang.",
-      "provider": {
-        "name": "Axim collaborative",
-        "url": "https://www.axim.org/",
-        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
-      },
-      "repo_url": "",
-      "license": "AGPLv3",
-      "price": "free",
-      "rating_avg": null,
-      "rating_count": null,
-      "install_notes": "",
-      "screenshots": [
-        "https://y7b6t9n6.rocketcdn.me/wp-content/themes/generatepress/assets/images/template-open-edx-mobile-app/app-features-image-2.png"
-      ]
-    },
     {
       "name": "username changer",
       "slug": "username-changer",
