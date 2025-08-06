@@ -17,12 +17,61 @@ interface FilterBarProps {
   extensions: any[]; // Add extensions prop to extract compatibility options
 }
 
-const typeOptions = [
+const categoryOptions = [
   { value: "platform-native", label: "Platform Module – Native" },
   { value: "platform-connector", label: "Platform Module – 3rd-Party Integration" },
   { value: "courseware-native", label: "Courseware Component – Native" },
   { value: "courseware-connector", label: "Courseware Component – 3rd-Party Integration" }
 ];
+
+const typeOptionsByCategory = {
+  "platform-native": [
+    "Additional module or service",
+    "Theme", 
+    "Data Analytics",
+    "Backend only functionality",
+    "Admin functionality",
+    "ecommerce functionality",
+    "Gamification engine",
+    "AI engine",
+    "Community engine",
+    "Video engine",
+    "Mobile app",
+    "Other"
+  ],
+  "platform-connector": [
+    "Authentication service",
+    "Content management System", 
+    "Credentials engine",
+    "CRM",
+    "Ecommerce platform",
+    "Other"
+  ],
+  "courseware-native": [
+    "Visual content display",
+    "Interactive exercises",
+    "Graded exercises", 
+    "Conditionals",
+    "Discussions engine",
+    "AI powered tools",
+    "Other"
+  ],
+  "courseware-connector": [
+    "LTI courseware component",
+    "External content library",
+    "Web conference tools",
+    "Code Grading tools", 
+    "AI powered tools",
+    "Collaboration tools",
+    "Embeded Documents",
+    "Embeded Calendar",
+    "Proctoring service",
+    "Video delivery service",
+    "Credential / badges",
+    "other"
+  ]
+};
+
 const licenseOptions = ["MIT", "Apache-2.0", "AGPL-3.0", "GPL-3.0", "BSD-3-Clause"];
 const providerOptions = ["edX", "OpenCraft", "Raccoon Gang", "Appsembler", "eduNEXT"];
 
@@ -33,6 +82,11 @@ export function FilterBar({ filters, onFilterChange, onClearFilters, resultCount
       extensions.flatMap(ext => ext.core_compat || [])
     )
   ).sort((a, b) => b.localeCompare(a)); // Sort alphabetically descending
+  
+  // Get type options based on selected category
+  const currentTypeOptions = filters.category && filters.category !== "all" 
+    ? typeOptionsByCategory[filters.category as keyof typeof typeOptionsByCategory] || []
+    : [];
   
   const hasActiveFilters = Object.values(filters).some(value => value && value !== "all");
 
@@ -48,9 +102,30 @@ export function FilterBar({ filters, onFilterChange, onClearFilters, resultCount
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All categories</SelectItem>
-              {typeOptions.map((type) => (
-                <SelectItem key={type.value} value={type.value}>
-                  {type.label}
+              {categoryOptions.map((category) => (
+                <SelectItem key={category.value} value={category.value}>
+                  {category.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-medium text-foreground">Type</label>
+          <Select 
+            value={filters.type} 
+            onValueChange={(value) => onFilterChange("type", value)}
+            disabled={!filters.category || filters.category === "all"}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="All types" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All types</SelectItem>
+              {currentTypeOptions.map((type) => (
+                <SelectItem key={type} value={type}>
+                  {type}
                 </SelectItem>
               ))}
             </SelectContent>

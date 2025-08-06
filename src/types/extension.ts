@@ -36,6 +36,7 @@ export interface ProviderRegistry {
 export interface FilterOptions {
   search: string;
   category: string;
+  type: string;
   compatibility: string;
   license: string;
   rating: string;

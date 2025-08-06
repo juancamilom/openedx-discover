@@ -23,6 +23,7 @@ const Index = () => {
   const [filters, setFilters] = useState<FilterOptions>({
     search: "",
     category: "all",
+    type: "all",
     compatibility: "all",
     license: "all",
     rating: "all",
@@ -44,6 +45,11 @@ const Index = () => {
 
       // Category filter
       if (filters.category !== "all" && extension.category !== filters.category) {
+        return false;
+      }
+
+      // Type filter
+      if (filters.type !== "all" && extension.type !== filters.type) {
         return false;
       }
 
@@ -84,7 +90,14 @@ const Index = () => {
   );
 
   const handleFilterChange = (key: keyof FilterOptions, value: string) => {
-    setFilters(prev => ({ ...prev, [key]: value }));
+    setFilters(prev => {
+      const newFilters = { ...prev, [key]: value };
+      // Reset type filter when category changes
+      if (key === "category") {
+        newFilters.type = "all";
+      }
+      return newFilters;
+    });
     setCurrentPage(1);
   };
 
@@ -92,6 +105,7 @@ const Index = () => {
     setFilters({
       search: "",
       category: "all",
+      type: "all",
       compatibility: "all",
       license: "all",
       rating: "all",
