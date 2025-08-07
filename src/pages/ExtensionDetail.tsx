@@ -202,7 +202,7 @@ export default function ExtensionDetail() {
                       <img
                         src={screenshot}
                         alt={`${extension.name} screenshot ${index + 1}`}
-                        className="w-full h-96 object-cover rounded-lg"
+                        className="w-full h-96 object-contain rounded-lg bg-muted/10"
                       />
                     </CarouselItem>
                   ))}
