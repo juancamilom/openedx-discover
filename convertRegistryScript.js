@@ -1,7 +1,7 @@
 // This script converts the registry.json file to use provider_id instead of provider objects
 // Run with: node convertRegistryScript.js
 
-const fs = require('fs');
+import fs from 'fs';
 
 const providerMapping = {
   "Open edX / Axim Collaborative": "open-edx-axim",
