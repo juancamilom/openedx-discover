@@ -3,190 +3,197 @@
     {
       "id": "open-edx-axim",
       "name": "Open edX / Axim Collaborative",
-      "url": "https://docs.openedx.org/projects/openedx-aspects/en/latest/",
+      "url": "https://openedx.org/",
       "logo": "https://logos.openedx.org/open-edx-logo-color.png",
-      "description": "The official Open edX organization and Axim Collaborative, maintaining the core platform and official extensions."
+      "description": "Axim Collaborative is the nonprofit steward of the Open edX project, created by MIT and Harvard to widen global access to high-quality digital learning. Its engineering team maintains the open-source codebase, oversees the twice-yearly named releases and nurtures a worldwide community of Core Contributors. Beyond code stewardship, Axim forges research and industry partnerships—from skills-first pilots with the National Skill Development Corporation to reference implementations with Unicon—so the platform keeps pace with emerging pedagogies and workforce needs."
     },
     {
       "id": "raccoon-gang",
       "name": "Raccoon Gang",
-      "url": "https://raccoongang.com/open-edx-services/mobile-application-development/",
+      "url": "https://raccoongang.com/",
       "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf4eY9ZtCOtyx3ZTYQ86TY_q5mF0wsMnhUhA&s",
-      "description": "Professional Open edX development and services company, creators of the official Open edX mobile apps."
+      "description": "Raccoon Gang is an official Open edX partner that designs, builds and scales custom learning ecosystems for universities, NGOs and enterprises. Headquartered in Ukraine with a global client base, the team not only develops tailor-made courseware and XBlocks but also maintains the community’s flagship native iOS and Android apps, ensuring mobile learners enjoy the same rich experience as desktop users."
     },
     {
       "id": "overhang-io",
       "name": "Overhang.io",
       "url": "https://overhang.io/",
       "logo": "https://overhang.io/static/img/Overhang.IO-small.png",
-      "description": "Creators of Tutor, the Docker-based Open edX distribution, and various analytics and theming solutions."
+      "description": "Overhang.io created **Tutor**, the Docker-based Open edX distribution that offers one-command installation, effortless upgrades and an extensive plugin marketplace. Adopted by hundreds of production sites, Tutor lets organisations—from start-ups to national ministries—deploy, theme and extend Open edX without deep DevOps expertise, while Overhang.io provides commercial support, training and enterprise add-ons such as the real-time analytics suite *Cairn*."
     },
     {
       "id": "opencraft",
       "name": "OpenCraft",
       "url": "https://opencraft.com/",
       "logo": "https://avatars.githubusercontent.com/u/7414786?s=200&v=4",
-      "description": "Open source software development company specializing in Open edX hosting and custom development."
+      "description": "OpenCraft is a fully-remote cooperative and the largest concentration of Open edX Core Contributors. Since 2013 the company has delivered upstream features, maintained widely used XBlocks and provided transparent, high-quality custom development and hosting for clients such as Harvard, edX .org and the French Ministry of Education—all guided by the values of openness, quality, commitment and empathy."
     },
     {
       "id": "edunext",
       "name": "eduNEXT",
       "url": "https://www.edunext.co",
       "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png",
-      "description": "Leading Open edX services provider and Open edX partner offering hosting, consulting services, and enterprise solutions."
+      "description": "Founded in Colombia in 2013, **eduNEXT** operates one of the world’s largest fleets of Open edX instances, serving organisations in more than 70 countries. Its cloud-native Cirrus/Stratus/Nimbus SaaS tiers, Tutor-based Control Centre and EOX plugin suite empower customers to launch branded learning sites within hours, while eduNEXT’s multilingual support, instructional-design studio and active code contributions strengthen the global ecosystem."
     },
     {
       "id": "appsembler",
       "name": "Appsembler",
       "url": "https://www.appsembler.com/",
       "logo": "https://appsembler.com/wp-content/themes/wordpress-appsembler-theme/assets/images/branding/appsembler-logo-positive.svg",
-      "description": "Enterprise Open edX platform provider focusing on corporate training and analytics solutions."
+      "description": "Appsembler blends Open edX with its **Virtual IT Labs** technology to create hands-on product-training experiences that drive customer adoption and lead generation. The Tahoe SaaS platform lets organisations spin up branded learning portals in minutes, then provision ephemeral sandboxes that capture learner telemetry for sales enablement, customer education and developer-relations use-cases."
     },
     {
       "id": "edly",
       "name": "edly",
       "url": "https://edly.io/",
       "logo": "https://d28krnqa5al722.cloudfront.net/2022/10/edly-site-logo-new.svg",
-      "description": "Open edX development and hosting company providing enterprise solutions and custom development."
+      "description": "Edly (an Arbisoft venture) delivers turnkey Open edX deployments, bespoke XBlocks and the intuitive Edly Panel that puts LMS administration within reach of non-technical teams. The company’s learning-design and AI practices craft interactive, data-driven courses for millions of learners, while its engineers maintain documentation and upstream patches—including major contributions to Tutor and SCORM XBlock."
     },
     {
       "id": "hastexo",
       "name": "hastexo",
       "url": "https://www.hastexo.com/",
       "logo": "https://www.hastexo.com/static/img/hastexo-logo.svg",
-      "description": "Professional training and Open edX services company specializing in cloud technologies."
+      "description": "hastexo is a boutique consultancy at the intersection of cloud infrastructure and online learning. Leveraging deep expertise in OpenStack and Kubernetes, its engineers architect resilient, scalable Open edX environments, contribute deployment-automation tooling and share best practices at Open edX and OpenStack summits."
     },
     {
       "id": "mit-odl",
-      "name": "MIT Office of distance learning",
+      "name": "MIT Office of Digital Learning",
       "url": "https://xpro.mit.edu/",
       "logo": "https://ocw.mit.edu/static_shared/images/mit-ol.8713e4407efc8841e4f2.png",
-      "description": "MIT's Office of distance learning. The branch of MIT responsible for the professional education platform built on Open edX."
+      "description": "MIT’s Office of Digital Learning (ODL) transforms the Institute’s research-driven pedagogy into global programmes such as MITx Online and MicroMasters. ODL pioneers interactive assessments, credential frameworks and open-source libraries that flow back into Open edX, supporting hundreds of thousands of learners each year while advancing the science of digital learning."
     },
     {
       "id": "stanford-online",
       "name": "Stanford Online",
       "url": "https://online.stanford.edu/",
       "logo": "https://www.edunext.co/wp-content/uploads/2023/08/stanford-online-logo.png",
-      "description": "Stanford University's online education platform and Open edX contributor."
+      "description": "Stanford Online is the university’s lifelong-learning hub, offering professional certificates, executive education and open courses to a global audience. The team delivered more than 200 courses to over 10 million learners on Open edX technology (the Lagunita platform) and contributes extensions—such as the Free-Text Response and In-Video Quiz XBlocks—back to the community."
     },
     {
       "id": "microsoft",
       "name": "Microsoft",
       "url": "https://www.microsoft.com/",
       "logo": "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b",
-      "description": "Technology company providing various integrations and tools for Open edX."
+      "description": "Microsoft Education provides Azure-based reference architectures, deep integrations with Microsoft 365 and Teams, and a catalogue of free professional-development content that complements Open edX deployments. Its mission is to make equitable, accessible digital-learning tools available to students and educators everywhere."
     },
     {
       "id": "google",
       "name": "Google",
       "url": "https://www.google.com/",
       "logo": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
-      "description": "Technology company providing analytics and integration tools for educational platforms."
+      "description": "Google for Education combines Chromebooks, Workspace productivity suites and AI-powered services such as Gemini to enrich digital classrooms. The company also invests heavily in educator professional development—including a recent US $1 billion initiative to expand AI training across U.S. universities—and its tools integrate readily with Open edX sites worldwide."
     },
     {
       "id": "blindside-networks",
-      "name": "Blindsid Networks",
+      "name": "Blindside Networks",
       "url": "https://blindsidenetworks.com/",
       "logo": "https://blindsidenetworks.com/wp-content/uploads/2025/05/bn-high-res-name-1.jpg",
-      "description": "Blindside Networks are the creators of BigBlueButton, the world’s only open-source virtual classroom. Our expertise in online learning allows us to deeply understand what it takes for organizations to deliver effective virtual classes. We specialize in tailoring solutions that align with your goals, and our focus is always on you, the customer. We pride ourselves on being accessible and responsive, bringing unmatched expertise in BigBlueButton and dedicated support to meet your unique needs."
+      "description": "Blindside Networks is the founding company behind **BigBlueButton**, the open-source virtual classroom tailored for online learning. The firm offers commercial hosting, custom development and analytics that integrate BigBlueButton with Open edX and other LMSs, enabling interactive breakout rooms, whiteboards and real-time engagement metrics."
     },
     {
       "id": "intelliboard",
       "name": "IntelliBoard",
       "url": "https://intelliboard.net/",
       "logo": "https://intelliboard.net/wp-content/uploads/2021/01/IntelliBoard-logo.png",
-      "description": "Learning analytics platform providing insights and reporting for educational institutions."
+      "description": "IntelliBoard turns raw LMS data into actionable insights with role-based dashboards, predictive analytics and early-alert workflows. Trusted by thousands of institutions, the cloud platform centralises data from systems such as Open edX, Moodle and Canvas to help faculty, advisors and executives boost retention and learner success."
     },
     {
       "id": "proversity",
       "name": "Proversity",
       "url": "https://proversity.org/",
       "logo": "https://openedx.org/wp-content/uploads/2019/01/ProversityLogo_Full_Colour.png",
-      "description": "Open edX development and services company focusing on accessibility and user experience."
+      "description": "Construct Education (formerly Proversity) is a learning-design and engineering studio that builds full-funnel online programmes—from MOOCs and bootcamps to degree pathways—on customised Open edX stacks. Its multidisciplinary teams handle everything from pedagogical scripting and media production to DevOps and long-term managed services for universities and employers."
     },
     {
       "id": "triboo",
       "name": "Triboo",
       "url": "https://triboo.com/",
       "logo": "https://triboo.com/wp-content/uploads/2021/03/triboo-logo.png",
-      "description": "Digital transformation company providing Open edX solutions and services."
+      "description": "Triboo S.p.A., listed on Euronext Milan, is a ‘Digital Transformation Factory’ that supports brands through integrated e-commerce, media and technology services. Within its education practice, Triboo leverages Open edX to create scalable training portals that align with clients’ broader digital-business strategies and data-driven marketing initiatives."
     },
     {
       "id": "HarvardX",
       "name": "HarvardX",
       "url": "https://www.harvardx.harvard.edu/",
       "logo": "https://upload.wikimedia.org/wikipedia/commons/7/70/Harvard_University_logo.svg",
-      "description": "Harvard University's online learning initiative."
+      "description": "HarvardX, overseen by the Office of the VPAL, produces research-based online courses and open educational resources that extend Harvard’s teaching mission. Through large-scale experiments on Open edX, the initiative advances the understanding of learner engagement, assessment and credential pathways while reaching millions of participants worldwide."
     },
     {
       "id": "openfun",
       "name": "OpenFUN",
       "url": "https://www.fun-mooc.fr/",
       "logo": "https://www.campusfrance.org/sites/default/files/fun%20moocs%20logo.png",
-      "description": "French platform for online courses built on Open edX."
+      "description": "Open FUN operates **FUN-MOOC**, France’s national MOOC platform powered by Open edX. Partnering with more than 240 higher-education institutions, FUN offers high-level online training, shared technical services and open resources that promote lifelong learning across the Francophone world."
     },
     {
       "id": "eol.uchile",
       "name": "Universidad de Chile",
       "url": "https://www.uchile.cl/",
       "logo": "https://www.uchile.cl/logo.png",
-      "description": "University of Chile's Open edX contributions."
+      "description": "Educación Online (EOL) at the University of Chile both operates a large public Open edX campus and contributes code—such as the Conditional XBlock and Chilean-Spanish translations—to the upstream project, expanding the platform’s accessibility for Latin-American learners and institutions."
     },
     {
       "id": "examus",
       "name": "Examus Inc",
       "url": "https://examus.net/",
       "logo": "https://static.tildacdn.com/tild6531-6263-4138-a663-336432383033/examus_60.png",
-      "description": "AI-powered proctoring solutions for online education."
+      "description": "Examus develops AI-powered proctoring technology that monitors identity, attention and rule violations to secure online assessments. Its Proctor AI and EQ suites integrate with Open edX and other LMSs, giving exam organisers real-time dashboards and post-session analytics that deter cheating while safeguarding learner privacy."
     },
     {
       "id": "jazkarta",
       "name": "Jazkarta",
       "url": "https://jazkarta.com/",
       "logo": "",
-      "description": "Web development company providing Open edX solutions."
+      "description": "Jazkarta is a Boston-based web consultancy specialising in Python, Plone, Django and Open edX. Since 2004 the agency has delivered custom-integrated learning platforms, XBlocks and accessibility enhancements for non-profits, universities and enterprises committed to open-source solutions."
     },
     {
       "id": "ibl-education",
       "name": "IBL Education",
       "url": "https://ibl.education/",
       "logo": "https://ibl.education/logo.png",
-      "description": "Educational technology company."
+      "description": "IBL Education offers a generative-AI powered skills platform that layers analytics, mentorship and monetisation tools on top of Open edX. As an official partner of Google and AWS, IBL helps universities and enterprises launch white-label learning marketplaces and competency-based credential programmes."
     },
     {
       "id": "ubc",
       "name": "UBC - University of British Columbia",
       "url": "https://www.ubc.ca/",
       "logo": "https://avatars.githubusercontent.com/u/1396118?s=200&v=4",
-      "description": "University of British Columbia's Open edX contributions."
+      "description": "UBC x represents the University of British Columbia’s partnership with edX, through which the university delivers MOOCs, MicroMasters and professional certificates to a global audience. Recognised for courses such as ‘How to Code’ and ‘Business Communications,’ UBC leverages Open edX to translate its West-Coast spirit of innovation into accessible digital learning."
     },
     {
       "id": "abstract-technology",
       "name": "Abstract-Technology",
       "url": "https://abstract-technology.de/",
       "logo": "https://abstract-technology.de/logo.png",
-      "description": "Technology company providing Open edX solutions."
+      "description": "Abstract-Technology GmbH is Europe’s leading Open edX Verified Partner, designing modern, accessible learning ecosystems for universities, public institutions, NGOs and enterprises. Based in Berlin, the company tailors cloud hosting, theming and advanced analytics to meet diverse pedagogical and compliance requirements."
     },
     {
-      "id": "edx-org",
-      "name": "edX.org",
+      "id": "2U",
+      "name": "2U / edX",
       "url": "https://www.edx.org/",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/EdX_newer_logo.svg/1200px-EdX_newer_logo.svg.png",
-      "description": "Original edX platform and content provider."
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaBfA9XqdXbFTctzQ17Ix2KvEiK4IVQ8dbKw&s",
+      "description": "Founded by MIT and Harvard in 2012 and now part of the 2U family, **edX.org** is a global online learning platform that hosts thousands of courses, MicroMasters, professional certificates and full degrees from 250+ leading institutions, all running on the open-source Open edX technology."
     },
     {
       "id": "perpetual-learning",
       "name": "Perpetual Learning",
       "url": "https://www.perpetualny.com/",
       "logo": "https://media.designrush.com/agencies/314721/conversions/Perpetual-logo-profile.jpg",
-      "description": "Perpetual is a top rated digital design and software engineering agency based in New York City. We create innovative digital solutions that delight users and maximize business impact for clients."
+      "description": "Perpetual is an award-winning UX design and software-engineering agency in New York City. With a user-experience-first philosophy, the firm builds custom web and mobile products—including Open edX extensions and XBlocks—for Fortune 500 companies, start-ups and non-profits, delivering solutions that delight users and drive measurable business impact."
     },
     {
       "id": "abc-online",
-      "name": "Abc online",
+      "name": "ABC Online",
       "url": "https://abconlinecourses.com/",
       "logo": "https://abconlinecourses.com/wp-content/uploads/2020/09/abc-online-courses-logo.png",
+      "description": "ABC Online Courses is a UK-based Open edX service provider that installs, customises and hosts branded platforms for universities, non-profits and corporate academies. Known for responsive support and turnkey course-production services, ABC has enabled clients such as Norland College, UNESCO and Xavier Institute of Management to launch high-quality online programmes quickly."
+    },
+    {
+      "id": "annoto",
+      "name": "Annoto",
+      "url": "https://www.annoto.net/",
+      "logo": "hhttps://www.muvi.com/wp-content/uploads/2019/06/1546644729_Annoto-logo.png",
       "description": ""
     }
   ]
