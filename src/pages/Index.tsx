@@ -30,8 +30,8 @@ const Index = () => {
     provider: "all",
   });
 
-  // Stable filtered extensions - only recalculate when filters or extensions change
-  const stableFilteredExtensions = useMemo(() => {
+  // Main filtered extensions - stable, no dependency on extensionStats
+  const baseFilteredExtensions = useMemo(() => {
     return extensions.filter((extension) => {
       // Search filter
       if (filters.search) {
@@ -63,17 +63,6 @@ const Index = () => {
         return false;
       }
 
-      // Rating filter - only use extensionStats if rating filter is applied
-      if (filters.rating !== "all") {
-        const minRating = parseFloat(filters.rating.replace("+", ""));
-        // Check if extension has database rating, otherwise use static rating
-        const dbStats = extensionStats?.[extension.slug];
-        const currentRating = dbStats?.averageRating || extension.rating_avg || 0;
-        if (currentRating < minRating) {
-          return false;
-        }
-      }
-
       // Provider filter
       if (filters.provider !== "all" && extension.provider.name.toLowerCase() !== filters.provider.toLowerCase()) {
         return false;
@@ -81,7 +70,21 @@ const Index = () => {
 
       return true;
     });
-  }, [extensions, filters, filters.rating !== "all" ? extensionStats : null]);
+  }, [extensions, filters.search, filters.category, filters.type, filters.compatibility, filters.license, filters.provider]);
+
+  // Apply rating filter separately only when needed
+  const stableFilteredExtensions = useMemo(() => {
+    if (filters.rating === "all") {
+      return baseFilteredExtensions;
+    }
+    
+    const minRating = parseFloat(filters.rating.replace("+", ""));
+    return baseFilteredExtensions.filter((extension) => {
+      const dbStats = extensionStats?.[extension.slug];
+      const currentRating = dbStats?.averageRating || extension.rating_avg || 0;
+      return currentRating >= minRating;
+    });
+  }, [baseFilteredExtensions, filters.rating, extensionStats]);
 
   const totalPages = Math.ceil(stableFilteredExtensions.length / ITEMS_PER_PAGE);
   
