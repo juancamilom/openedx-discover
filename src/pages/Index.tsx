@@ -75,7 +75,7 @@ const Index = () => {
       }
 
       // Provider filter
-      if (filters.provider !== "all" && extension.provider.name !== filters.provider) {
+      if (filters.provider !== "all" && extension.provider.name.toLowerCase() !== filters.provider.toLowerCase()) {
         return false;
       }
 
