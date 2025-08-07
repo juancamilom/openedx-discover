@@ -35,7 +35,7 @@ const Index = () => {
 
   // Prevent page reset when extensionStats loads
   const stableFilteredExtensions = useMemo(() => {
-    console.log('filteredExtensions recalculating, extensionStats loaded:', !!extensionStats);
+    console.log('stableFilteredExtensions recalculating, extensionStats loaded:', !!extensionStats);
     return extensions.filter((extension) => {
       // Search filter
       if (filters.search) {
