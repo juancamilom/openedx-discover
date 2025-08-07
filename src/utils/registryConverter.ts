@@ -39,8 +39,8 @@ export async function convertRegistryData(): Promise<{ extensions: ExtensionWith
   const extensions: ExtensionWithProvider[] = oldRegistry.extensions.map((oldExt, index) => {
     console.log(`Processing extension ${index + 1}: ${oldExt.name}, provider_id: ${oldExt.provider_id}`);
     
-    // Find provider data by ID
-    const providerData = providersData.providers.find((p: any) => p.id === oldExt.provider_id);
+    // Find provider data by ID (case insensitive)
+    const providerData = providersData.providers.find((p: any) => p.id.toLowerCase() === oldExt.provider_id.toLowerCase());
     
     if (!providerData && oldExt.name === "Open edX Credential Service") {
       console.log(`❌ DEBUGGING: Could not find provider for "${oldExt.name}" with provider_id: "${oldExt.provider_id}"`);
