@@ -17,6 +17,11 @@ const ITEMS_PER_PAGE = 20;
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  
+  // Debug: Track all currentPage changes
+  useEffect(() => {
+    console.log('currentPage changed to:', currentPage, 'Stack:', new Error().stack);
+  }, [currentPage]);
   const { data: registryData, isLoading: loading } = useExtensionRegistry();
   const { extensionStats, loading: statsLoading } = useAllExtensionStats();
   const extensions = registryData?.extensions || [];
@@ -88,9 +93,16 @@ const Index = () => {
 
   const totalPages = Math.ceil(stableFilteredExtensions.length / ITEMS_PER_PAGE);
   
+  // Debug: Track totalPages changes
+  useEffect(() => {
+    console.log('totalPages changed to:', totalPages, 'stableFilteredExtensions.length:', stableFilteredExtensions.length);
+  }, [totalPages, stableFilteredExtensions.length]);
+  
   // Ensure currentPage doesn't exceed totalPages when data changes
   useEffect(() => {
+    console.log('Checking if currentPage > totalPages:', currentPage, '>', totalPages);
     if (currentPage > totalPages && totalPages > 0) {
+      console.log('RESETTING currentPage from', currentPage, 'to', totalPages);
       setCurrentPage(totalPages);
     }
   }, [totalPages, currentPage]);
