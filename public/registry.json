@@ -45,11 +45,7 @@
       "core_compat": ["quince", "redwood", "sumac", "teak"],
       "description_short": "Modern native (Kotlin & Swift) of the mobile application for the Open EdX platform from Raccoon Gang.",
       "description_long": "# Mobile app android\n\nModern vision of the mobile application for the Open EdX platform from Raccoon Gang.",
-      "provider": {
-        "name": "Axim collaborative",
-        "url": "https://www.axim.org/",
-        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
-      },
+      "provider_id": "open-edx-axim",
       "repo_url": "",
       "license": "AGPLv3",
       "price": "free",
@@ -68,11 +64,7 @@
       "core_compat": ["palm", "quince", "redwood", "sumac"],
       "description_short": "Microservice that issues and manages Open edX course and program certificates, with a Learner Record UI and optional W3C verifiable credentials.",
       "description_long": "# Open edX Credential Service\n\nA standalone service (IDA) that stores, issues, and presents learner credentials for Open edX deployments. It supports **course certificates**, **program certificates**, a **Learner Record** UI (MFE), and optional **W3C verifiable credentials** generation.\n\n## Key Features\n- **Course & Program Certificates**: Define certificate configurations, signatories, and branding in Django Admin.\n- **Learner Record UI (MFE)**: Public/ sharable records for earned credentials.\n- **Platform Integration**: Communicates with LMS and other services via JWT service user.\n- **Verifiable Credentials (optional)**: Emit machine-verifiable credentials derived from achievements.\n\n## Architecture Components\n- **Credentials IDA** (Django) with theming support\n- **Learner Record MFE** for end-user views\n- Integration with **LMS** and (optionally) **Discovery** for programs/catalog\n\n## Use Cases\n- Issue printable/shareable certificates for courses and programs\n- Provide learners with a consolidated, shareable record of achievements\n- Enable verifiable credentials workflows\n\n## Technical Requirements\n- Deployed standalone (Docker/Tutor) alongside LMS\n- JWT-backed service user for cross-service API calls\n- For programs, use Discovery (or equivalent) as catalog source\n\n",
-      "provider": {
-        "name": "Open edX / Axim Collaborative",
-        "url": "https://docs.openedx.org/projects/edx-credentials/en/latest/",
-        "logo": null
-      },
+      "provider_id": "open-edx-axim",
       "repo_url": "https://github.com/openedx/credentials",
       "license": "AGPL-3.0",
       "price": "free",
@@ -89,11 +81,7 @@
       "core_compat": [],
       "description_short": "The next-generation, scalable, customisable, real-time Analytics solution for Open edX that you have been waiting for.",
       "description_long": "# Cairn\n\nThe next-generation, scalable, customisable, real-time Analytics solution for Open edX that you have been waiting for.\n\n## Links\n- **Docs**: https://overhang.io/tutor/plugin/cairn\n- **Product**: https://overhang.io/tutor/plugin/cairn",
-      "provider": {
-        "name": "Overhang.io",
-        "url": "https://overhang.io/",
-        "logo": "https://overhang.io/static/img/Overhang.IO-small.png"
-      },
+      "provider_id": "overhang-io",
       "repo_url": "https://overhang.io/tutor/plugin/cairn",
       "license": "AGPLv3 (Commercial)",
       "price": "paid",
@@ -112,11 +100,7 @@
       "core_compat": [],
       "description_short": "A new interface where staff members can copy all cohorts from one course into another. Developed with funding from Centrale Lille for an I-SITE project.",
       "description_long": "# Cohort manager\n\nA new interface where staff members can copy all cohorts from one course into another. Developed with funding from Centrale Lille for an I-SITE project.",
-      "provider": {
-        "name": "OpenCraft",
-        "url": "https://opencraft.com/",
-        "logo": "https://avatars.githubusercontent.com/u/7414786?s=200&v=4"
-      },
+      "provider_id": "opencraft",
       "repo_url": "",
       "license": "AGPL",
       "price": "free",
@@ -135,11 +119,7 @@
       "core_compat": [],
       "description_short": "EOX-core (A.K.A. eduNEXT Open extensions) is an open edX plugin that adds multiple API endpoints in order to extend the functionality of the Open edX platform and avoid changing the base code directly…",
       "description_long": "# EOX core\n\nEOX-core (A.K.A. eduNEXT Open extensions) is an open edX plugin that adds multiple API endpoints in order to extend the functionality of the Open edX platform and avoid changing the base code directly. These API endpoints includes bulk creation of pre-activated users (for example, skip sending an activation email) and enrollments.",
-      "provider": {
-        "name": "edunext",
-        "url": "https://www.edunext.co",
-        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
-      },
+      "provider_id": "edunext",
       "repo_url": "",
       "license": "AGPLv3",
       "price": "free",
@@ -182,11 +162,7 @@
       "core_compat": [],
       "description_short": "EOX Tagging is an openedx plugin, that adds the capability to tag edx-platform objects. These tags can be used to categorize and include extra information.",
       "description_long": "# EOX Tagging\n\nEOX Tagging is an openedx plugin, that adds the capability to tag edx-platform objects. These tags can be used to categorize and include extra information.",
-      "provider": {
-        "name": "edunext",
-        "url": "https://www.edunext.co",
-        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
-      },
+      "provider_id": "edunext",
       "repo_url": "",
       "license": "AGPLv3",
       "price": "free",
@@ -206,11 +182,7 @@
       "core_compat": [],
       "description_short": "The multitenancy feature empowers our clients to efficiently manage multiple users and tenants on a single site, enabling independent support and customization while sharing resources. This capability…",
       "description_long": "# EOX Tenant\n\nThe multitenancy feature empowers our clients to efficiently manage multiple users and tenants on a single site, enabling independent support and customization while sharing resources. This capability can be seamlessly implemented in : Nimbus, Stratus, and Cirrus.\n\n## Links\n- **Docs**: https://github.com/eduNEXT/eox-tenant\n- **Product**: https://github.com/eduNEXT/eox-tenant",
-      "provider": {
-        "name": "edunext",
-        "url": "https://www.edunext.co",
-        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
-      },
+      "provider_id": "edunext",
       "repo_url": "https://github.com/eduNEXT/eox-tenant",
       "license": "AGPLv3",
       "price": "free",
@@ -230,11 +202,7 @@
       "core_compat": [],
       "description_short": "EOX Theming allows to customize the design of their virtual learning environment to match their branding, creating a cohesive and professional look. With flexibility and control, EOX theming helps in …",
       "description_long": "# EOX Theming\n\nEOX Theming allows to customize the design of their virtual learning environment to match their branding, creating a cohesive and professional look. With flexibility and control, EOX theming helps in creating a more engaging and motivating learning experience for students.",
-      "provider": {
-        "name": "edunext",
-        "url": "https://www.edunext.co",
-        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
-      },
+      "provider_id": "edunext",
       "repo_url": "",
       "license": "AGPLv3",
       "price": "free",
@@ -254,11 +222,7 @@
       "core_compat": [],
       "description_short": "Open source analytics tool to visualize the performance metrics for Open edX sites, courses, and learners.",
       "description_long": "# Figures\n\nOpen source analytics tool to visualize the performance metrics for Open edX sites, courses, and learners.",
-      "provider": {
-        "name": "Appsembler",
-        "url": "https://www.appsembler.com/",
-        "logo": "https://appsembler.com/wp-content/themes/wordpress-appsembler-theme/assets/images/branding/appsembler-logo-positive.svg"
-      },
+      "provider_id": "appsembler",
       "repo_url": "",
       "license": "MIT",
       "price": "free",
@@ -277,11 +241,7 @@
       "core_compat": [],
       "description_short": "a customizable theme for Open edX",
       "description_long": "# Indigo\n\na customizable theme for Open edX",
-      "provider": {
-        "name": "Overhang.IO",
-        "url": "https://overhang.io/",
-        "logo": "https://overhang.io/static/img/Overhang.IO-small.png"
-      },
+      "provider_id": "overhang-io",
       "repo_url": "",
       "license": "AGPL",
       "price": "free",
@@ -323,11 +283,7 @@
       "core_compat": [],
       "description_short": "A plugin to enable update usernames through admin panel in Open edX (and other apps that log into Open edX via OAuth). It only supports koa and latest releases of Open edX.",
       "description_long": "# username changer\n\nA plugin to enable update usernames through admin panel in Open edX (and other apps that log into Open edX via OAuth). It only supports koa and latest releases of Open edX.",
-      "provider": {
-        "name": "MIT Office of distant learning",
-        "url": "https://openlearning.mit.edu/",
-        "logo": "https://ocw.mit.edu/static_shared/images/mit-ol.8713e4407efc8841e4f2.png"
-      },
+      "provider_id": "mitxpro",
       "repo_url": "",
       "license": "MIT",
       "price": "free",
@@ -344,11 +300,7 @@
       "core_compat": [],
       "description_short": "This web page generates edX course structures in a tarball file that can be immediately imported to edX Studio. You fill out the form to describe your course, selecting things like the number of secti…",
       "description_long": "# course template builder\n\nThis web page generates edX course structures in a tarball file that can be immediately imported to edX Studio. You fill out the form to describe your course, selecting things like the number of sections, whether they focus on video/text/problems, whether the first/last pages are different, etc. The course comes wrapped in a boilerplate course with standard intro and wrap-up materials.",
-      "provider": {
-        "name": "HarvardX",
-        "url": "https://vpal.harvard.edu/harvardx/",
-        "logo": "https://upload.wikimedia.org/wikipedia/commons/7/70/Harvard_University_logo.svg"
-      },
+      "provider_id": "harvard",
       "repo_url": "",
       "license": "AGPLv3",
       "price": "free",
@@ -365,11 +317,7 @@
       "core_compat": [],
       "description_short": "Edunext WordPress and WooCommerce integration allows users to sell their courses and digital content on their WordPress website using the WooCommerce shopping cart plugin. This integration will enable…",
       "description_long": "# Advanced WordPress and Woocommerce Integration\n\nEdunext WordPress and WooCommerce integration allows users to sell their courses and digital content on their WordPress website using the WooCommerce shopping cart plugin. This integration will enable users to create a comprehensive and secure e-learning website with easy to use learning management tools and payment processing capabilities. It is the perfect solution for online educators looking to grow their business and reach more students quickly and easily.",
-      "provider": {
-        "name": "edunext",
-        "url": "https://www.edunext.co",
-        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
-      },
+      "provider_id": "edunext",
       "repo_url": "",
       "license": "AGPLv2",
       "price": "free",
@@ -389,11 +337,7 @@
       "core_compat": [],
       "description_short": "A Plugin that integrates the Open edX platform with WordPress.This plugin allows to: -Share the user session information between Open edX and WordPress -Add an Open edX user menu to the WordPress navi…",
       "description_long": "# WP Open edX integrator\n\nA Plugin that integrates the Open edX platform with WordPress.This plugin allows to: -Share the user session information between Open edX and WordPress  -Add an Open edX user menu to the WordPress navigation structure  -Add Course buttons to the WordPress Posts or Pages that represent each course with the corresponding action and caption based on the Open edX course settings  -Integrate Woocommerce as the e-commerce solution to sale access to open edX courses -Make use of the EOX-core API that extends the functionality of Open edX.",
-      "provider": {
-        "name": "eduNEXT",
-        "url": "https://www.edunext.co",
-        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
-      },
+      "provider_id": "edunext",
       "repo_url": "",
       "license": "AGPLv2",
       "price": "free",
@@ -413,11 +357,7 @@
       "core_compat": [],
       "description_short": "The Open edX Commerce package is a free and open-source WordPress plugin that allows you to integrate WooCommerce with your Open edX platform. What does this mean? You can create Open edX courses as p…",
       "description_long": "# Open edX Commerce (WordPress Plugin)\n\nThe Open edX Commerce package is a free and open-source WordPress plugin that allows you to integrate WooCommerce with your Open edX platform. What does this mean? You can create Open edX courses as products in WooCommerce, and when you perform purchase or refund operations for these products, your Open edX platform will reflect these changes.",
-      "provider": {
-        "name": "Axim collaborative",
-        "url": "https://www.axim.org/",
-        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
-      },
+      "provider_id": "open-edx-axim",
       "repo_url": "",
       "license": "AGPLv3",
       "price": "free",
@@ -459,11 +399,7 @@
       "core_compat": [],
       "description_short": "An XBlock for creating a simple chose your own adventure style simulation. It presents the user with a branching sequence of steps, each which can contain other XBlockLightChildrens.",
       "description_long": "# Adventure XBlock\n\nAn XBlock for creating a simple chose your own adventure style simulation. It presents the user with a branching sequence of steps, each which can contain other XBlockLightChildrens.\n\n## Links\n- **Docs**: https://github.com/openedx-unsupported/xblock-adventure\n- **Product**: https://github.com/openedx-unsupported/xblock-adventure",
-      "provider": {
-        "name": "OpenCraft",
-        "url": "https://opencraft.com/",
-        "logo": "https://avatars.githubusercontent.com/u/7414786?s=200&v=4"
-      },
+      "provider_id": "opencraft",
       "repo_url": "https://github.com/openedx-unsupported/xblock-adventure",
       "license": "AGPLv3",
       "price": "free",
@@ -482,11 +418,7 @@
       "core_compat": [],
       "description_short": "An online proctoring solution to monitor students' behavior during online exams, preventing cheating attempts, and controlling the student’s identity during the examination process.",
       "description_long": "# AI proctoring\n\nAn online proctoring solution to monitor students' behavior during online exams, preventing cheating attempts, and controlling the student’s identity during the examination process.",
-      "provider": {
-        "name": "Examus Inc",
-        "url": "http://vsend.us/",
-        "logo": "https://static.tildacdn.com/tild6531-6263-4138-a663-336432383033/examus_60.png"
-      },
+      "provider_id": "examus",
       "repo_url": "",
       "license": "commercial",
       "price": "paid",
@@ -506,11 +438,7 @@
       "core_compat": [],
       "description_short": "An XBlock that let student mark when they finish an activity.",
       "description_long": "# Done XBlock\n\nAn XBlock that let student mark when they finish an activity.\n\n## Links\n- **Docs**: https://github.com/openedx/DoneXBlock\n- **Product**: https://github.com/openedx/DoneXBlock",
-      "provider": {
-        "name": "Axim collaborative",
-        "url": "https://www.axim.org/",
-        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
-      },
+      "provider_id": "open-edx-axim",
       "repo_url": "https://github.com/openedx/DoneXBlock",
       "license": "AGPLv3",
       "price": "free",
@@ -529,11 +457,7 @@
       "core_compat": [],
       "description_short": "This XBlock implements a friendly drag-and-drop style problem, where the learner has to drag items to zones on a target image.",
       "description_long": "# Drag And Drop problem\n\nThis XBlock implements a friendly drag-and-drop style problem, where the learner has to drag items to zones on a target image.\n\n## Links\n- **Docs**: https://github.com/openedx/xblock-drag-and-drop-v2\n- **Product**: https://github.com/openedx/xblock-drag-and-drop-v2",
-      "provider": {
-        "name": "Axim collaborative",
-        "url": "https://www.axim.org/",
-        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
-      },
+      "provider_id": "open-edx-axim",
       "repo_url": "https://github.com/openedx/xblock-drag-and-drop-v2",
       "license": "AGPLv3",
       "price": "free",
@@ -552,11 +476,7 @@
       "core_compat": [],
       "description_short": "This XBlock provides a way to grade external activity in edx-platform",
       "description_long": "# edx-gea\n\nThis XBlock provides a way to grade external activity in edx-platform",
-      "provider": {
-        "name": "openfun",
-        "url": "https://www.fun-mooc.fr/",
-        "logo": "https://www.campusfrance.org/sites/default/files/fun%20moocs%20logo.png"
-      },
+      "provider_id": "openfun",
       "repo_url": "",
       "license": "AGPLv3",
       "price": "free",
@@ -575,11 +495,7 @@
       "core_compat": [],
       "description_short": "An XBlock to show/hide one or more conditional component by a trigger component.",
       "description_long": "# EOL Conditional\n\nAn XBlock to show/hide one or more conditional component by a trigger component.",
-      "provider": {
-        "name": "Universidad de Chile",
-        "url": "https://eol.uchile.cl/",
-        "logo": "https://eol.uchile.cl/static/eol-uchile-2020/images/logo.f09bd38cb6bf.png"
-      },
+      "provider_id": "universidad-chile",
       "repo_url": "",
       "license": "AGPLv3",
       "price": "free",
@@ -599,11 +515,7 @@
       "core_compat": [],
       "description_short": "XBlock FileManager is a file storage and management tool that simplifies the process of managing and sharing course materials on the EOX virtual learning environment. It also supports collaboration an…",
       "description_long": "# FilesManager Xblock\n\nXBlock FileManager is a file storage and management tool that simplifies the process of managing and sharing course materials on the EOX virtual learning environment. It also supports collaboration and makes it convenient for students to access necessary materials.",
-      "provider": {
-        "name": "edunext",
-        "url": "https://www.edunext.co",
-        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
-      },
+      "provider_id": "edunext",
       "repo_url": "",
       "license": "AGPLv3",
       "price": "free",
@@ -622,11 +534,7 @@
       "core_compat": [],
       "description_short": "A multi unit conditional module for Open edX.",
       "description_long": "# Flow Control Xblock\n\nA multi unit conditional module for Open edX.\n\n## Links\n- **Docs**: https://github.com/eduNEXT/flow-control-xblock\n- **Product**: https://www.edunext.co/articles/flow-control-xblock/",
-      "provider": {
-        "name": "edunext",
-        "url": "https://www.edunext.co",
-        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
-      },
+      "provider_id": "edunext",
       "repo_url": "https://www.edunext.co/articles/flow-control-xblock/",
       "license": "AGPL",
       "price": "free",
@@ -645,11 +553,7 @@
       "core_compat": [],
       "description_short": "An XBlock that makes it possible for instructors to create questions that expect a free-text response.",
       "description_long": "# Free text response\n\nAn XBlock that makes it possible for instructors to create questions that expect a free-text response.\n\n## Links\n- **Docs**: https://github.com/Stanford-Online/xblock-free-text-response\n- **Product**: https://github.com/Stanford-Online/xblock-free-text-response",
-      "provider": {
-        "name": "Stanford Online",
-        "url": "https://github.com/Stanford-Online",
-        "logo": "https://www.edunext.co/wp-content/uploads/2023/08/stanford-online-logo.png"
-      },
+      "provider_id": "stanford-online",
       "repo_url": "https://github.com/Stanford-Online/xblock-free-text-response",
       "license": "AGPLv3",
       "price": "free",
@@ -668,11 +572,7 @@
       "core_compat": [],
       "description_short": "An XBlock to embed the Google calendar tool into a course.",
       "description_long": "# Google calendar XBlock\n\nAn XBlock to embed the Google calendar tool into a course.\n\n## Links\n- **Docs**: https://github.com/openedx/xblock-google-drive\n- **Product**: http://edx.readthedocs.org/projects/edx-partner-course-staff/en/latest/exercises_tools/google_calendar.html",
-      "provider": {
-        "name": "Axim collaborative",
-        "url": "https://www.axim.org/",
-        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
-      },
+      "provider_id": "open-edx-axim",
       "repo_url": "http://edx.readthedocs.org/projects/edx-partner-course-staff/en/latest/exercises_tools/google_calendar.html",
       "license": "AGPLv3",
       "price": "free",
@@ -691,11 +591,7 @@
       "core_compat": [],
       "description_short": "An XBlock allows embedding of Google documents and calendar, within an edX course.",
       "description_long": "# Google docs xblock\n\nAn XBlock allows embedding of Google documents and calendar, within an edX course.\n\n## Links\n- **Docs**: https://github.com/edx-solutions/xblock-google-drive\n- **Product**: https://github.com/edx-solutions/xblock-google-drive",
-      "provider": {
-        "name": "Axim collaborative",
-        "url": "https://www.axim.org/",
-        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
-      },
+      "provider_id": "open-edx-axim",
       "repo_url": "https://github.com/edx-solutions/xblock-google-drive",
       "license": "AGPLv3",
       "price": "free",
@@ -737,11 +633,7 @@
       "core_compat": [],
       "description_short": "H5P Xblock provides ability to host and play H5P content in open edX. It has few more features Ability to mark H5P content complete in open edX, Ability to capture score of H5P content in open edX, Sa…",
       "description_long": "# H5p Xblock\n\nH5P Xblock provides ability to host and play H5P content in open edX. It has few more features Ability to mark H5P content complete in open edX, Ability to capture score of H5P content in open edX, Save learner state which can be retrieved later, Ability to host H5P content on cloud storage like AWS S3\n\n## Links\n- **Docs**: https://github.com/edly-io/h5pxblock\n- **Product**: https://github.com/edly-io/h5pxblock",
-      "provider": {
-        "name": "edly",
-        "url": "https://edly.io/",
-        "logo": "https://avatars.githubusercontent.com/u/47846473?s=280&v=4"
-      },
+      "provider_id": "edly",
       "repo_url": "https://github.com/edly-io/h5pxblock",
       "license": ", scope: \"Advanced learning tools\", type: \"XBlock\", details:",
       "price": "free",
@@ -760,11 +652,7 @@
       "core_compat": [],
       "description_short": "An XBlock that course authors to use an image with hotspots in a course.",
       "description_long": "# Image Explorer XBlock\n\nAn XBlock that course authors to use an image with hotspots in a course.\n\n## Links\n- **Docs**: https://github.com/openedx/xblock-image-explorer\n- **Product**: https://github.com/openedx/xblock-image-explorer",
-      "provider": {
-        "name": "Axim collaborative",
-        "url": "https://www.axim.org/",
-        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
-      },
+      "provider_id": "open-edx-axim",
       "repo_url": "https://github.com/openedx/xblock-image-explorer",
       "license": "AGPLv3",
       "price": "free",
@@ -783,11 +671,7 @@
       "core_compat": [],
       "description_short": "A full-screen image modal XBlock",
       "description_long": "# Image Modal XBlock\n\nA full-screen image modal XBlock",
-      "provider": {
-        "name": "Stanford Online",
-        "url": "https://github.com/Stanford-Online",
-        "logo": "https://www.edunext.co/wp-content/uploads/2023/08/stanford-online-logo.png"
-      },
+      "provider_id": "stanford-online",
       "repo_url": "",
       "license": "AGPLv3",
       "price": "free",
@@ -806,11 +690,7 @@
       "core_compat": [],
       "description_short": "XBlock ImagesGallery is an easy-to-use tool for uploading and organizing images on the EOX virtual learning environment. It helps in creating a more engaging and interactive learning experience for st…",
       "description_long": "# ImagesGallery XBlock\n\nXBlock ImagesGallery is an easy-to-use tool for uploading and organizing images on the EOX virtual learning environment. It helps in creating a more engaging and interactive learning experience for students and supports collaboration among users.",
-      "provider": {
-        "name": "edunext",
-        "url": "https://www.edunext.co",
-        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
-      },
+      "provider_id": "edunext",
       "repo_url": "",
       "license": "AGPLv3",
       "price": "free",
@@ -829,11 +709,7 @@
       "core_compat": [],
       "description_short": "An XBlock that allows for edX components to be displayed to users inside of videos at specific time points.",
       "description_long": "# In video quiz\n\nAn XBlock that allows for edX components to be displayed to users inside of videos at specific time points.\n\n## Links\n- **Docs**: https://github.com/Stanford-Online/xblock-in-video-quiz\n- **Product**: https://github.com/Stanford-Online/xblock-in-video-quiz",
-      "provider": {
-        "name": "Stanford Online",
-        "url": "https://github.com/Stanford-Online",
-        "logo": "https://www.edunext.co/wp-content/uploads/2023/08/stanford-online-logo.png"
-      },
+      "provider_id": "stanford-online",
       "repo_url": "https://github.com/Stanford-Online/xblock-in-video-quiz",
       "license": "AGPLv3",
       "price": "free",
@@ -873,11 +749,7 @@
       "core_compat": [],
       "description_short": "edx-jsme is an XBlock (add on component) for the edX platform which provides a new problem type: 'Molecular Structure'. This problem type integrates the JSME molecule editor seamlessly into an edX cou…",
       "description_long": "# JSME Molecular Editor\n\nedx-jsme is an XBlock (add on component) for the edX platform which provides a new problem type: 'Molecular Structure'. This problem type integrates the JSME molecule editor seamlessly into an edX course.",
-      "provider": {
-        "name": "Jazkarta",
-        "url": ", vendor_logo_image:",
-        "logo": ""
-      },
+      "provider_id": "jazkarta",
       "repo_url": "",
       "license": ", scope: \"gradable activities\", type: \"XBlock\", details: \"A molecular structure problem type\", product_link: \"https://github.com/jazkarta/edx-jsme\" , docs_link: \"https://github.com/jazkarta/edx-jsme",
       "price": "free",
@@ -896,11 +768,7 @@
       "core_compat": [],
       "description_short": "An XBlock to display and manage Jupyter Notebooks.",
       "description_long": "# Jupyter\n\nAn XBlock to display and manage Jupyter Notebooks.\n\n## Links\n- **Docs**: https://github.com/proversity-org/jupyter-xblock\n- **Product**: https://github.com/proversity-org/jupyter-xblock",
-      "provider": {
-        "name": "Raccoon Gang",
-        "url": "https://raccoongang.com/",
-        "logo": "https://raccoongang.com/media/uploads/2019/04/25/raccoon_logo_200x200px.png"
-      },
+      "provider_id": "raccoon-gang",
       "repo_url": "https://github.com/proversity-org/jupyter-xblock",
       "license": ", scope: \"Advanced learning tools\", type: \"XBlock\", details:",
       "price": "free",
@@ -917,11 +785,7 @@
       "core_compat": [],
       "description_short": "Fetch and display part of, or an entire Jupyter Notebook in an XBlock.",
       "description_long": "# Jupyter Notebook viewer\n\nFetch and display part of, or an entire Jupyter Notebook in an XBlock.",
-      "provider": {
-        "name": "IBL education",
-        "url": "https://ibleducation.com/",
-        "logo": "https://workablehr.s3.amazonaws.com/uploads/account/logo/342367/logo"
-      },
+      "provider_id": "ibl-education",
       "repo_url": "",
       "license": "BSD-3",
       "price": "free",
@@ -940,11 +804,7 @@
       "core_compat": [],
       "description_short": "Mind Map XBlock is a pluggable extension to the Open edX platform that allows course creators to build a learning experience in which students can visualize and easily edit Mind Maps within a course u…",
       "description_long": "# Mind Map XBlock\n\nMind Map XBlock is a pluggable extension to the Open edX platform that allows course creators to build a learning experience in which students can visualize and easily edit Mind Maps within a course unit. It leverages the jsMind open source JavaScript library to visualize and edit mind maps on htmls canvas and svg.The Mind Map Xblock component can be used to build and display a mind map for learners to explore a particular concept, or to have learners build their own Mind map which can then be graded by course staff members.",
-      "provider": {
-        "name": "edunext",
-        "url": "https://www.edunext.co",
-        "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png"
-      },
+      "provider_id": "edunext",
       "repo_url": "",
       "license": "AGPLv3",
       "price": "free",
@@ -963,11 +823,7 @@
       "core_compat": [],
       "description_short": "The peer instruction tool emulates the classroom experience for the learners in an online course.",
       "description_long": "# Peer instruction tool\n\nThe peer instruction tool emulates the classroom experience for the learners in an online course.\n\n## Links\n- **Docs**: https://github.com/ubc/ubcpi\n- **Product**: https://github.com/ubc/ubcpi",
-      "provider": {
-        "name": "UBC - University of British Columbia",
-        "url": "https://github.com/ubc/",
-        "logo": "https://avatars.githubusercontent.com/u/1396118?s=200&v=4"
-      },
+      "provider_id": "ubc",
       "repo_url": "https://github.com/ubc/ubcpi",
       "license": "AGPLv3",
       "price": "free",
