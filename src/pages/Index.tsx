@@ -304,7 +304,11 @@ const Index = () => {
               <>
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-8">
                   {paginatedExtensions.map((extension, index) => (
-                    <ExtensionCard key={`${extension.slug}-${index}`} extension={extension} />
+                    <ExtensionCard 
+                      key={`${extension.slug}-${index}`} 
+                      extension={extension} 
+                      stats={extensionStats?.[extension.slug]}
+                    />
                   ))}
                 </div>
                 
