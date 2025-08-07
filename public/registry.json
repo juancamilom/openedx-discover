@@ -917,7 +917,7 @@
     },
     {
       "name": "SCORM XBlock",
-      "slug": "scorm-xblock",
+      "slug": "scorm-xblock-abstract",
       "type": "courseware-native",
       "latest_version": "",
       "core_compat": [],
@@ -934,7 +934,7 @@
     },
     {
       "name": "SCORM XBlock",
-      "slug": "scorm-xblock",
+      "slug": "scorm-xbloc-overhang",
       "type": "courseware-native",
       "latest_version": "",
       "core_compat": [],
