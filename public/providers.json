@@ -104,6 +104,69 @@
       "url": "https://triboo.com/",
       "logo": "https://triboo.com/wp-content/uploads/2021/03/triboo-logo.png",
       "description": "Digital transformation company providing Open edX solutions and services."
+    },
+    {
+      "id": "harvard",
+      "name": "HarvardX",
+      "url": "https://www.harvardx.harvard.edu/",
+      "logo": "https://www.harvard.edu/wp-content/uploads/2021/02/harvard-logo.png",
+      "description": "Harvard University's online learning initiative."
+    },
+    {
+      "id": "openfun",
+      "name": "OpenFUN",
+      "url": "https://www.fun-mooc.fr/",
+      "logo": "https://www.fun-mooc.fr/static/richie/images/logo.svg",
+      "description": "French platform for online courses built on Open edX."
+    },
+    {
+      "id": "universidad-chile",
+      "name": "Universidad de Chile",
+      "url": "https://www.uchile.cl/",
+      "logo": "https://www.uchile.cl/logo.png",
+      "description": "University of Chile's Open edX contributions."
+    },
+    {
+      "id": "examus",
+      "name": "Examus Inc",
+      "url": "https://examus.net/",
+      "logo": "https://examus.net/logo.png",
+      "description": "AI-powered proctoring solutions for online education."
+    },
+    {
+      "id": "oli",
+      "name": "Open Learning Initiative",
+      "url": "https://oli.cmu.edu/",
+      "logo": "https://oli.cmu.edu/logo.png",
+      "description": "Carnegie Mellon University's open learning platform."
+    },
+    {
+      "id": "jazkarta",
+      "name": "Jazkarta",
+      "url": "https://jazkarta.com/",
+      "logo": "https://jazkarta.com/logo.png",
+      "description": "Web development company providing Open edX solutions."
+    },
+    {
+      "id": "ibl-education",
+      "name": "IBL Education",
+      "url": "https://ibl.education/",
+      "logo": "https://ibl.education/logo.png",
+      "description": "Educational technology company."
+    },
+    {
+      "id": "ubc",
+      "name": "UBC - University of British Columbia",
+      "url": "https://www.ubc.ca/",
+      "logo": "https://www.ubc.ca/logo.png",
+      "description": "University of British Columbia's Open edX contributions."
+    },
+    {
+      "id": "abstract-technology",
+      "name": "Abstract-Technology",
+      "url": "https://abstract-technology.de/",
+      "logo": "https://abstract-technology.de/logo.png",
+      "description": "Technology company providing Open edX solutions."
     }
   ]
 }

@@ -1,4 +1,5 @@
 import { ExtensionWithProvider } from "@/hooks/useExtensionRegistry";
+import { getProviderIdFromName } from "./providerMapping";
 
 interface OldExtension {
   name: string;
@@ -27,15 +28,30 @@ interface OldRegistry {
 }
 
 export async function convertRegistryData(): Promise<{ extensions: ExtensionWithProvider[] }> {
-  // Load the old registry
-  const response = await fetch('/registry.json');
-  const oldRegistry: OldRegistry = await response.json();
+  // Load the registry and providers
+  const [registryResponse, providersResponse] = await Promise.all([
+    fetch('/registry.json'),
+    fetch('/providers.json')
+  ]);
+  
+  const oldRegistry: OldRegistry = await registryResponse.json();
+  const providersData = await providersResponse.json();
 
   console.log(`Processing ${oldRegistry.extensions.length} extensions from registry`);
 
-  // Convert extensions and extract providers
+  // Convert extensions and join with provider data
   const extensions: ExtensionWithProvider[] = oldRegistry.extensions.map((oldExt, index) => {
     console.log(`Processing extension ${index + 1}: ${oldExt.name}`);
+    
+    // Get provider ID from the provider name
+    const providerId = getProviderIdFromName(oldExt.provider?.name || 'unknown');
+    
+    // Find provider data by ID
+    const providerData = providersData.providers.find((p: any) => p.id === providerId) || {
+      name: oldExt.provider?.name || 'Unknown Provider',
+      url: oldExt.provider?.url || '',
+      logo: oldExt.provider?.logo || ''
+    };
     
     return {
       name: oldExt.name || 'Unknown Extension',
@@ -49,9 +65,9 @@ export async function convertRegistryData(): Promise<{ extensions: ExtensionWith
       description_short: oldExt.description_short || '',
       description_long: oldExt.description_long || '',
       provider: {
-        name: oldExt.provider?.name || 'Unknown Provider',
-        url: oldExt.provider?.url || '',
-        logo: oldExt.provider?.logo || '',
+        name: providerData.name,
+        url: providerData.url,
+        logo: providerData.logo,
       },
       repo_url: oldExt.repo_url || '',
       license: oldExt.license || 'Unknown',
