@@ -17,9 +17,6 @@ const ITEMS_PER_PAGE = 20;
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  
-  // Debug logging
-  console.log('Index component render - currentPage:', currentPage);
   const { data: registryData, isLoading: loading } = useExtensionRegistry();
   const { extensionStats, loading: statsLoading } = useAllExtensionStats();
   const extensions = registryData?.extensions || [];
@@ -33,9 +30,8 @@ const Index = () => {
     provider: "all",
   });
 
-  // Prevent page reset when extensionStats loads
+  // Stable filtered extensions - only recalculate when filters or extensions change
   const stableFilteredExtensions = useMemo(() => {
-    console.log('stableFilteredExtensions recalculating, extensionStats loaded:', !!extensionStats);
     return extensions.filter((extension) => {
       // Search filter
       if (filters.search) {
@@ -85,14 +81,13 @@ const Index = () => {
 
       return true;
     });
-  }, [extensions, filters, extensionStats]);
+  }, [extensions, filters, filters.rating !== "all" ? extensionStats : null]);
 
   const totalPages = Math.ceil(stableFilteredExtensions.length / ITEMS_PER_PAGE);
   
   // Ensure currentPage doesn't exceed totalPages when data changes
   useEffect(() => {
     if (currentPage > totalPages && totalPages > 0) {
-      console.log('Resetting currentPage from', currentPage, 'to', totalPages, 'because totalPages changed');
       setCurrentPage(totalPages);
     }
   }, [totalPages, currentPage]);
@@ -313,10 +308,7 @@ const Index = () => {
                 <Pagination
                   currentPage={currentPage}
                   totalPages={totalPages}
-                  onPageChange={(page) => {
-                    console.log('Pagination onPageChange called with page:', page);
-                    setCurrentPage(page);
-                  }}
+                  onPageChange={setCurrentPage}
                 />
               </>
             )}
