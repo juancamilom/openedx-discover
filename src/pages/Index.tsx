@@ -113,6 +113,7 @@ const Index = () => {
   );
 
   const handleFilterChange = (key: keyof FilterOptions, value: string) => {
+    console.log('handleFilterChange called with:', key, value, 'Stack:', new Error().stack);
     setCurrentPage(1); // Reset to page 1 when filter changes
     setFilters(prev => {
       const newFilters = { ...prev, [key]: value };
@@ -125,6 +126,7 @@ const Index = () => {
   };
 
   const handleClearFilters = () => {
+    console.log('handleClearFilters called, Stack:', new Error().stack);
     setCurrentPage(1); // Reset to page 1 when clearing filters
     setFilters({
       search: "",
@@ -138,6 +140,7 @@ const Index = () => {
   };
 
   const handleSearch = (query: string) => {
+    console.log('handleSearch called with:', query, 'Stack:', new Error().stack);
     setCurrentPage(1); // Reset to page 1 when searching
     setFilters(prev => ({ ...prev, search: query }));
   };
