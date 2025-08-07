@@ -9,11 +9,7 @@
       "core_compat": ["redwood", "sumac", "teak"],
       "description_short": "Official analytics stack for Open edX, delivered as a Tutor plugin that integrates ClickHouse, Superset, dbt, Ralph, and event pipelines for actionable course and learner insights.",
       "description_long": "# Open edX Aspects\n\nAspects is the official, open-source analytics system for Open edX. It provides prebuilt dashboards and in‑context reports for course teams and operators, combining tracking events and course data into fast, interactive visualizations.\n\n## Key Features\n- **Dashboards for roles**: Course, Individual Learner, At‑Risk Learners, Operator, and Course Comparison reports, plus in‑context panels in the LMS/Studio.\n- **Event-to-insight pipeline**: Transforms Open edX tracking logs and xAPI events into a ClickHouse reporting schema, modeled with dbt and visualized in Superset.\n- **Tutor-first deployment**: Distributed as a Tutor plugin with batteries‑included configs.\n- **Privacy-aware defaults**: Learner-identifying views are off by default and can be enabled via configuration.\n\n## Architecture Components\n- **ClickHouse** (analytics database)\n- **Apache Superset** (dashboards & exploration)\n- **dbt** (transformations; `aspects-dbt` project)\n- **Ralph** (LRS for xAPI statements)\n- **Vector** & **Event Routing Backends** (capture/forward events from LMS to LRS/ClickHouse)\n- **Platform Plugin Aspects** (embeds Superset dashboards back into the LMS/Studio)\n\n## Use Cases\n- Monitor enrollments, activity, and completion\n- Identify at‑risk learners and content needing improvement\n- Track platform health and usage at the operator level\n\n## Technical Requirements\n- **Tutor 15.0.0+**\n- Open edX **Redwood or later** (Aspects v2.x)\n\n",
-      "provider": {
-        "name": "Open edX / Axim Collaborative",
-        "url": "https://docs.openedx.org/projects/openedx-aspects/en/latest/",
-        "logo": "https://logos.openedx.org/open-edx-logo-color.png"
-      },
+      "provider_id": "open-edx-axim",
       "repo_url": "https://github.com/openedx/openedx-aspects",
       "license": "AGPLv3",
       "price": "free",
@@ -30,11 +26,7 @@
       "core_compat": ["quince", "redwood", "sumac", "teak"],
       "description_short": "Mobile app iOS for the Open edX platform.",
       "description_long": "Modern native (Kotlin & Swift) mobile application for the Open edX platform initially developed by RaccoonGang and now adopted by Axim.",
-      "provider": {
-        "name": "Axim collaborative",
-        "url": "https://www.axim.org/",
-        "logo": "https://images.squarespace-cdn.com/content/v1/64e8ddf56f55262b19af9406/8eecf67a-46e2-4054-b3b1-7cbc14a60db0/axim_right_navy%402x.png?format=1500w"
-      },
+      "provider_id": "open-edx-axim",
       "repo_url": "",
       "license": "AGPLv3",
       "price": "free",

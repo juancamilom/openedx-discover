@@ -9,11 +9,7 @@ interface OldExtension {
   core_compat: string[];
   description_short: string;
   description_long: string;
-  provider: {
-    name: string;
-    url: string;
-    logo: string | null;
-  };
+  provider_id: string; // Changed from provider object to provider_id
   repo_url: string;
   license: string;
   price: string;
@@ -43,14 +39,12 @@ export async function convertRegistryData(): Promise<{ extensions: ExtensionWith
   const extensions: ExtensionWithProvider[] = oldRegistry.extensions.map((oldExt, index) => {
     console.log(`Processing extension ${index + 1}: ${oldExt.name}`);
     
-    // Get provider ID from the provider name
-    const providerId = getProviderIdFromName(oldExt.provider?.name || 'unknown');
-    
     // Find provider data by ID
-    const providerData = providersData.providers.find((p: any) => p.id === providerId) || {
-      name: oldExt.provider?.name || 'Unknown Provider',
-      url: oldExt.provider?.url || '',
-      logo: oldExt.provider?.logo || ''
+    const providerData = providersData.providers.find((p: any) => p.id === oldExt.provider_id) || {
+      id: oldExt.provider_id,
+      name: 'Unknown Provider',
+      url: '',
+      logo: ''
     };
     
     return {
