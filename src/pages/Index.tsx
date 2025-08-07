@@ -81,7 +81,7 @@ const Index = () => {
 
       return true;
     });
-  }, [extensions, filters, extensionStats]);
+  }, [extensions, filters]);
 
   const totalPages = Math.ceil(filteredExtensions.length / ITEMS_PER_PAGE);
   const paginatedExtensions = filteredExtensions.slice(
