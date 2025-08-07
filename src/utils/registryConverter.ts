@@ -37,10 +37,17 @@ export async function convertRegistryData(): Promise<{ extensions: ExtensionWith
 
   // Convert extensions and join with provider data
   const extensions: ExtensionWithProvider[] = oldRegistry.extensions.map((oldExt, index) => {
-    console.log(`Processing extension ${index + 1}: ${oldExt.name}`);
+    console.log(`Processing extension ${index + 1}: ${oldExt.name}, provider_id: ${oldExt.provider_id}`);
     
     // Find provider data by ID
-    const providerData = providersData.providers.find((p: any) => p.id === oldExt.provider_id) || {
+    const providerData = providersData.providers.find((p: any) => p.id === oldExt.provider_id);
+    
+    if (!providerData && oldExt.name === "Open edX Credential Service") {
+      console.log(`❌ DEBUGGING: Could not find provider for "${oldExt.name}" with provider_id: "${oldExt.provider_id}"`);
+      console.log(`Available provider IDs:`, providersData.providers.map((p: any) => p.id));
+    }
+    
+    const finalProviderData = providerData || {
       id: oldExt.provider_id,
       name: 'Unknown Provider',
       url: '',
@@ -59,9 +66,9 @@ export async function convertRegistryData(): Promise<{ extensions: ExtensionWith
       description_short: oldExt.description_short || '',
       description_long: oldExt.description_long || '',
       provider: {
-        name: providerData.name,
-        url: providerData.url,
-        logo: providerData.logo,
+        name: finalProviderData.name,
+        url: finalProviderData.url,
+        logo: finalProviderData.logo,
       },
       repo_url: oldExt.repo_url || '',
       license: oldExt.license || 'Unknown',
