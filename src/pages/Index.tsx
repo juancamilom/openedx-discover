@@ -17,6 +17,9 @@ const ITEMS_PER_PAGE = 20;
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  
+  // Debug logging
+  console.log('Index component render - currentPage:', currentPage);
   const { data: registryData, isLoading: loading } = useExtensionRegistry();
   const { extensionStats, loading: statsLoading } = useAllExtensionStats();
   const extensions = registryData?.extensions || [];
@@ -309,7 +312,10 @@ const Index = () => {
                 <Pagination
                   currentPage={currentPage}
                   totalPages={totalPages}
-                  onPageChange={setCurrentPage}
+                  onPageChange={(page) => {
+                    console.log('Pagination onPageChange called with page:', page);
+                    setCurrentPage(page);
+                  }}
                 />
               </>
             )}
