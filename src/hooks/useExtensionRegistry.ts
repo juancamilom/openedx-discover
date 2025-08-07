@@ -15,6 +15,7 @@ export interface ExtensionWithProvider {
     name: string;
     url: string;
     logo: string;
+    description: string;
   };
   repo_url: string;
   license: string;

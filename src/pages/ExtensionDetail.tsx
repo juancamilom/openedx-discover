@@ -330,6 +330,12 @@ export default function ExtensionDetail() {
                   </div>
                 </div>
                 
+                {extension.provider.description && (
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {extension.provider.description}
+                  </p>
+                )}
+                
                 <Button variant="outline" size="sm" asChild className="w-full">
                   <a href={extension.provider.url} target="_blank" rel="noopener noreferrer" className="gap-2">
                     <ExternalLink className="h-4 w-4" />

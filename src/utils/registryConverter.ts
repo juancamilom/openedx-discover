@@ -69,6 +69,7 @@ export async function convertRegistryData(): Promise<{ extensions: ExtensionWith
         name: finalProviderData.name,
         url: finalProviderData.url,
         logo: finalProviderData.logo,
+        description: finalProviderData.description || '',
       },
       repo_url: oldExt.repo_url || '',
       license: oldExt.license || 'Unknown',
