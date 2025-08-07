@@ -33,7 +33,7 @@
       "name": "eduNEXT",
       "url": "https://www.edunext.co",
       "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png",
-      "description": "Leading Open edX services provider offering hosting, development, and enterprise solutions."
+      "description": "Leading Open edX services provider and Open edX partner offering hosting, consulting services, and enterprise solutions."
     },
     {
       "id": "appsembler",
@@ -46,7 +46,7 @@
       "id": "edly",
       "name": "edly",
       "url": "https://edly.io/",
-      "logo": "https://edly.io/static/edly/images/logos/edly-logo.png",
+      "logo": "https://d28krnqa5al722.cloudfront.net/2022/10/edly-site-logo-new.svg",
       "description": "Open edX development and hosting company providing enterprise solutions and custom development."
     },
     {
@@ -67,7 +67,7 @@
       "id": "stanford-online",
       "name": "Stanford Online",
       "url": "https://online.stanford.edu/",
-      "logo": "https://online.stanford.edu/themes/stanford_basic/logo.png",
+      "logo": "https://www.edunext.co/wp-content/uploads/2023/08/stanford-online-logo.png",
       "description": "Stanford University's online education platform and Open edX contributor."
     },
     {
@@ -102,7 +102,7 @@
       "id": "proversity",
       "name": "Proversity",
       "url": "https://proversity.org/",
-      "logo": "https://proversity.org/static/images/logo.png",
+      "logo": "https://openedx.org/wp-content/uploads/2019/01/ProversityLogo_Full_Colour.png",
       "description": "Open edX development and services company focusing on accessibility and user experience."
     },
     {
@@ -123,7 +123,7 @@
       "id": "openfun",
       "name": "OpenFUN",
       "url": "https://www.fun-mooc.fr/",
-      "logo": "https://www.fun-mooc.fr/static/richie/images/logo.svg",
+      "logo": "https://www.campusfrance.org/sites/default/files/fun%20moocs%20logo.png",
       "description": "French platform for online courses built on Open edX."
     },
     {
@@ -137,21 +137,14 @@
       "id": "examus",
       "name": "Examus Inc",
       "url": "https://examus.net/",
-      "logo": "https://examus.net/logo.png",
+      "logo": "https://static.tildacdn.com/tild6531-6263-4138-a663-336432383033/examus_60.png",
       "description": "AI-powered proctoring solutions for online education."
-    },
-    {
-      "id": "oli",
-      "name": "Open Learning Initiative",
-      "url": "https://oli.cmu.edu/",
-      "logo": "https://oli.cmu.edu/logo.png",
-      "description": "Carnegie Mellon University's open learning platform."
     },
     {
       "id": "jazkarta",
       "name": "Jazkarta",
       "url": "https://jazkarta.com/",
-      "logo": "https://jazkarta.com/logo.png",
+      "logo": "",
       "description": "Web development company providing Open edX solutions."
     },
     {
@@ -165,7 +158,7 @@
       "id": "ubc",
       "name": "UBC - University of British Columbia",
       "url": "https://www.ubc.ca/",
-      "logo": "https://www.ubc.ca/logo.png",
+      "logo": "https://avatars.githubusercontent.com/u/1396118?s=200&v=4",
       "description": "University of British Columbia's Open edX contributions."
     },
     {
@@ -181,6 +174,20 @@
       "url": "https://www.edx.org/",
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/EdX_newer_logo.svg/1200px-EdX_newer_logo.svg.png",
       "description": "Original edX platform and content provider."
+    },
+    {
+      "id": "perpetual-learning",
+      "name": "Perpetual Learning",
+      "url": "https://www.perpetualny.com/",
+      "logo": "https://media.designrush.com/agencies/314721/conversions/Perpetual-logo-profile.jpg",
+      "description": "Perpetual is a top rated digital design and software engineering agency based in New York City. We create innovative digital solutions that delight users and maximize business impact for clients."
+    },
+    {
+      "id": "abc-online",
+      "name": "Abc online",
+      "url": "https://abconlinecourses.com/",
+      "logo": "https://abconlinecourses.com/wp-content/uploads/2020/09/abc-online-courses-logo.png",
+      "description": ""
     }
   ]
 }
