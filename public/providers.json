@@ -57,11 +57,11 @@
       "description": "Professional training and Open edX services company specializing in cloud technologies."
     },
     {
-      "id": "mitxpro",
-      "name": "MIT xPRO",
+      "id": "mit-odl",
+      "name": "MIT Office of distance learning",
       "url": "https://xpro.mit.edu/",
       "logo": "https://xpro.mit.edu/static/images/mit-xpro-logo.svg",
-      "description": "MIT's professional education platform built on Open edX."
+      "description": "MIT's Office of distance learning. The branch of MIT responsible for the professional education platform built on Open edX."
     },
     {
       "id": "stanford-online",
@@ -106,7 +106,7 @@
       "description": "Digital transformation company providing Open edX solutions and services."
     },
     {
-      "id": "harvard",
+      "id": "HarvardX",
       "name": "HarvardX",
       "url": "https://www.harvardx.harvard.edu/",
       "logo": "https://www.harvard.edu/wp-content/uploads/2021/02/harvard-logo.png",
@@ -120,7 +120,7 @@
       "description": "French platform for online courses built on Open edX."
     },
     {
-      "id": "universidad-chile",
+      "id": "eol.uchile",
       "name": "Universidad de Chile",
       "url": "https://www.uchile.cl/",
       "logo": "https://www.uchile.cl/logo.png",
