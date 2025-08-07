@@ -40,6 +40,7 @@ export const providerNameToIdMap: Record<string, string> = {
   "Pearson": "pearson",
   "2U": "2u",
   "MITx": "mitx",
+  "edX.org": "edx-org",
 };
 
 export function getProviderIdFromName(providerName: string): string {

@@ -167,6 +167,13 @@
       "url": "https://abstract-technology.de/",
       "logo": "https://abstract-technology.de/logo.png",
       "description": "Technology company providing Open edX solutions."
+    },
+    {
+      "id": "edx-org",
+      "name": "edX.org",
+      "url": "https://www.edx.org/",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/EdX_newer_logo.svg/1200px-EdX_newer_logo.svg.png",
+      "description": "Original edX platform and content provider."
     }
   ]
 }
