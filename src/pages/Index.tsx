@@ -30,10 +30,6 @@ const Index = () => {
     provider: "all",
   });
 
-  // Reset to page 1 only when filters change, not when data loads
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [filters]);
 
 
   const filteredExtensions = useMemo(() => {
@@ -68,11 +64,11 @@ const Index = () => {
         return false;
       }
 
-      // Rating filter
+      // Rating filter - only use extensionStats if rating filter is applied
       if (filters.rating !== "all") {
         const minRating = parseFloat(filters.rating.replace("+", ""));
         // Check if extension has database rating, otherwise use static rating
-        const dbStats = extensionStats[extension.slug];
+        const dbStats = extensionStats?.[extension.slug];
         const currentRating = dbStats?.averageRating || extension.rating_avg || 0;
         if (currentRating < minRating) {
           return false;
@@ -86,15 +82,24 @@ const Index = () => {
 
       return true;
     });
-  }, [extensions, filters]);
+  }, [extensions, filters, filters.rating !== "all" ? extensionStats : null]);
 
   const totalPages = Math.ceil(filteredExtensions.length / ITEMS_PER_PAGE);
+  
+  // Ensure currentPage doesn't exceed totalPages when data changes
+  useEffect(() => {
+    if (currentPage > totalPages && totalPages > 0) {
+      setCurrentPage(totalPages);
+    }
+  }, [totalPages, currentPage]);
+  
   const paginatedExtensions = filteredExtensions.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   );
 
   const handleFilterChange = (key: keyof FilterOptions, value: string) => {
+    setCurrentPage(1); // Reset to page 1 when filter changes
     setFilters(prev => {
       const newFilters = { ...prev, [key]: value };
       // Reset type filter when category changes
@@ -106,6 +111,7 @@ const Index = () => {
   };
 
   const handleClearFilters = () => {
+    setCurrentPage(1); // Reset to page 1 when clearing filters
     setFilters({
       search: "",
       category: "all",
@@ -118,6 +124,7 @@ const Index = () => {
   };
 
   const handleSearch = (query: string) => {
+    setCurrentPage(1); // Reset to page 1 when searching
     setFilters(prev => ({ ...prev, search: query }));
   };
 
