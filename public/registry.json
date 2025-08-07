@@ -16,8 +16,6 @@
       "repo_url": "https://github.com/openedx/openedx-aspects",
       "license": "AGPLv3",
       "price": "free",
-      "rating_avg": null,
-      "rating_count": 0,
       "install_notes": "# Installation (Tutor)\n\n1. **Install & enable plugin**\n```bash\npip install tutor-contrib-aspects\n tutor plugins enable aspects\n tutor config save\n```\n2. **Build images & init**\n```bash\n# Build images (include MFEs if using in-context metrics)\ntutor images build openedx --no-cache\n tutor images build mfe --no-cache\n tutor images build aspects aspects-superset\n tutor local do init\n```\n3. **(Optional) Import or generate demo data**\n```bash\n# Import Superset assets and/or generate test data\ntutor local do import-assets\n tutor local do load-xapi-test-data\n```\n4. **Access**: Superset URL and credentials are provided by Tutor after init; in‑context dashboards appear in LMS/Studio when the platform plugin is enabled.",
       "screenshots": [
         "https://docs.openedx.org/en/latest/_images/aspects_screenshot1.png",
@@ -41,8 +39,6 @@
       "repo_url": "",
       "license": "AGPLv3",
       "price": "free",
-      "rating_avg": null,
-      "rating_count": null,
       "install_notes": "",
       "screenshots": [
         "https://y7b6t9n6.rocketcdn.me/wp-content/themes/generatepress/assets/images/template-open-edx-mobile-app/app-features-image-2.png"
@@ -65,8 +61,6 @@
       "repo_url": "",
       "license": "AGPLv3",
       "price": "free",
-      "rating_avg": null,
-      "rating_count": null,
       "install_notes": "",
       "screenshots": [
         "https://y7b6t9n6.rocketcdn.me/wp-content/themes/generatepress/assets/images/template-open-edx-mobile-app/app-features-image-2.png",
@@ -90,8 +84,6 @@
       "repo_url": "https://github.com/openedx/credentials",
       "license": "AGPL-3.0",
       "price": "free",
-      "rating_avg": null,
-      "rating_count": 0,
       "install_notes": "# Installation (Tutor)\n\n1) Install & enable plugins\n```bash\npip install tutor-credentials\n# (For programs) also enable Discovery\ntutor plugins enable discovery mfe credentials\n```\n\n2) Launch / upgrade\n```bash\ntutor local launch\n```\n\n3) (Optional) Copy program data from Discovery into Credentials\n```bash\ntutor local run credentials ./manage.py copy_catalog\n```\n\n4) Access admin & Learner Record UI\n- Credentials admin: `https://credentials.<your-domain>/admin`\n- Learner Record MFE is enabled by default; link from learner profile.\n",
       "screenshots": [
         "https://opengraph.githubassets.com/eaf71c8606fbff10d2b7c47eb28f98317140fe13492da20a867281053ab6f138/openedx/credentials",

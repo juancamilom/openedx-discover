@@ -86,7 +86,7 @@ const Index = () => {
     const minRating = parseFloat(filters.rating.replace("+", ""));
     return baseFilteredExtensions.filter((extension) => {
       const dbStats = extensionStats?.[extension.slug];
-      const currentRating = dbStats?.averageRating || extension.rating_avg || 0;
+      const currentRating = dbStats?.averageRating || 0;
       return currentRating >= minRating;
     });
   }, [baseFilteredExtensions, filters.rating, extensionStats]);

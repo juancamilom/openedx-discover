@@ -19,8 +19,6 @@ export interface Extension {
   repo_url: string;
   license: string;
   price: 'free' | 'paid';
-  rating_avg: number;
-  rating_count: number;
   install_notes: string;
   screenshots: string[];
 }

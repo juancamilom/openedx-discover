@@ -20,8 +20,6 @@ export interface ExtensionWithProvider {
   repo_url: string;
   license: string;
   price: 'free' | 'paid';
-  rating_avg: number | null;
-  rating_count: number | null;
   install_notes: string;
   screenshots: string[];
 }

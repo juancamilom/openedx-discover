@@ -136,10 +136,10 @@ export default function ExtensionDetail() {
                 <div className="flex items-center gap-1">
                   <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   <span className="font-medium">
-                    {stats.reviewCount > 0 ? stats.averageRating : extension.rating_avg}
+                    {stats.reviewCount > 0 ? stats.averageRating : 'No reviews'}
                   </span>
                   <span className="text-muted-foreground">
-                    ({stats.reviewCount > 0 ? stats.reviewCount : extension.rating_count} reviews)
+                    ({stats.reviewCount} reviews)
                   </span>
                 </div>
                 

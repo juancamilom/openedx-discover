@@ -13,8 +13,6 @@ interface OldExtension {
   repo_url: string;
   license: string;
   price: string;
-  rating_avg: number | null;
-  rating_count: number | null;
   install_notes: string;
   screenshots: string[];
 }
@@ -74,8 +72,6 @@ export async function convertRegistryData(): Promise<{ extensions: ExtensionWith
       repo_url: oldExt.repo_url || '',
       license: oldExt.license || 'Unknown',
       price: (oldExt.price === 'free' || oldExt.price === 'paid') ? oldExt.price : 'free',
-      rating_avg: oldExt.rating_avg,
-      rating_count: oldExt.rating_count,
       install_notes: oldExt.install_notes || '',
       screenshots: Array.isArray(oldExt.screenshots) ? oldExt.screenshots : []
     };
