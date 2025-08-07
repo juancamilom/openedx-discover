@@ -33,9 +33,9 @@ const Index = () => {
     provider: "all",
   });
 
-
-
-  const filteredExtensions = useMemo(() => {
+  // Prevent page reset when extensionStats loads
+  const stableFilteredExtensions = useMemo(() => {
+    console.log('filteredExtensions recalculating, extensionStats loaded:', !!extensionStats);
     return extensions.filter((extension) => {
       // Search filter
       if (filters.search) {
@@ -85,18 +85,19 @@ const Index = () => {
 
       return true;
     });
-  }, [extensions, filters, filters.rating !== "all" ? extensionStats : null]);
+  }, [extensions, filters, extensionStats]);
 
-  const totalPages = Math.ceil(filteredExtensions.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(stableFilteredExtensions.length / ITEMS_PER_PAGE);
   
   // Ensure currentPage doesn't exceed totalPages when data changes
   useEffect(() => {
     if (currentPage > totalPages && totalPages > 0) {
+      console.log('Resetting currentPage from', currentPage, 'to', totalPages, 'because totalPages changed');
       setCurrentPage(totalPages);
     }
   }, [totalPages, currentPage]);
   
-  const paginatedExtensions = filteredExtensions.slice(
+  const paginatedExtensions = stableFilteredExtensions.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   );
@@ -273,7 +274,7 @@ const Index = () => {
                   filters={filters}
                   onFilterChange={handleFilterChange}
                   onClearFilters={handleClearFilters}
-                  resultCount={filteredExtensions.length}
+                  resultCount={stableFilteredExtensions.length}
                   extensions={extensions}
                 />
               )}
@@ -288,7 +289,7 @@ const Index = () => {
                   <ExtensionCardSkeleton key={i} />
                 ))}
               </div>
-            ) : filteredExtensions.length === 0 ? (
+            ) : stableFilteredExtensions.length === 0 ? (
               <div className="text-center py-16">
                 <h3 className="text-2xl font-semibold mb-4">No extensions found</h3>
                 <p className="text-muted-foreground mb-6">
