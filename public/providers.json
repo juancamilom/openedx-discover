@@ -60,7 +60,7 @@
       "id": "mit-odl",
       "name": "MIT Office of distance learning",
       "url": "https://xpro.mit.edu/",
-      "logo": "https://xpro.mit.edu/static/images/mit-xpro-logo.svg",
+      "logo": "https://ocw.mit.edu/static_shared/images/mit-ol.8713e4407efc8841e4f2.png",
       "description": "MIT's Office of distance learning. The branch of MIT responsible for the professional education platform built on Open edX."
     },
     {
@@ -109,7 +109,7 @@
       "id": "HarvardX",
       "name": "HarvardX",
       "url": "https://www.harvardx.harvard.edu/",
-      "logo": "https://www.harvard.edu/wp-content/uploads/2021/02/harvard-logo.png",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/7/70/Harvard_University_logo.svg",
       "description": "Harvard University's online learning initiative."
     },
     {
