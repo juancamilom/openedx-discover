@@ -57,7 +57,7 @@
       "description": "Professional training and Open edX services company specializing in cloud technologies."
     },
     {
-      "id": "MIT-odl",
+      "id": "mit-odl",
       "name": "MIT Office of distance learning",
       "url": "https://xpro.mit.edu/",
       "logo": "https://ocw.mit.edu/static_shared/images/mit-ol.8713e4407efc8841e4f2.png",
@@ -83,6 +83,13 @@
       "url": "https://www.google.com/",
       "logo": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
       "description": "Technology company providing analytics and integration tools for educational platforms."
+    },
+    {
+      "id": "blindside-networks",
+      "name": "Blindsid Networks",
+      "url": "https://blindsidenetworks.com/",
+      "logo": "https://blindsidenetworks.com/wp-content/uploads/2025/05/bn-high-res-name-1.jpg",
+      "description": "Blindside Networks are the creators of BigBlueButton, the world’s only open-source virtual classroom. Our expertise in online learning allows us to deeply understand what it takes for organizations to deliver effective virtual classes. We specialize in tailoring solutions that align with your goals, and our focus is always on you, the customer. We pride ourselves on being accessible and responsive, bringing unmatched expertise in BigBlueButton and dedicated support to meet your unique needs."
     },
     {
       "id": "intelliboard",
