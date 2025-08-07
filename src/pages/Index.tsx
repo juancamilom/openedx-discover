@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import ReactMarkdown from "react-markdown";
 import { SearchBar } from "@/components/SearchBar";
@@ -139,11 +139,11 @@ const Index = () => {
     });
   };
 
-  const handleSearch = (query: string) => {
+  const handleSearch = useCallback((query: string) => {
     console.log('handleSearch called with:', query, 'Stack:', new Error().stack);
     setCurrentPage(1); // Reset to page 1 when searching
     setFilters(prev => ({ ...prev, search: query }));
-  };
+  }, []);
 
   const getCategoryDescription = (category: string) => {
     const descriptions = {
