@@ -30,6 +30,11 @@ const Index = () => {
     provider: "all",
   });
 
+  // Reset to page 1 only when filters change, not when data loads
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filters]);
+
 
   const filteredExtensions = useMemo(() => {
     return extensions.filter((extension) => {
@@ -98,7 +103,6 @@ const Index = () => {
       }
       return newFilters;
     });
-    setCurrentPage(1);
   };
 
   const handleClearFilters = () => {
@@ -111,12 +115,10 @@ const Index = () => {
       rating: "all",
       provider: "all",
     });
-    setCurrentPage(1);
   };
 
   const handleSearch = (query: string) => {
     setFilters(prev => ({ ...prev, search: query }));
-    setCurrentPage(1);
   };
 
   const getCategoryDescription = (category: string) => {
