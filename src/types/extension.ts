@@ -9,7 +9,7 @@ export interface Provider {
 export interface Extension {
   name: string;
   slug: string;
-  category: 'platform-addon' | 'external-tool' | 'operational-service';
+  category: 'platform-native' | 'platform-connector' | 'courseware-native' | 'courseware-connector';
   type: string;
   latest_version: string;
   core_compat: string[];
