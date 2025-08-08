@@ -56,8 +56,8 @@ export async function convertRegistryData(): Promise<{ extensions: ExtensionWith
     return {
       name: oldExt.name || 'Unknown Extension',
       slug: oldExt.slug || `unknown-${index}`,
-      category: ((oldExt.category || oldExt.type) as ExtensionWithProvider["category"]) || 'platform-native',
-      type: '',
+      category: (oldExt.category as ExtensionWithProvider["category"]) || 'platform-native',
+      type: oldExt.type || '',
       latest_version: oldExt.latest_version || '',
       core_compat: Array.isArray(oldExt.core_compat) ? oldExt.core_compat : [],
       description_short: oldExt.description_short || '',
