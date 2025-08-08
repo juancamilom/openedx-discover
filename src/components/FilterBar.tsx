@@ -73,7 +73,18 @@ const typeOptionsByCategory = {
 };
 
 const licenseOptions = ["MIT", "Apache-2.0", "AGPL-3.0", "GPL-3.0", "BSD-3-Clause"];
-const providerOptions = ["OpenCraft", "Raccoon Gang", "Appsembler", "eduNEXT", "edly", "Abstract-Technology", "2U / edX", "Overhang.io"];
+const providerOptions = [
+  { value: "OpenCraft", label: "OpenCraft" },
+  { value: "Raccoon Gang", label: "Raccoon Gang" },
+  { value: "Appsembler", label: "Appsembler" },
+  { value: "eduNEXT", label: "eduNEXT" },
+  { value: "edly", label: "edly" },
+  { value: "Abstract-Technology", label: "Abstract-Technology" },
+  { value: "2U / edX", label: "2U / edX" },
+  { value: "Overhang.io", label: "Overhang.io" },
+  // Added with custom label but matching provider name in data for correct filtering
+  { value: "Open edX / Axim Collaborative", label: "Open edX - Axim" },
+];
 
 export function FilterBar({ filters, onFilterChange, onClearFilters, resultCount, extensions }: FilterBarProps) {
   // Dynamically extract all unique compatibility options from extensions
@@ -190,9 +201,9 @@ export function FilterBar({ filters, onFilterChange, onClearFilters, resultCount
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All providers</SelectItem>
-              {providerOptions.map((provider) => (
-                <SelectItem key={provider} value={provider}>
-                  {provider}
+              {providerOptions.map((opt) => (
+                <SelectItem key={opt.value} value={opt.value}>
+                  {opt.label}
                 </SelectItem>
               ))}
             </SelectContent>
