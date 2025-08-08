@@ -15,6 +15,7 @@ interface RatingModalProps {
 }
 
 export function RatingModal({ isOpen, onClose, extensionSlug }: RatingModalProps) {
+  const [reviewerName, setReviewerName] = useState("");
   const [openedxUrl, setOpenedxUrl] = useState("");
   const [rating, setRating] = useState(0);
   const [hoveredRating, setHoveredRating] = useState(0);
@@ -25,10 +26,10 @@ export function RatingModal({ isOpen, onClose, extensionSlug }: RatingModalProps
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!openedxUrl || rating === 0) {
+    if (!reviewerName || !openedxUrl || rating === 0) {
       toast({
         title: "Missing required fields",
-        description: "Please provide the OpenedX URL and select a rating.",
+        description: "Please provide your name, the OpenedX URL, and select a rating.",
         variant: "destructive",
       });
       return;
@@ -44,7 +45,8 @@ export function RatingModal({ isOpen, onClose, extensionSlug }: RatingModalProps
           openedx_url: openedxUrl,
           rating,
           comment: comment || null,
-        });
+          name: reviewerName,
+        } as any);
 
       if (error) throw error;
 
@@ -54,6 +56,7 @@ export function RatingModal({ isOpen, onClose, extensionSlug }: RatingModalProps
       });
 
       // Reset form
+      setReviewerName("");
       setOpenedxUrl("");
       setRating(0);
       setComment("");
@@ -91,6 +94,18 @@ export function RatingModal({ isOpen, onClose, extensionSlug }: RatingModalProps
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="name">Your Name *</Label>
+            <Input
+              id="name"
+              type="text"
+              placeholder="Jane Doe"
+              value={reviewerName}
+              onChange={(e) => setReviewerName(e.target.value)}
+              required
+            />
+          </div>
+
           <div className="space-y-2">
             <Label htmlFor="openedx-url">OpenedX Site URL *</Label>
             <Input

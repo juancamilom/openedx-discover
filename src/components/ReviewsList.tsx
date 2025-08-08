@@ -11,6 +11,7 @@ interface Review {
   rating: number;
   comment: string | null;
   created_at: string;
+  name?: string | null;
 }
 
 interface ReviewsListProps {
@@ -78,9 +79,11 @@ export function ReviewsList({ extensionSlug }: ReviewsListProps) {
                     />
                   ))}
                 </div>
-                <span className="text-sm text-muted-foreground">
-                  {format(new Date(review.created_at), "MMM d, yyyy")}
-                </span>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <span className="truncate max-w-[50%]">{review.name || "Anonymous"}</span>
+                  <span aria-hidden>•</span>
+                  <span>{format(new Date(review.created_at), "MMM d, yyyy")}</span>
+                </div>
               </div>
             </CardHeader>
             <CardContent className="pt-0">
