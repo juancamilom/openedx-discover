@@ -244,7 +244,7 @@ const Index = () => {
             </div>
             
             {/* Category Description - Fixed space reserved */}
-            <div className="mb-2 max-w-3xl mx-auto h-20 flex items-center">
+            <div className="mb-2 max-w-5xl mx-auto h-20 flex items-center">
               {filters.category !== "all" && (
                 <div className="w-full">
                   <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-3">
