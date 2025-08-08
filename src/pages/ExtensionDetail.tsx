@@ -91,7 +91,7 @@ export default function ExtensionDetail() {
           <Button asChild>
             <Link to="/">
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Marketplace
+              Back to Extensions Directory
             </Link>
           </Button>
         </div>
@@ -107,7 +107,7 @@ export default function ExtensionDetail() {
           <Button variant="ghost" asChild className="mb-4">
             <Link to="/">
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Marketplace
+              Back to Extensions Directory
             </Link>
           </Button>
           
