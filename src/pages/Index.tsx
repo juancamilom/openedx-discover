@@ -168,7 +168,8 @@ const Index = () => {
               Open edX Extensions Directory
             </h1>
             <p className="text-base md:text-lg text-white/90 mb-4 max-w-3xl mx-auto drop-shadow-md">
-              Discover, search, and install powerful extensions for your Open edX platform. 
+              Discover, search, and install powerful extensions for your Open edX platform.
+              <br />
               From analytics dashboards to LTI integrations, and everything in between.
             </p>
             
