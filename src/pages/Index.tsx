@@ -158,7 +158,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="relative h-[360px] md:h-[420px] flex items-center justify-center overflow-hidden">
+      <div className="relative min-h-[360px] md:min-h-[420px] flex items-center justify-center overflow-hidden py-6">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -169,7 +169,7 @@ const Index = () => {
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 py-10">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-white drop-shadow-lg break-words">
               Open edX Extensions Directory
             </h1>
             <p className="text-base md:text-lg text-white/90 mb-4 max-w-3xl mx-auto drop-shadow-md">
