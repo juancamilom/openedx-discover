@@ -106,20 +106,32 @@ export function ExtensionCard({ extension, stats }: ExtensionCardProps) {
               View Details
             </Link>
           </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            asChild
-          >
-            <a
-              href={extension.repo_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2"
+          {extension.repo_url ? (
+            <Button
+              variant="outline"
+              size="sm"
+              asChild
+            >
+              <a
+                href={extension.repo_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <ExternalLink className="h-4 w-4" />
+              </a>
+            </Button>
+          ) : (
+            <Button
+              variant="outline"
+              size="sm"
+              disabled
+              aria-disabled
+              title="Repository link unavailable"
             >
               <ExternalLink className="h-4 w-4" />
-            </a>
-          </Button>
+            </Button>
+          )}
         </div>
       </CardContent>
     </Card>
