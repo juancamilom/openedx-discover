@@ -17,12 +17,6 @@ interface ExtensionCardProps {
   };
 }
 
-const categoryColors = {
-  "platform-native": "bg-primary/10 text-primary border-primary/20",
-  "platform-connector": "bg-accent/10 text-accent border-accent/20", 
-  "courseware-native": "bg-green-500/10 text-green-600 border-green-500/20",
-  "courseware-connector": "bg-orange-500/10 text-orange-600 border-orange-500/20",
-};
 
 const categoryLabels = {
   "platform-native": "Platform Module – Native",
@@ -53,11 +47,6 @@ export function ExtensionCard({ extension, stats }: ExtensionCardProps) {
             className="w-full h-48 object-contain bg-muted/20 transition-transform duration-300 group-hover:scale-105 cursor-pointer"
           />
         </Link>
-        <div className="absolute top-4 left-4">
-          <Badge className={categoryColors[extension.category]}>
-            {categoryLabels[extension.category]}
-          </Badge>
-        </div>
         <div className="absolute top-4 right-4">
           <Badge variant={extension.price === "free" ? "secondary" : "default"}>
             {extension.price === "free" ? "Free" : "Paid"}
@@ -70,7 +59,7 @@ export function ExtensionCard({ extension, stats }: ExtensionCardProps) {
           <div className="flex-1 min-w-0">
             <CardTitle className="text-lg font-semibold truncate">{extension.name}</CardTitle>
             <CardDescription className="text-sm text-muted-foreground mt-1">
-              v{extension.latest_version} • {extension.provider.name}
+              {categoryLabels[extension.category]} • {extension.type}
             </CardDescription>
           </div>
           <img
