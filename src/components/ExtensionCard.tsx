@@ -4,6 +4,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ExtensionWithProvider } from "@/hooks/useExtensionRegistry";
 import { Star, ExternalLink, Download } from "lucide-react";
 import { Link } from "react-router-dom";
+import platformNativeFallback from "@/assets/fallback-platform-native.jpg";
+import platformConnectorFallback from "@/assets/fallback-platform-connector.jpg";
+import coursewareNativeFallback from "@/assets/fallback-courseware-native.jpg";
+import coursewareConnectorFallback from "@/assets/fallback-courseware-connector.jpg";
 
 interface ExtensionCardProps {
   extension: ExtensionWithProvider;
@@ -28,14 +32,24 @@ const categoryLabels = {
 };
 
 export function ExtensionCard({ extension, stats }: ExtensionCardProps) {
+  const fallbackByCategory: Record<ExtensionWithProvider["category"], string> = {
+    "platform-native": platformNativeFallback,
+    "platform-connector": platformConnectorFallback,
+    "courseware-native": coursewareNativeFallback,
+    "courseware-connector": coursewareConnectorFallback,
+  };
+
+  const primaryImage = extension.screenshots?.[0] || fallbackByCategory[extension.category];
 
   return (
     <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card/50 backdrop-blur-sm border-border/50">
       <div className="relative overflow-hidden rounded-t-lg">
         <Link to={`/extension/${extension.slug}`} className="block">
           <img
-            src={extension.screenshots[0]}
-            alt={extension.name}
+            src={primaryImage}
+            alt={`${extension.name} – ${categoryLabels[extension.category]} default image`}
+            loading="lazy"
+            onError={(e) => { (e.currentTarget as HTMLImageElement).src = fallbackByCategory[extension.category]; }}
             className="w-full h-48 object-contain bg-muted/20 transition-transform duration-300 group-hover:scale-105 cursor-pointer"
           />
         </Link>
