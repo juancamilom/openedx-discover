@@ -20,6 +20,7 @@ export type Database = {
           created_at: string
           extension_slug: string
           id: string
+          name: string | null
           openedx_url: string
           rating: number
           updated_at: string
@@ -29,6 +30,7 @@ export type Database = {
           created_at?: string
           extension_slug: string
           id?: string
+          name?: string | null
           openedx_url: string
           rating: number
           updated_at?: string
@@ -38,6 +40,7 @@ export type Database = {
           created_at?: string
           extension_slug?: string
           id?: string
+          name?: string | null
           openedx_url?: string
           rating?: number
           updated_at?: string
