@@ -158,7 +158,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="relative h-[700px] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[360px] md:h-[420px] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -167,25 +167,25 @@ const Index = () => {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/40" />
         {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 py-16">
+        <div className="relative z-10 container mx-auto px-4 py-10">
           <div className="text-center">
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">
               Open edX Extensions Directory
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-md">
+            <p className="text-base md:text-lg text-white/90 mb-4 max-w-3xl mx-auto drop-shadow-md">
               Discover, search, and install powerful extensions for your Open edX platform. 
               From analytics dashboards to LTI integrations, find everything you need to enhance your educational experience.
             </p>
             
             {/* Category Selector */}
-            <div className="mb-8">
+            <div className="mb-4">
               <h2 className="text-lg font-semibold mb-4 text-white/90">Choose your category</h2>
               <div className="flex flex-wrap justify-center items-center gap-4 mb-6">
                 <Button
                   variant={filters.category === "platform-native" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("category", "platform-native")}
-                  className="h-20 w-56 px-4 text-center"
+                  className="h-16 w-52 px-4 text-center"
                 >
                   <div className="flex flex-col items-center">
                     <Server className="h-7 w-7 mb-2" />
@@ -197,7 +197,7 @@ const Index = () => {
                   variant={filters.category === "platform-connector" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("category", "platform-connector")}
-                  className="h-20 w-56 px-4 text-center"
+                  className="h-16 w-52 px-4 text-center"
                 >
                   <div className="flex flex-col items-center">
                     <Puzzle className="h-7 w-7 mb-2" />
@@ -209,7 +209,7 @@ const Index = () => {
                   variant={filters.category === "courseware-native" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("category", "courseware-native")}
-                  className="h-20 w-56 px-4 text-center"
+                  className="h-16 w-52 px-4 text-center"
                 >
                   <div className="flex flex-col items-center">
                     <BookOpen className="h-7 w-7 mb-2" />
@@ -221,7 +221,7 @@ const Index = () => {
                   variant={filters.category === "courseware-connector" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("category", "courseware-connector")}
-                  className="h-20 w-56 px-4 text-center"
+                  className="h-16 w-52 px-4 text-center"
                 >
                   <div className="flex flex-col items-center">
                     <ExternalLink className="h-7 w-7 mb-2" />
@@ -233,7 +233,7 @@ const Index = () => {
                   variant={filters.category === "all" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("category", "all")}
-                  className="h-20 px-6"
+                  className="h-16 px-6"
                 >
                   <div className="flex items-center">
                     <Grid3x3 className="h-6 w-6 mr-2" />
@@ -244,11 +244,11 @@ const Index = () => {
             </div>
             
             {/* Category Description - Fixed space reserved */}
-            <div className="mb-6 max-w-3xl mx-auto h-32 flex items-center">
+            <div className="mb-2 max-w-3xl mx-auto h-20 flex items-center">
               {filters.category !== "all" && (
                 <div className="w-full">
-                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6">
-                    <div className="text-base text-white leading-relaxed">
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-3">
+                    <div className="text-sm md:text-base text-white leading-relaxed">
                       <ReactMarkdown 
                         components={{
                           p: ({ children }) => <p className="mb-0">{children}</p>,
