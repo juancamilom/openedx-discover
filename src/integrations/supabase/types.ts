@@ -52,7 +52,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      can_submit_review: {
+        Args: { _extension_slug: string; _openedx_url: string }
+        Returns: boolean
+      }
+      extract_host: {
+        Args: { url: string }
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never
