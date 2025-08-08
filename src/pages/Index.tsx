@@ -187,10 +187,12 @@ const Index = () => {
                   onClick={() => handleFilterChange("category", "platform-native")}
                   className="h-16 w-52 px-4 text-center"
                 >
-                  <div className="flex flex-col items-center">
-                    <Server className="h-7 w-7 mb-2" />
-                    <span className="text-base font-semibold leading-tight">Platform Module</span>
-                    <span className="text-sm font-normal opacity-80">Native</span>
+                  <div className="flex items-center gap-3">
+                    <Server className="h-6 w-6" />
+                    <div className="text-left leading-tight">
+                      <span className="text-base font-semibold block">Platform Module</span>
+                      <span className="text-sm font-normal opacity-80 block">Native</span>
+                    </div>
                   </div>
                 </Button>
                 <Button
@@ -199,10 +201,12 @@ const Index = () => {
                   onClick={() => handleFilterChange("category", "platform-connector")}
                   className="h-16 w-52 px-4 text-center"
                 >
-                  <div className="flex flex-col items-center">
-                    <Puzzle className="h-7 w-7 mb-2" />
-                    <span className="text-base font-semibold leading-tight">Platform Module</span>
-                    <span className="text-sm font-normal opacity-80">3rd-Party Integration</span>
+                  <div className="flex items-center gap-3">
+                    <Puzzle className="h-6 w-6" />
+                    <div className="text-left leading-tight">
+                      <span className="text-base font-semibold block">Platform Module</span>
+                      <span className="text-sm font-normal opacity-80 block">3rd-Party Integration</span>
+                    </div>
                   </div>
                 </Button>
                 <Button
@@ -211,10 +215,12 @@ const Index = () => {
                   onClick={() => handleFilterChange("category", "courseware-native")}
                   className="h-16 w-52 px-4 text-center"
                 >
-                  <div className="flex flex-col items-center">
-                    <BookOpen className="h-7 w-7 mb-2" />
-                    <span className="text-base font-semibold leading-tight">Courseware Component</span>
-                    <span className="text-sm font-normal opacity-80">Native</span>
+                  <div className="flex items-center gap-3">
+                    <BookOpen className="h-6 w-6" />
+                    <div className="text-left leading-tight">
+                      <span className="text-base font-semibold block">Courseware Component</span>
+                      <span className="text-sm font-normal opacity-80 block">Native</span>
+                    </div>
                   </div>
                 </Button>
                 <Button
@@ -223,10 +229,12 @@ const Index = () => {
                   onClick={() => handleFilterChange("category", "courseware-connector")}
                   className="h-16 w-52 px-4 text-center"
                 >
-                  <div className="flex flex-col items-center">
-                    <ExternalLink className="h-7 w-7 mb-2" />
-                    <span className="text-base font-semibold leading-tight">Courseware Component</span>
-                    <span className="text-sm font-normal opacity-80">3rd-Party Integration</span>
+                  <div className="flex items-center gap-3">
+                    <ExternalLink className="h-6 w-6" />
+                    <div className="text-left leading-tight">
+                      <span className="text-base font-semibold block">Courseware Component</span>
+                      <span className="text-sm font-normal opacity-80 block">3rd-Party Integration</span>
+                    </div>
                   </div>
                 </Button>
                 <Button
