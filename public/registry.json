@@ -3,7 +3,8 @@
     {
       "name": "Open edX Aspects",
       "slug": "open-edx-aspects",
-      "type": "platform-native",
+      "category": "platform-native",
+      "type":"",
       "latest_version": "2.3.1",
       "core_compat": [
         "redwood",
@@ -25,7 +26,8 @@
     {
       "name": "Mobile app iOS",
       "slug": "mobile-app-ios",
-      "type": "platform-native",
+      "category": "platform-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [
         "quince",
@@ -47,7 +49,8 @@
     {
       "name": "Mobile app android",
       "slug": "mobile-app-android",
-      "type": "platform-native",
+      "category": "platform-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [
         "quince",
@@ -70,7 +73,8 @@
     {
       "name": "Open edX Credential Service",
       "slug": "open-edx-credential-service",
-      "type": "platform-native",
+      "category": "platform-native",
+      "type":"",
       "latest_version": "tutor-credentials 20.0.0",
       "core_compat": [
         "palm",
@@ -93,7 +97,8 @@
     {
       "name": "Cairn",
       "slug": "cairn",
-      "type": "platform-native",
+      "category": "platform-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "The next-generation, scalable, customisable, real-time Analytics solution for Open edX that you have been waiting for.",
@@ -112,7 +117,8 @@
     {
       "name": "Cohort manager",
       "slug": "cohort-manager",
-      "type": "platform-native",
+      "category": "platform-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "A new interface where staff members can copy all cohorts from one course into another. Developed with funding from Centrale Lille for an I-SITE project.",
@@ -131,7 +137,8 @@
     {
       "name": "EOX core",
       "slug": "eox-core",
-      "type": "platform-native",
+      "category": "platform-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "EOX-core (A.K.A. eduNEXT Open extensions) is an open edX plugin that adds multiple API endpoints in order to extend the functionality of the Open edX platform and avoid changing the base code directly…",
@@ -151,7 +158,8 @@
     {
       "name": "EOX Hooks",
       "slug": "eox-hooks",
-      "type": "platform-native",
+      "category": "platform-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "EOX-hooks is an openedx plugin, for the edx-platform that allows extending edx-platform through Django configurations and Open edX Events.",
@@ -170,7 +178,8 @@
     {
       "name": "EOX Tagging",
       "slug": "eox-tagging",
-      "type": "platform-native",
+      "category": "platform-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "EOX Tagging is an openedx plugin, that adds the capability to tag edx-platform objects. These tags can be used to categorize and include extra information.",
@@ -190,7 +199,8 @@
     {
       "name": "EOX Tenant",
       "slug": "eox-tenant",
-      "type": "platform-native",
+      "category": "platform-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "The multitenancy feature empowers our clients to efficiently manage multiple users and tenants on a single site, enabling independent support and customization while sharing resources. This capability…",
@@ -210,7 +220,8 @@
     {
       "name": "EOX Theming",
       "slug": "eox-theming",
-      "type": "platform-native",
+      "category": "platform-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "EOX Theming allows to customize the design of their virtual learning environment to match their branding, creating a cohesive and professional look. With flexibility and control, EOX theming helps in …",
@@ -230,7 +241,8 @@
     {
       "name": "Figures",
       "slug": "figures",
-      "type": "platform-native",
+      "category": "platform-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "Open source analytics tool to visualize the performance metrics for Open edX sites, courses, and learners.",
@@ -249,7 +261,8 @@
     {
       "name": "Indigo",
       "slug": "indigo",
-      "type": "platform-native",
+      "category": "platform-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "a customizable theme for Open edX",
@@ -268,7 +281,8 @@
     {
       "name": "Limesurvey Plugin",
       "slug": "limesurvey-plugin",
-      "type": "platform-native",
+      "category": "platform-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "LimeSurvey is an open-source online survey software that allows users to create and conduct surveys, questionnaires, and polls. This Tutor plugin allows you to install LimeSurvey in your Tutor ecosyst…",
@@ -287,7 +301,8 @@
     {
       "name": "username changer",
       "slug": "username-changer",
-      "type": "platform-native",
+      "category": "platform-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "A plugin to enable update usernames through admin panel in Open edX (and other apps that log into Open edX via OAuth). It only supports koa and latest releases of Open edX.",
@@ -304,7 +319,8 @@
     {
       "name": "course template builder",
       "slug": "course-template-builder",
-      "type": "platform-native",
+      "category": "platform-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This web page generates edX course structures in a tarball file that can be immediately imported to edX Studio. You fill out the form to describe your course, selecting things like the number of secti…",
@@ -321,7 +337,8 @@
     {
       "name": "Advanced WordPress and Woocommerce Integration",
       "slug": "advanced-wordpress-and-woocommerce-integration",
-      "type": "platform-connector",
+      "category": "platform-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "Edunext WordPress and WooCommerce integration allows users to sell their courses and digital content on their WordPress website using the WooCommerce shopping cart plugin. This integration will enable…",
@@ -341,7 +358,8 @@
     {
       "name": "WP Open edX integrator",
       "slug": "wp-open-edx-integrator",
-      "type": "platform-connector",
+      "category": "platform-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "A Plugin that integrates the Open edX platform with WordPress.This plugin allows to: -Share the user session information between Open edX and WordPress -Add an Open edX user menu to the WordPress navi…",
@@ -361,7 +379,8 @@
     {
       "name": "Open edX Commerce (WordPress Plugin)",
       "slug": "open-edx-commerce-wordpress-plugin",
-      "type": "platform-connector",
+      "category": "platform-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "The Open edX Commerce package is a free and open-source WordPress plugin that allows you to integrate WooCommerce with your Open edX platform. What does this mean? You can create Open edX courses as p…",
@@ -380,7 +399,8 @@
     {
       "name": "Active Table",
       "slug": "active-table",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This XBlock provides a tabular problem type, where students have to fill in some of the cells of a table.",
@@ -399,7 +419,8 @@
     {
       "name": "Adventure XBlock",
       "slug": "adventure-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock for creating a simple chose your own adventure style simulation. It presents the user with a branching sequence of steps, each which can contain other XBlockLightChildrens.",
@@ -418,7 +439,8 @@
     {
       "name": "AI proctoring",
       "slug": "ai-proctoring",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An online proctoring solution to monitor students' behavior during online exams, preventing cheating attempts, and controlling the student’s identity during the examination process.",
@@ -438,7 +460,8 @@
     {
       "name": "Done XBlock",
       "slug": "done-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock that let student mark when they finish an activity.",
@@ -457,7 +480,8 @@
     {
       "name": "Drag And Drop problem",
       "slug": "drag-and-drop-problem",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This XBlock implements a friendly drag-and-drop style problem, where the learner has to drag items to zones on a target image.",
@@ -476,7 +500,8 @@
     {
       "name": "edx-gea",
       "slug": "edx-gea",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This XBlock provides a way to grade external activity in edx-platform",
@@ -495,7 +520,8 @@
     {
       "name": "EOL Conditional",
       "slug": "eol-conditional",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock to show/hide one or more conditional component by a trigger component.",
@@ -515,7 +541,8 @@
     {
       "name": "FilesManager Xblock",
       "slug": "filesmanager-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "XBlock FileManager is a file storage and management tool that simplifies the process of managing and sharing course materials on the EOX virtual learning environment. It also supports collaboration an…",
@@ -534,7 +561,8 @@
     {
       "name": "Flow Control Xblock",
       "slug": "flow-control-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "A multi unit conditional module for Open edX.",
@@ -553,7 +581,8 @@
     {
       "name": "Free text response",
       "slug": "free-text-response",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock that makes it possible for instructors to create questions that expect a free-text response.",
@@ -572,7 +601,8 @@
     {
       "name": "Google calendar XBlock",
       "slug": "google-calendar-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock to embed the Google calendar tool into a course.",
@@ -591,7 +621,8 @@
     {
       "name": "Google docs xblock",
       "slug": "google-docs-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock allows embedding of Google documents and calendar, within an edX course.",
@@ -610,7 +641,8 @@
     {
       "name": "Group Project",
       "slug": "group-project",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "A team collaboration tooll that allows students to work together on an assignment that will be graded.",
@@ -629,7 +661,8 @@
     {
       "name": "H5p Xblock",
       "slug": "h5p-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "H5P Xblock provides ability to host and play H5P content in open edX. It has few more features Ability to mark H5P content complete in open edX, Ability to capture score of H5P content in open edX, Sa…",
@@ -648,7 +681,8 @@
     {
       "name": "Image Explorer XBlock",
       "slug": "image-explorer-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock that course authors to use an image with hotspots in a course.",
@@ -667,7 +701,8 @@
     {
       "name": "Image Modal XBlock",
       "slug": "image-modal-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "A full-screen image modal XBlock",
@@ -686,7 +721,8 @@
     {
       "name": "ImagesGallery XBlock",
       "slug": "imagesgallery-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "XBlock ImagesGallery is an easy-to-use tool for uploading and organizing images on the EOX virtual learning environment. It helps in creating a more engaging and interactive learning experience for st…",
@@ -705,7 +741,8 @@
     {
       "name": "In video quiz",
       "slug": "in-video-quiz",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock that allows for edX components to be displayed to users inside of videos at specific time points.",
@@ -722,7 +759,8 @@
     {
       "name": "Inline Dropdown",
       "slug": "inline-dropdown",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock provides a way to place dropdown questions inline with other text, for example, in a paragraph.",
@@ -741,7 +779,8 @@
     {
       "name": "JSME Molecular Editor",
       "slug": "jsme-molecular-editor",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "edx-jsme is an XBlock (add on component) for the edX platform which provides a new problem type: 'Molecular Structure'. This problem type integrates the JSME molecule editor seamlessly into an edX cou…",
@@ -760,7 +799,8 @@
     {
       "name": "Jupyter",
       "slug": "jupyter",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock to display and manage Jupyter Notebooks.",
@@ -777,7 +817,8 @@
     {
       "name": "Jupyter Notebook viewer",
       "slug": "jupyter-notebook-viewer",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "Fetch and display part of, or an entire Jupyter Notebook in an XBlock.",
@@ -796,7 +837,8 @@
     {
       "name": "Mind Map XBlock",
       "slug": "mind-map-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "Mind Map XBlock is a pluggable extension to the Open edX platform that allows course creators to build a learning experience in which students can visualize and easily edit Mind Maps within a course u…",
@@ -815,7 +857,8 @@
     {
       "name": "Peer instruction tool",
       "slug": "peer-instruction-tool",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "The peer instruction tool emulates the classroom experience for the learners in an online course.",
@@ -834,7 +877,8 @@
     {
       "name": "Poll & Survey XBlock - poll",
       "slug": "poll-survey-xblock-poll",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "XBlock that enables a course author to create poll elements to get feedback from students",
@@ -853,7 +897,8 @@
     {
       "name": "Poll & Survey XBlock - survey",
       "slug": "poll-survey-xblock-survey",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "XBlock that enables a course author to create survey elements to get feedback from students",
@@ -872,7 +917,8 @@
     {
       "name": "Problem builder XBlock",
       "slug": "problem-builder-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock to create questions of various types.",
@@ -891,7 +937,8 @@
     {
       "name": "Recommender tool",
       "slug": "recommender-tool",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock that shows students a list of recommended resources for a given problem",
@@ -910,7 +957,8 @@
     {
       "name": "SCORM XBlock",
       "slug": "scorm-xblock-abstract",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock for Open edX to support SCORM packages",
@@ -927,7 +975,8 @@
     {
       "name": "SCORM XBlock",
       "slug": "scorm-xblock-overhang",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock to display SCORM content within the Open edX LMS and Studio. It will save student state and report scores to the progress tab of the course. Currently supports SCORM 1.2 and SCORM 2004 stand…",
@@ -946,7 +995,8 @@
     {
       "name": "SCORM XBlock",
       "slug": "scorm-xblock-rg",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock allowing adding graded and ungraded quizzes and other SCORM 1.2-compliant objects to Open edX.",
@@ -963,7 +1013,8 @@
     {
       "name": "Crowdsource Hinter XBlock",
       "slug": "crowdsource-hinter-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "The Crowdsource Hinter serves to provide students with hints when they incorrectly answer a problem within a course. The hinter is compatible with numerical input and text input type problems.",
@@ -982,7 +1033,8 @@
     {
       "name": "xqueue",
       "slug": "xqueue",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "XQueue defines an interface for the LMS to communicate with external grader services. For example, when a student submits a problem in the LMS, it gets sent to the XQueue. The XQueue then has the prob…",
@@ -999,7 +1051,8 @@
     {
       "name": "Staff Graded Assignments",
       "slug": "staff-graded-assignments",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This component, also referred to as SGA, allows you to have students upload a file that can be manually graded by the instructor",
@@ -1018,7 +1071,8 @@
     {
       "name": "Submit and Compare",
       "slug": "submit-and-compare",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This XBlock provides a way to create an ungraded self assessment activity.",
@@ -1037,7 +1091,8 @@
     {
       "name": "Vector Drawing",
       "slug": "vector-drawing",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This XBlock allows course authors to create vector drawing exercises within a course.",
@@ -1056,7 +1111,8 @@
     {
       "name": "split test",
       "slug": "split-test",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "XBlock that allows the creation of A/B test",
@@ -1075,7 +1131,8 @@
     {
       "name": "Voice recognizer XBlock",
       "slug": "voice-recognizer-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This XBlock allows students to recognize his voice and he can see the what he spoke.",
@@ -1092,7 +1149,8 @@
     {
       "name": "Ai coach",
       "slug": "ai-coach",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "AI Coach Xblock helps learner in improving their answers by levering power of AI. It evaluates open response answer of a question using Open AI and provides feedback to learner.",
@@ -1109,7 +1167,8 @@
     {
       "name": "ChatGPT Xblock",
       "slug": "chatgpt-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "The ChatGPT XBlock is integrated as a component into Open edX® online courses at the unit level, so learners can access it directly from the course interface. A learner simply inputs a question and cl…",
@@ -1126,7 +1185,8 @@
     {
       "name": "Carousel",
       "slug": "carousel",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This XBlock allows Course authors to author content which can be displayed on multiple slides. Each slide can contain combination of Text and Image content.",
@@ -1143,7 +1203,8 @@
     {
       "name": "Sortable",
       "slug": "sortable",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock that implements sorting problem. Learners have to sort items by dragging them at their correct position. Authors can define items and their correct order from studio. This Xblock also suppor…",
@@ -1162,7 +1223,8 @@
     {
       "name": "Know Wonder Learn",
       "slug": "know-wonder-learn",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This XBlock enables learners to organize their thoughts and expectations before starting a course. Specifically, learners can use this component to identify what they already know about the course con…",
@@ -1181,7 +1243,8 @@
     {
       "name": "Feedback Xblock",
       "slug": "feedback-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "The FeedbackXBlock encourages learners to reflect on their learning experiences and allows instructors to capture feedback from learners. Feedback is provided as sentiment on a predefined scale and fr…",
@@ -1198,7 +1261,8 @@
     {
       "name": "MITx grading library",
       "slug": "mitx-grading-library",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "A library of graders for edX Custom Response problems.",
@@ -1215,7 +1279,8 @@
     {
       "name": "Hx JS",
       "slug": "hx-js",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This project collects a large number of javascript and css tricks that have been used in various HX courses and puts them all in one place so that they're easier to implement.",
@@ -1232,7 +1297,8 @@
     {
       "name": "Hx xml",
       "slug": "hx-xml",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This is a set of batch tools to work directly with a course export (the file structure, not the tarball) or with .srt files.",
@@ -1249,7 +1315,8 @@
     {
       "name": "Hx py",
       "slug": "hx-py",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This project collects the python grading functions that have been used in various HX courses and puts them all in one place so that they're easier to implement.",
@@ -1266,7 +1333,8 @@
     {
       "name": "Hx utils",
       "slug": "hx-utils",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This is a set of batch tools to work directly with a course export (the file structure, not the tarball) or with .srt files.",
@@ -1283,7 +1351,8 @@
     {
       "name": "Skill tagging xblock",
       "slug": "skill-tagging-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "Django app for fetching and verifying tags/skills for video and vertical/unit XBlocks. It implements two openedx_filters pipelines to inject a form into the end unit XBlocks and video XBlocks",
@@ -1302,7 +1371,8 @@
     {
       "name": "Qualtrics Surveuy",
       "slug": "qualtrics-surveuy",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "XBlock to ease linking to Qualtrics surveys.",
@@ -1322,7 +1392,8 @@
     {
       "name": "Audio Xblock",
       "slug": "audio-xblock",
-      "type": "courseware-native",
+      "category": "courseware-native",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This is a simple XBlock which will play audio files as an HTML5 audio element. If unavailable, it will fall back to an embed element.",
@@ -1339,7 +1410,8 @@
     {
       "name": "badgr XBlock",
       "slug": "badgr-xblock",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "The badgr-xblock communicates with the Badgr API, and awards badges based on a passing grade for a specified subsection in a course.",
@@ -1356,7 +1428,8 @@
     {
       "name": "Bibblio XBlock",
       "slug": "bibblio-xblock",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock that allows easy inclusion of Bibblio content recommendation module as a courseware component.",
@@ -1373,7 +1446,8 @@
     {
       "name": "BigBlueButton",
       "slug": "bigbluebutton",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "Open source web conferencing system for online learning",
@@ -1392,7 +1466,8 @@
     {
       "name": "Codegrade",
       "slug": "codegrade",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "A blended learning application designed especially for programming education. It makes grading and handing in programming exercises more insightful and effective for students and more efficient for te…",
@@ -1412,7 +1487,8 @@
     {
       "name": "Collaborate",
       "slug": "collaborate",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "A web conferencing application with intuitive capabilities to focus on the onlearning engagement of your students.",
@@ -1431,7 +1507,8 @@
     {
       "name": "Credly",
       "slug": "credly",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "Credly's Acclaim platform is the world's largest network of individuals and organizations using verified achievements to unlock opportunities. Join millions of professionals in sharing your achievemen…",
@@ -1451,7 +1528,8 @@
     {
       "name": "Discourse",
       "slug": "discourse",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An open source discussion platform with dinamic notification, a simple flat forum, designed for high touch resolution devices.",
@@ -1471,7 +1549,8 @@
     {
       "name": "H5P.com",
       "slug": "h5p-com",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "A tool that enables educators to create content such as interactive videos, quizzes and presentations",
@@ -1491,7 +1570,8 @@
     {
       "name": "Smowl proctoring",
       "slug": "smowl-proctoring",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "A proctoring solution that has gained the trust of educational institutions and organizations worldwide. Its mission is to improve the quality of online assessments.",
@@ -1511,7 +1591,8 @@
     {
       "name": "Limesurvey Xblock",
       "slug": "limesurvey-xblock",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "LimeSurvey XBlock allows a better integration between the Open edX platform and the Open source LimeSurvey service. Once the LimeSurvey component has been added and configured into a course unit, lear…",
@@ -1530,7 +1611,8 @@
     {
       "name": "ProctorU",
       "slug": "proctoru",
-      "type": "external tool",
+      "category": "external tool",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This XBlock can be used to schedule a proctoring session for exams within an Open edX course.",
@@ -1547,7 +1629,8 @@
     {
       "name": "PuMuKIT2 Opencast Video XBlock",
       "slug": "pumukit2-opencast-video-xblock",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "This XBlocks allows to integrate PuMuKIT2 Video Platform into Open edX to add videos, upload videos, manage videos or even record personal videos.",
@@ -1566,7 +1649,8 @@
     {
       "name": "Schoolyourself XBlock",
       "slug": "schoolyourself-xblock",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An XBlock for displaying School Yourself (SY) content on the edX platform.",
@@ -1586,7 +1670,8 @@
     {
       "name": "Safe Exam browser plugin",
       "slug": "safe-exam-browser-plugin",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An application to carry out e-assessments safely. It turns any computer temporarily into a secure workstation, controlling access to resources like system functions, other websites, and applications, …",
@@ -1605,7 +1690,8 @@
     {
       "name": "Smowl",
       "slug": "smowl",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "An online user authentication system that uses an automatic Artificial Intelligence algorithm to verify the identity of the online user and detect suspicious behaviors throughout the whole learning pr…",
@@ -1625,7 +1711,8 @@
     {
       "name": "Vocareum",
       "slug": "vocareum",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "Cloud-based learning and assessment tool for a broad range of technical courses in CS, data science, machine learning, IoT, cloud computing and cybersecurity.",
@@ -1645,7 +1732,8 @@
     {
       "name": "VSend",
       "slug": "vsend",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "A Video Monitoring Platform Designed to Optimize your Content's Performance. Vsend leverages automated algorithms to identify a viewer's behavior and detect specific insights which content creators ca…",
@@ -1664,7 +1752,8 @@
     {
       "name": "Wistia",
       "slug": "wistia",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "A video-sharing platform for creating professional videos, it comes with a heat map to help users to see individual view insights and no ads.",
@@ -1683,7 +1772,8 @@
     {
       "name": "XBlock video with plugable backend",
       "slug": "xblock-video-with-plugable-backend",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "A tool for deliver video content to your learners via web and mobile.",
@@ -1702,7 +1792,8 @@
     {
       "name": "Annoto",
       "slug": "annoto",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "Annoto is an in-video collaboration solution that turns static, 1-way video Stream/VOD into an active and interactive group experience, where participants contribute, share and learn together. Users c…",
@@ -1722,7 +1813,8 @@
     {
       "name": "Instruqt",
       "slug": "instruqt",
-      "type": "courseware-connector",
+      "category": "courseware-connector",
+      "type":"",
       "latest_version": "",
       "core_compat": [],
       "description_short": "Instruqt is a hands-on virtual IT Lab Platform for interactive learning. Virtual IT labs provide learners with hands-on sandbox environments. Learners can use the platform to learn about products and …",
