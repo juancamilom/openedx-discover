@@ -185,7 +185,7 @@ const Index = () => {
                   variant={filters.category === "platform-native" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("category", "platform-native")}
-                  className="h-16 w-52 px-4 text-center"
+                  className="h-16 w-60 px-4 text-center"
                 >
                   <div className="flex items-center gap-3">
                     <Server className="h-6 w-6" />
@@ -199,7 +199,7 @@ const Index = () => {
                   variant={filters.category === "platform-connector" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("category", "platform-connector")}
-                  className="h-16 w-52 px-4 text-center"
+                  className="h-16 w-60 px-4 text-center"
                 >
                   <div className="flex items-center gap-3">
                     <Puzzle className="h-6 w-6" />
@@ -213,7 +213,7 @@ const Index = () => {
                   variant={filters.category === "courseware-native" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("category", "courseware-native")}
-                  className="h-16 w-52 px-4 text-center"
+                  className="h-16 w-72 px-4 text-center"
                 >
                   <div className="flex items-center gap-3">
                     <BookOpen className="h-6 w-6" />
@@ -227,7 +227,7 @@ const Index = () => {
                   variant={filters.category === "courseware-connector" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("category", "courseware-connector")}
-                  className="h-16 w-52 px-4 text-center"
+                  className="h-16 w-72 px-4 text-center"
                 >
                   <div className="flex items-center gap-3">
                     <ExternalLink className="h-6 w-6" />
@@ -241,7 +241,7 @@ const Index = () => {
                   variant={filters.category === "all" ? "default" : "outline"}
                   size="lg"
                   onClick={() => handleFilterChange("category", "all")}
-                  className="h-16 px-6"
+                  className="h-16 w-44 px-6"
                 >
                   <div className="flex items-center">
                     <Grid3x3 className="h-6 w-6 mr-2" />
