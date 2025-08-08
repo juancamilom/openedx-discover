@@ -33,6 +33,7 @@ export function ExtensionCard({ extension, stats }: ExtensionCardProps) {
     "courseware-connector": coursewareConnectorFallback,
   };
 
+  const providerLogoFallback = "data:image/svg+xml;utf8," + encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><circle cx='48' cy='48' r='44' fill='#D1D5DB'/></svg>");
   const primaryImage = extension.screenshots?.[0] || fallbackByCategory[extension.category];
 
   return (
@@ -63,8 +64,9 @@ export function ExtensionCard({ extension, stats }: ExtensionCardProps) {
             </CardDescription>
           </div>
           <img
-            src={extension.provider.logo}
+            src={extension.provider.logo || providerLogoFallback}
             alt={extension.provider.name}
+            onError={(e) => { (e.currentTarget as HTMLImageElement).src = providerLogoFallback; }}
             className="w-24 h-24 rounded-lg flex-shrink-0 object-contain bg-white/5 p-2"
           />
         </div>
