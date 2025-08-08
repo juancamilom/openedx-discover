@@ -73,7 +73,7 @@ const typeOptionsByCategory = {
 };
 
 const licenseOptions = ["MIT", "Apache-2.0", "AGPL-3.0", "GPL-3.0", "BSD-3-Clause"];
-const providerOptions = ["edX", "OpenCraft", "Raccoon Gang", "Appsembler", "eduNEXT"];
+const providerOptions = ["OpenCraft", "Raccoon Gang", "Appsembler", "eduNEXT", "edly", "Abstract-Technology", "2U / edX", "Overhang.io"];
 
 export function FilterBar({ filters, onFilterChange, onClearFilters, resultCount, extensions }: FilterBarProps) {
   // Dynamically extract all unique compatibility options from extensions
