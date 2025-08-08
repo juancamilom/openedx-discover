@@ -12,22 +12,18 @@ import { useExtensionRegistry, ExtensionWithProvider } from "@/hooks/useExtensio
 import { Button } from "@/components/ui/button";
 import { Puzzle, ExternalLink, Server, BookOpen, Grid3x3 } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
+
 const ITEMS_PER_PAGE = 20;
+
 const Index = () => {
   const [currentPage, setCurrentPage] = useState(1);
-
+  
   // Debug: Track all currentPage changes
   useEffect(() => {
     console.log('currentPage changed to:', currentPage, 'Stack:', new Error().stack);
   }, [currentPage]);
-  const {
-    data: registryData,
-    isLoading: loading
-  } = useExtensionRegistry();
-  const {
-    extensionStats,
-    loading: statsLoading
-  } = useAllExtensionStats();
+  const { data: registryData, isLoading: loading } = useExtensionRegistry();
+  const { extensionStats, loading: statsLoading } = useAllExtensionStats();
   const extensions = registryData?.extensions || [];
   const [filters, setFilters] = useState<FilterOptions>({
     search: "",
@@ -36,16 +32,19 @@ const Index = () => {
     compatibility: "all",
     license: "all",
     rating: "all",
-    provider: "all"
+    provider: "all",
   });
 
   // Main filtered extensions - stable, no dependency on extensionStats
   const baseFilteredExtensions = useMemo(() => {
-    return extensions.filter(extension => {
+    return extensions.filter((extension) => {
       // Search filter
       if (filters.search) {
         const searchLower = filters.search.toLowerCase();
-        const matchesSearch = extension.name.toLowerCase().includes(searchLower) || extension.description_short.toLowerCase().includes(searchLower) || extension.provider.name.toLowerCase().includes(searchLower);
+        const matchesSearch = 
+          extension.name.toLowerCase().includes(searchLower) ||
+          extension.description_short.toLowerCase().includes(searchLower) ||
+          extension.provider.name.toLowerCase().includes(searchLower);
         if (!matchesSearch) return false;
       }
 
@@ -73,6 +72,7 @@ const Index = () => {
       if (filters.provider !== "all" && extension.provider.name.toLowerCase() !== filters.provider.toLowerCase()) {
         return false;
       }
+
       return true;
     });
   }, [extensions, filters.search, filters.category, filters.type, filters.compatibility, filters.license, filters.provider]);
@@ -82,20 +82,22 @@ const Index = () => {
     if (filters.rating === "all") {
       return baseFilteredExtensions;
     }
+    
     const minRating = parseFloat(filters.rating.replace("+", ""));
-    return baseFilteredExtensions.filter(extension => {
+    return baseFilteredExtensions.filter((extension) => {
       const dbStats = extensionStats?.[extension.slug];
       const currentRating = dbStats?.averageRating || 0;
       return currentRating >= minRating;
     });
   }, [baseFilteredExtensions, filters.rating, extensionStats]);
-  const totalPages = Math.ceil(stableFilteredExtensions.length / ITEMS_PER_PAGE);
 
+  const totalPages = Math.ceil(stableFilteredExtensions.length / ITEMS_PER_PAGE);
+  
   // Debug: Track totalPages changes
   useEffect(() => {
     console.log('totalPages changed to:', totalPages, 'stableFilteredExtensions.length:', stableFilteredExtensions.length);
   }, [totalPages, stableFilteredExtensions.length]);
-
+  
   // Ensure currentPage doesn't exceed totalPages when data changes
   useEffect(() => {
     console.log('Checking if currentPage > totalPages:', currentPage, '>', totalPages);
@@ -104,15 +106,17 @@ const Index = () => {
       setCurrentPage(totalPages);
     }
   }, [totalPages, currentPage]);
-  const paginatedExtensions = stableFilteredExtensions.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+  
+  const paginatedExtensions = stableFilteredExtensions.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
   const handleFilterChange = (key: keyof FilterOptions, value: string) => {
     console.log('handleFilterChange called with:', key, value, 'Stack:', new Error().stack);
     setCurrentPage(1); // Reset to page 1 when filter changes
     setFilters(prev => {
-      const newFilters = {
-        ...prev,
-        [key]: value
-      };
+      const newFilters = { ...prev, [key]: value };
       // Reset type filter when category changes
       if (key === "category") {
         newFilters.type = "all";
@@ -120,6 +124,7 @@ const Index = () => {
       return newFilters;
     });
   };
+
   const handleClearFilters = () => {
     console.log('handleClearFilters called, Stack:', new Error().stack);
     setCurrentPage(1); // Reset to page 1 when clearing filters
@@ -130,17 +135,16 @@ const Index = () => {
       compatibility: "all",
       license: "all",
       rating: "all",
-      provider: "all"
+      provider: "all",
     });
   };
+
   const handleSearch = useCallback((query: string) => {
     console.log('handleSearch called with:', query, 'Stack:', new Error().stack);
     setCurrentPage(1); // Reset to page 1 when searching
-    setFilters(prev => ({
-      ...prev,
-      search: query
-    }));
+    setFilters(prev => ({ ...prev, search: query }));
   }, []);
+
   const getCategoryDescription = (category: string) => {
     const descriptions = {
       "platform-native": "A self-hosted module that becomes a first-class part of your Open edX installation—no extra subscriptions or outside hosting needed. Once deployed, the feature works natively across every course and user. Classic examples include the **Credentials** micro-service, an **Indigo theme pack**, or a built-in **analytics pipeline** that processes learner data on your own servers.",
@@ -150,57 +154,95 @@ const Index = () => {
     };
     return descriptions[category as keyof typeof descriptions] || "";
   };
-  return <div className="min-h-screen bg-background">
+
+  return (
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="relative h-[700px] flex items-center justify-center overflow-hidden">
+      <div className="relative min-h-[360px] md:min-h-[420px] flex items-center justify-center overflow-hidden py-6">
         {/* Background Image */}
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
-        backgroundImage: `url(${heroBackground})`
-      }} />
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroBackground})` }}
+        />
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/40" />
         {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 py-16">
+        <div className="relative z-10 container mx-auto px-4 py-10">
           <div className="text-center">
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-white drop-shadow-lg break-words">
               Open edX Extensions Directory
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-md">Discover, search, and install powerful extensions for your Open edX platform. 
-From analytics dashboards to LTI integrations and everything in between.</p>
+            <p className="text-base md:text-lg text-white/90 mb-4 max-w-3xl mx-auto drop-shadow-md">
+              Discover, search, and install powerful extensions for your Open edX platform. 
+              From analytics dashboards to LTI integrations, find everything you need to enhance your educational experience.
+            </p>
             
             {/* Category Selector */}
-            <div className="mb-8">
-              <h2 className="text-lg font-semibold mb-4 text-white/90">Choose a category</h2>
-              <div className="flex flex-wrap justify-center items-center gap-4 mb-6">
-                <Button variant={filters.category === "platform-native" ? "default" : "outline"} size="lg" onClick={() => handleFilterChange("category", "platform-native")} className="h-20 w-56 px-4 text-center">
-                  <div className="flex flex-col items-center">
-                    <Server className="h-7 w-7 mb-2" />
-                    <span className="text-base font-semibold leading-tight">Platform Module</span>
-                    <span className="text-sm font-normal opacity-80">Native</span>
+            <div className="mb-4">
+              <h2 className="text-lg font-semibold mb-4 text-white/90">Choose your category</h2>
+              <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-4 mb-6">
+                <Button
+                  variant={filters.category === "platform-native" ? "default" : "outline"}
+                  size="lg"
+                  onClick={() => handleFilterChange("category", "platform-native")}
+                  className="h-16 w-72 px-4 text-center"
+                >
+                  <div className="flex items-center gap-3">
+                    <Server className="h-6 w-6" />
+                    <div className="text-left leading-tight">
+                      <span className="text-base font-semibold block">Platform Module</span>
+                      <span className="text-sm font-normal opacity-80 block">Native</span>
+                    </div>
                   </div>
                 </Button>
-                <Button variant={filters.category === "platform-connector" ? "default" : "outline"} size="lg" onClick={() => handleFilterChange("category", "platform-connector")} className="h-20 w-56 px-4 text-center">
-                  <div className="flex flex-col items-center">
-                    <Puzzle className="h-7 w-7 mb-2" />
-                    <span className="text-base font-semibold leading-tight">Platform Module</span>
-                    <span className="text-sm font-normal opacity-80">3rd-Party Integration</span>
+                <Button
+                  variant={filters.category === "platform-connector" ? "default" : "outline"}
+                  size="lg"
+                  onClick={() => handleFilterChange("category", "platform-connector")}
+                  className="h-16 w-72 px-4 text-center"
+                >
+                  <div className="flex items-center gap-3">
+                    <Puzzle className="h-6 w-6" />
+                    <div className="text-left leading-tight">
+                      <span className="text-base font-semibold block">Platform Module</span>
+                      <span className="text-sm font-normal opacity-80 block">3rd-Party Integration</span>
+                    </div>
                   </div>
                 </Button>
-                <Button variant={filters.category === "courseware-native" ? "default" : "outline"} size="lg" onClick={() => handleFilterChange("category", "courseware-native")} className="h-20 w-56 px-4 text-center">
-                  <div className="flex flex-col items-center">
-                    <BookOpen className="h-7 w-7 mb-2" />
-                    <span className="text-base font-semibold leading-tight">Courseware Component</span>
-                    <span className="text-sm font-normal opacity-80">Native</span>
+                <Button
+                  variant={filters.category === "courseware-native" ? "default" : "outline"}
+                  size="lg"
+                  onClick={() => handleFilterChange("category", "courseware-native")}
+                  className="h-16 w-72 px-4 text-center"
+                >
+                  <div className="flex items-center gap-3">
+                    <BookOpen className="h-6 w-6" />
+                    <div className="text-left leading-tight">
+                      <span className="text-base font-semibold block">Courseware Component</span>
+                      <span className="text-sm font-normal opacity-80 block">Native</span>
+                    </div>
                   </div>
                 </Button>
-                <Button variant={filters.category === "courseware-connector" ? "default" : "outline"} size="lg" onClick={() => handleFilterChange("category", "courseware-connector")} className="h-20 w-56 px-4 text-center">
-                  <div className="flex flex-col items-center">
-                    <ExternalLink className="h-7 w-7 mb-2" />
-                    <span className="text-base font-semibold leading-tight">Courseware Component</span>
-                    <span className="text-sm font-normal opacity-80">3rd-Party Integration</span>
+                <Button
+                  variant={filters.category === "courseware-connector" ? "default" : "outline"}
+                  size="lg"
+                  onClick={() => handleFilterChange("category", "courseware-connector")}
+                  className="h-16 w-72 px-4 text-center"
+                >
+                  <div className="flex items-center gap-3">
+                    <ExternalLink className="h-6 w-6" />
+                    <div className="text-left leading-tight">
+                      <span className="text-base font-semibold block">Courseware Component</span>
+                      <span className="text-sm font-normal opacity-80 block">3rd-Party Integration</span>
+                    </div>
                   </div>
                 </Button>
-                <Button variant={filters.category === "all" ? "default" : "outline"} size="lg" onClick={() => handleFilterChange("category", "all")} className="h-20 px-6">
+                <Button
+                  variant={filters.category === "all" ? "default" : "outline"}
+                  size="lg"
+                  onClick={() => handleFilterChange("category", "all")}
+                  className="h-16 w-44 px-6"
+                >
                   <div className="flex items-center">
                     <Grid3x3 className="h-6 w-6 mr-2" />
                     <span className="text-base font-semibold">All Extensions</span>
@@ -210,23 +252,23 @@ From analytics dashboards to LTI integrations and everything in between.</p>
             </div>
             
             {/* Category Description - Fixed space reserved */}
-            <div className="mb-6 max-w-3xl mx-auto h-32 flex items-center">
-              {filters.category !== "all" && <div className="w-full">
-                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6">
-                    <div className="text-base text-white leading-relaxed">
-                      <ReactMarkdown components={{
-                    p: ({
-                      children
-                    }) => <p className="mb-0">{children}</p>,
-                    strong: ({
-                      children
-                    }) => <strong className="font-semibold text-white">{children}</strong>
-                  }}>
+            <div className="mb-2 max-w-5xl mx-auto h-20 flex items-center">
+              {filters.category !== "all" && (
+                <div className="w-full">
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-3">
+                    <div className="text-sm md:text-base text-white leading-relaxed">
+                      <ReactMarkdown 
+                        components={{
+                          p: ({ children }) => <p className="mb-0">{children}</p>,
+                          strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>
+                        }}
+                      >
                         {getCategoryDescription(filters.category)}
                       </ReactMarkdown>
                     </div>
                   </div>
-                </div>}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -246,34 +288,65 @@ From analytics dashboards to LTI integrations and everything in between.</p>
           {/* Sidebar Filters */}
           <div className="lg:col-span-1">
             <div className="sticky top-4">
-              {loading ? <FilterSkeleton /> : <FilterBar filters={filters} onFilterChange={handleFilterChange} onClearFilters={handleClearFilters} resultCount={stableFilteredExtensions.length} extensions={extensions} />}
+              {loading ? (
+                <FilterSkeleton />
+              ) : (
+                <FilterBar
+                  filters={filters}
+                  onFilterChange={handleFilterChange}
+                  onClearFilters={handleClearFilters}
+                  resultCount={stableFilteredExtensions.length}
+                  extensions={extensions}
+                />
+              )}
             </div>
           </div>
 
           {/* Main Content */}
           <div className="lg:col-span-3">
-            {loading ? <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                {Array.from({
-              length: 6
-            }).map((_, i) => <ExtensionCardSkeleton key={i} />)}
-              </div> : stableFilteredExtensions.length === 0 ? <div className="text-center py-16">
+            {loading ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <ExtensionCardSkeleton key={i} />
+                ))}
+              </div>
+            ) : stableFilteredExtensions.length === 0 ? (
+              <div className="text-center py-16">
                 <h3 className="text-2xl font-semibold mb-4">No extensions found</h3>
                 <p className="text-muted-foreground mb-6">
                   Try adjusting your search criteria or browse all available extensions.
                 </p>
-                <button onClick={handleClearFilters} className="text-primary hover:underline">
+                <button
+                  onClick={handleClearFilters}
+                  className="text-primary hover:underline"
+                >
                   Clear all filters
                 </button>
-              </div> : <>
+              </div>
+            ) : (
+              <>
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-8">
-                  {paginatedExtensions.map((extension, index) => <ExtensionCard key={`${extension.slug}-${index}`} extension={extension} stats={extensionStats?.[extension.slug]} />)}
+                  {paginatedExtensions.map((extension, index) => (
+                    <ExtensionCard 
+                      key={`${extension.slug}-${index}`} 
+                      extension={extension} 
+                      stats={extensionStats?.[extension.slug]}
+                    />
+                  ))}
                 </div>
                 
-                <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
-              </>}
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={setCurrentPage}
+                />
+              </>
+            )}
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
