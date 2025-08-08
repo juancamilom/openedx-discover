@@ -12,7 +12,9 @@ import { useExtensionRegistry, ExtensionWithProvider } from "@/hooks/useExtensio
 import { Button } from "@/components/ui/button";
 import { Puzzle, ExternalLink, Server, BookOpen, Grid3x3 } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
+
 const ITEMS_PER_PAGE = 20;
+
 const Index = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -167,7 +169,7 @@ const Index = () => {
             </h1>
             <p className="text-base md:text-lg text-white/90 mb-4 max-w-3xl mx-auto drop-shadow-md">
               Discover, search, and install powerful extensions for your Open edX platform. 
-              From analytics dashboards to LTI integrations, find everything you need to enhance your educational experience.
+              From analytics dashboards to LTI integrations, and everything in between.
             </p>
             
             {/* Category Selector */}
@@ -286,4 +288,5 @@ const Index = () => {
       </div>
     </div>;
 };
+
 export default Index;
