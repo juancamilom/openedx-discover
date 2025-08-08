@@ -180,7 +180,7 @@ const Index = () => {
             {/* Category Selector */}
             <div className="mb-4">
               <h2 className="text-lg font-semibold mb-4 text-white/90">Choose your category</h2>
-              <div className="flex flex-nowrap justify-center items-center gap-4 mb-6 overflow-x-auto">
+              <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-4 mb-6">
                 <Button
                   variant={filters.category === "platform-native" ? "default" : "outline"}
                   size="lg"
