@@ -32,7 +32,8 @@ A modern, responsive web application for discovering and exploring Open edX exte
 - **Routing**: React Router v6
 - **Markdown**: react-markdown for rich content
 - **Icons**: Lucide React
-- **State Management**: React hooks with local state
+- **Data Fetching**: TanStack React Query for caching and async state
+- **Backend**: Supabase (reviews and ratings aggregation)
 
 ## 🚀 Quick Start
 
@@ -71,24 +72,19 @@ Extensions are stored in `public/registry.json` following this schema:
 {
   "extensions": [
     {
-      "name": "Extension Name",
-      "slug": "extension-slug",
-      "type": "platform-addon|external-tool|operational-service",
-      "latest_version": "1.0.0",
-      "core_compat": ["olive", "palm", "quince"],
-      "description_short": "Brief description",
-      "description_long": "# Markdown content",
-      "provider": {
-        "name": "Provider Name",
-        "url": "https://provider.com",
-        "logo": "https://example.com/logo.png"
-      },
-      "repo_url": "https://github.com/...",
-      "license": "MIT",
+      "name": "string",
+      "slug": "string",
+      "category": "platform-native|platform-connector|courseware-native|courseware-connector",
+      "type": "string",
+      "latest_version": "string",
+      "core_compat": ["redwood", "sumac", "teak"],
+      "description_short": "string",
+      "description_long": "markdown string",
+      "provider_id": "string",
+      "repo_url": "string",
+      "license": "MIT|AGPLv3|...",
       "price": "free|paid",
-      "rating_avg": 4.5,
-      "rating_count": 100,
-      "install_notes": "# Installation instructions",
+      "install_notes": "markdown string",
       "screenshots": ["https://example.com/screenshot1.jpg"]
     }
   ]
@@ -109,27 +105,34 @@ Extensions are stored in `public/registry.json` following this schema:
 ### Sample Extension Entry
 ```json
 {
-  "name": "Analytics Dashboard Pro",
-  "slug": "analytics-dashboard-pro",
-  "type": "platform-addon",
-  "latest_version": "2.1.4",
-  "core_compat": ["olive", "palm", "quince"],
-  "description_short": "Advanced learning analytics and insights dashboard for educators.",
-  "description_long": "# Analytics Dashboard Pro\n\nComprehensive analytics...",
-  "provider": {
-    "name": "EduTech Solutions",
-    "url": "https://edutech-solutions.com",
-    "logo": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=32&h=32&fit=crop&crop=face"
-  },
-  "repo_url": "https://github.com/edutech/analytics-dashboard-pro",
-  "license": "AGPL-3.0",
-  "price": "paid",
-  "rating_avg": 4.8,
-  "rating_count": 127,
-  "install_notes": "# Installation\n\n1. Install via pip:\n```bash\npip install...",
+  "name": "EOX core",
+  "slug": "eox-core",
+  "category": "platform-native",
+  "type": "Backend only functionality",
+  "latest_version": "",
+  "core_compat": [],
+  "description_short": "EOX-core (A.K.A. eduNEXT Open extensions) is an Open edX plugin that adds multiple API endpoints to extend the platform without modifying core code.",
+  "description_long": "# EOX core\n\nEOX-core (A.K.A. eduNEXT Open extensions) is an Open edX plugin that adds multiple API endpoints in order to extend the functionality of the Open edX platform and avoid changing the base code directly. These API endpoints include bulk creation of pre-activated users and enrollments.",
+  "provider_id": "edunext",
+  "repo_url": "",
+  "license": "AGPLv3",
+  "price": "free",
+  "install_notes": "",
   "screenshots": [
-    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop"
+    "https://www.edunext.co/wp-content/uploads/2023/08/Extentions.webp",
+    "https://www.edunext.co/wp-content/uploads/2023/08/eox_core.png"
   ]
+}
+```
+
+### Sample Provider Entry
+```json
+{
+  "id": "edunext",
+  "name": "eduNEXT",
+  "url": "https://www.edunext.co",
+  "logo": "https://www.edunext.co/wp-content/uploads/2022/10/Logos-eduNEXT-02-slim.png",
+  "description": "Founded in Colombia in 2013, eduNEXT operates one of the world’s largest fleets of Open edX instances, serving organisations in more than 70 countries. Its cloud-native Cirrus/Stratus/Nimbus SaaS tiers, Tutor-based Control Centre and EOX plugin suite empower customers to launch branded learning sites within hours, while eduNEXT’s multilingual support, instructional-design studio and active code contributions strengthen the global ecosystem."
 }
 ```
 
